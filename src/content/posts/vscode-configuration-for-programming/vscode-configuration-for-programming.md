@@ -27,7 +27,7 @@ vscode是一个著名的文本编辑器，深受程序员喜爱。
 
 **vscode是免费的，官网是[这个](https://code.visualstudio.com/)** 然后根据你的系统选择你的下载格式，win就是.exe/msi,mac就是.dmg,ubuntu/debian就是.deb,centos/rocky/fedora就是.rpm
 
-![vscode-download-page](./vscode-configuration-for-programming/vscode-download.png)
+![vscode-download-page](./vscode-download.png)
 
 # c/c++环境配置
 
@@ -137,7 +137,7 @@ anaconda 由于包含了许多常用包，导致很重，约1GB，而miniforge�
 
 请下载[ms-python](https://github.com/Microsoft/vscode-python),之后你的python代码就有高亮和代码提示了，好诶。
 
-![ms-python](./vpython-extension.png)
+![ms-python](./python-extension.png)
 
 :::note
 注：其实高亮是pylance带来的。这个插件名义上是开源的，但在codium上已经不能使用了，能使用的最高版本是[2023.6.40](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-python/vsextensions/vscode-pylance/2023.6.40/vspackage)，详情可以观看这个[讨论](https://stackoverflow.com/questions/75345501/make-python-code-highlighting-for-vscodium-equal-to-vscode)
