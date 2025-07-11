@@ -2,7 +2,7 @@
 title: vscode-configuration-for-programming
 published: 2025-07-08
 description: 'vscode的c++和python配置'
-image: './vscode-configuration-for-programming/VS_Code_(Insiders).png'
+image: './VS_Code_(Insiders).png'
 tags: [vscode, configuration, c++, python]
 category: 'Programming'
 draft: false 
@@ -90,11 +90,11 @@ mingw64是有人将GCC/LLVM 工具链的代码迁移到win上的工具链
 
 **安装xmake的vscode的插件**：去vscode插件商店下载哦。
 
-![xmake-extension](./vscode-configuration-for-programming/xmake-extension-download.png)
+![xmake-extension](./xmake-extension-download.png)
 
 之后你就能看到哇，可以用点点点来选择你的编译工具链、目标架构平台等详细信息了。
 
-![xmake-extension-display](./vscode-configuration-for-programming/xmake-extension-display.png)
+![xmake-extension-display](./xmake-extension-display.png)
 
 **xmake的相关语法可以在[官网](https://xmake.io)查询** ~~我就不教了（狡黠）~~
 
@@ -137,7 +137,7 @@ anaconda 由于包含了许多常用包，导致很重，约1GB，而miniforge�
 
 请下载[ms-python](https://github.com/Microsoft/vscode-python),之后你的python代码就有高亮和代码提示了，好诶。
 
-![ms-python](./vscode-configuration-for-programming/python-extension.png)
+![ms-python](./vpython-extension.png)
 
 :::note
 注：其实高亮是pylance带来的。这个插件名义上是开源的，但在codium上已经不能使用了，能使用的最高版本是[2023.6.40](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-python/vsextensions/vscode-pylance/2023.6.40/vspackage)，详情可以观看这个[讨论](https://stackoverflow.com/questions/75345501/make-python-code-highlighting-for-vscodium-equal-to-vscode)

@@ -2,7 +2,7 @@
 title: debian-configuration
 published: 2025-07-11
 description: '配置debian环境'
-image: './debian-configuration/11-bullseye-wiki-banner-04.png'
+image: './11-bullseye-wiki-banner-04.png'
 tags: [configuration, debian]
 category: 'Programming'
 draft: false
