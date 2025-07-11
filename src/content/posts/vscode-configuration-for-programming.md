@@ -35,9 +35,15 @@ vscode是一个著名的文本编辑器，深受程序员喜爱。
 
 c++主流编译器/工具链有三家，[MSVC](https://visualstudio.microsoft.com/zh-hans/downloads/)、[GCC](https://gcc.gnu.org/)和[Clang](https://clang.llvm.org/)。其中MSVC是由[微软](https://learn.microsoft.com/zh-cn/cpp/?view=msvc-170)维护，GCC由[GNU](https://www.gnu.org/)维护，Clang由[LLVM](https://llvm.org/)维护。（在这里不区分GCC和gcc的区别，有想了解的可自行查阅）
 
+~~其实c语言也是个老登了，直到近几月，[c语言官网](https://c-language.org)才出来，c语言发明时是1978年~~
+
 使用MSVC就不多做讲解，因为[VS](https://visualstudio.microsoft.com/zh-hans/vs/)就是一个完善的IDE且内置MSVC，你只用选择下载c++环境就可以了，无需更多配置
 
 如果你想在win上使用GCC/Clang那么你就要使用[mingw64](https://www.mingw-w64.org/)啦。
+
+:::note
+mingw64是有人将GCC/LLVM 工具链的代码迁移到win上的工具链
+:::
 
 ### 配置
 
@@ -62,7 +68,11 @@ c++主流编译器/工具链有三家，[MSVC](https://visualstudio.microsoft.co
 
 构建工具在多文件、依赖管理等方面起着重要作用。
 
-因为c++缺少包管理，也就意味着你不能像python里直接`pip install package_name`或者rust里`cargo add `来添加和下载依赖项。
+因为c++缺少包管理，也就意味着你不能像python里直接`pip install package_name`或者rust里`cargo add `来添加和下载依赖项。open-vsx.org~~现代的语言都有包管理~~
+
+:::note
+在c++里，你将会自己下载第三方的库（静态库、动态库和头文件等），你将会很少用到包管理，熟悉程序编译的过程（预处理、编译、链接）。
+:::
 
 常见的构建工具有[make](https://www.gnu.org/software/make/),[cmake](https://cmake.org/),[xmake](https://xmake.io)等，也有像[vcpkg](https://learn.microsoft.com/zh-cn/vcpkg/get_started/overview),[conan](https://conan.io/)这样的包管理器。VS使用vcpkg作为包管理，vcpkg是**微软开发**的**开源**包管理，而conan是由**微软主导**开发的**开源**包管理。其中二者都有着一定缺点。vcpkg被很完善地维护，但VS仅能在win上使用(但vcpkg是跨平台的)，conan不太了解，似乎不主流 ~~你也可以发现conan是柯南的英文名~~。cmake应该被叫做构建工具的“构建工具”，因为使用cmake可以生成多种工具链的配置，而你只需编写一遍cmake的配置文件，就可以生成出适用于MSVC+vcpkg或GCC/Clang+make/ninja的配置，之后你就可以使用VS打开生成的工程文件或者在命令行上make就可以编译运行了。
 
@@ -91,6 +101,12 @@ c++主流编译器/工具链有三家，[MSVC](https://visualstudio.microsoft.co
 # python环境配置
 
 python最好的就是它包多，科学计算的人在用，数据分析的人在用，后端框架也有。并且也有方便的包管理工具，如`pip`和`conda`。
+
+:::note
+由于python是解释性语言，无需编译即可运行，也就意味着只要把编写的程序发布就相当于发放了源代码。有些程序不开源，但部分组件是python写的，我们就可以改动。
+
+~~没错没错，c/cpp和rust就是编译性语言~~
+:::
 
 ## 下载python
 
