@@ -49,7 +49,7 @@ debian是一个自由操作系统，又被称做Debian GNU/linux，官网是[这
 
 download [vscode](https://code.visualstudio.com/) or [codium](https://mirror.nju.edu.cn/download/VS%20Codium)
 
-download code extension: clangd, ms-python, pylance, xmake
+download code extension: clangd, ms-python, pylance, xmake，rust-analyzer，remote-ssh(code)/open remote-ssh(codium)
 
 
 
@@ -89,4 +89,6 @@ download code extension: clangd, ms-python, pylance, xmake
 感谢[ustc源的帮助文档](https://github.com/ustclug/mirrorhelp)，此文档以CC BY-NC-SA 4.0开源，作者为[ustclug](https://github.com/ustclug)
 
 感谢[ustc mirror](https://mirrors.ustc.edu.cn/)和[nju mirror](https://mirror.nju.edu.cn/)对于中国开源社区的贡献。
+
+感谢LCPU的公开课程——[LCPU_Getting_Started](https://github.com/lcpu-club/getting-started),此课程对我帮助很大，使我受益良多。
 
