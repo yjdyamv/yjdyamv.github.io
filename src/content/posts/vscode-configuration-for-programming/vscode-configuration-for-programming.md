@@ -25,7 +25,7 @@ vscode是一个著名的文本编辑器，深受程序员喜爱。
 
 ~~没想到这个也得教，因为xhs上总是有人进入了vscode的冒牌网站，然后说39.9元永久解锁~~
 
-**vscode是免费的，官网是[这个](https://code.visualstudio.com/)** 然后根据你的系统选择你的下载格式，win就是.exe/msi,mac就是.dmg,ubuntu/debian就是.deb,centos/rocky/fedora就是.rpm
+**vscode是免费的，官网是[这个](https://code.visualstudio.com/)** 然后根据你的系统选择你的下载格式，win就是.exe/msi，mac就是.dmg，ubuntu/debian就是.deb，centos/rocky/fedora就是.rpm
 
 ![vscode-download-page](./vscode-download.png)
 
@@ -64,25 +64,29 @@ mingw64是有人将GCC/LLVM 工具链的代码迁移到win上的工具链
 你当然可以去下载[CodeRunner](https://github.com/formulahendry/vscode-code-runner)或[codelldb](https://github.com/vadimcn/codelldb)这样的插件，以让你的vscode更像一个IDE
 :::
 
-## 构建工具
+## 构建工具/包管理
 
 构建工具在多文件、依赖管理等方面起着重要作用。
 
-因为c++缺少包管理，也就意味着你不能像python里直接`pip install package_name`或者rust里`cargo add `来添加和下载依赖项。open-vsx.org~~现代的语言都有包管理~~
+因为c++缺少官方的包管理，也就意味着你不能像python里直接`pip install package_name`或者rust里`cargo add `来添加和下载依赖项。~~现代的语言都有包管理~~。但存在着[vcpkg](https://learn.microsoft.com/zh-cn/vcpkg/get_started/overview),[conan](https://conan.io/)这样的包管理器。使用包管理器你可以很方便的管理依赖包的版本，如常用的opengl和boost库等。
+
+~~虽然C++20引入了module,但目前主流编译器（MSVC,GCC,Clang）支持不完善，MSVC的支持相对完善些。但这个特性不太常用~~
 
 :::note
-在c++里，你将会自己下载第三方的库（静态库、动态库和头文件等），你将会很少用到包管理，熟悉程序编译的过程（预处理、编译、链接）。
+（举手）诶，等一下，要是包管理的仓库里没有我要的包怎么办呢？
+- 这里就要引入构建工具了。你将会手动下载所需的库、设置查找库的目录和设置链接库的名字。
+- 为这个库打包并上传至官方包管理仓库，以后你就可以很轻松的install此库了。
+
+在c++里，你将会自己下载第三方的库（静态库、动态库和头文件等），熟悉可执行文件生成的过程（预处理、编译、链接）。
 :::
 
-常见的构建工具有[make](https://www.gnu.org/software/make/),[cmake](https://cmake.org/),[xmake](https://xmake.io)等，也有像[vcpkg](https://learn.microsoft.com/zh-cn/vcpkg/get_started/overview),[conan](https://conan.io/)这样的包管理器。VS使用vcpkg作为包管理，vcpkg是**微软开发**的**开源**包管理，而conan是由**微软主导**开发的**开源**包管理。其中二者都有着一定缺点。vcpkg被很完善地维护，但VS仅能在win上使用(但vcpkg是跨平台的)，conan不太了解，似乎不主流 ~~你也可以发现conan是柯南的英文名~~。cmake应该被叫做构建工具的“构建工具”，因为使用cmake可以生成多种工具链的配置，而你只需编写一遍cmake的配置文件，就可以生成出适用于MSVC+vcpkg或GCC/Clang+make/ninja的配置，之后你就可以使用VS打开生成的工程文件或者在命令行上make就可以编译运行了。
+常见的构建工具有[make](https://www.gnu.org/software/make/),[cmake](https://cmake.org/),[xmake](https://xmake.io)等。cmake应该被叫做构建工具的“构建工具”，因为使用cmake可以生成多种工具链的配置，而你只需编写一遍cmake的配置文件，就可以生成出适用于MSVC+vcpkg或GCC/Clang+make/ninja的配置，之后你就可以使用VS打开生成的工程文件或者在命令行上make就可以编译运行了。
 
-~~虽然C++20引入了module,但目前主流编译器（MSVC,GCC,Clang）都支持不完善~~
-
-不过我这里主要谈xmake配置、使用，哈哈。
+不过我这里主要谈xmake配置、使用，哈哈。xmake既可以当包管理来用，也可以当构建工具用。
 
 ### xmake
 
-为什么是xmake呢？xmake相比于cmake有什么优势呢？语法较简洁，目前较为先进的构建系统。[xmake](https://github.com/xmake-io/xmake)是国人一位大牛制作的，已经在github上斩获上万star。
+为什么是xmake呢？xmake相比于cmake有什么优势呢？语法较简洁，目前较为先进的构建系统，对于小项目开发很友好。[xmake](https://github.com/xmake-io/xmake)是国人一位大牛制作的，已经在github上斩获上万star。
 
 安装xmake：[官网安装教程](https://xmake.io/guide/quick-start.html#installation),其中主要是用官方脚本或包管理器安装。
 
