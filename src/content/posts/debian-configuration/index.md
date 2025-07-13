@@ -18,6 +18,33 @@ debian是一个自由操作系统，又被称做Debian GNU/linux，官网是[这
 [换源](https://mirrors.ustc.edu.cn/help/debian.html)
 记得将代号换为`trixie`
 
+`/etc/apt/sources.list`
+```
+# 默认注释了源码仓库，如有需要可自行取消注释
+deb http://mirrors.ustc.edu.cn/debian trixie main contrib non-free non-free-firmware
+# deb-src http://mirrors.ustc.edu.cn/debian trixie main contrib non-free non-free-firmware
+deb http://mirrors.ustc.edu.cn/debian trixie-updates main contrib non-free non-free-firmware
+# deb-src http://mirrors.ustc.edu.cn/debian trixie-updates main contrib non-free non-free-firmware
+# backports 软件源，请按需启用
+deb http://mirrors.ustc.edu.cn/debian trixie-backports main contrib non-free non-free-firmware
+# deb-src http://mirrors.ustc.edu.cn/debian trixie-backports main contrib non-free non-free-firmware
+```
+
+`/etc/apt/sources.list.d/debian.sources`
+```
+Types: deb
+URIs: http://mirrors.ustc.edu.cn/debian
+Suites: trixie trixie-updates
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+Types: deb
+URIs: http://mirrors.ustc.edu.cn/debian-security
+Suites: trixie-security
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+```
+
 :::note
 `sudo apt update && sudo apt upgrade`升级包
 :::
