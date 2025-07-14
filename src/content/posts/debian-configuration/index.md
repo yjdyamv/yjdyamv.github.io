@@ -13,6 +13,8 @@ lang: 'zh-CN'
 
 debian是一个自由操作系统，又被称做Debian GNU/linux，官网是[这个](https://debian.org)。本贴持续更新哈。
 
+~~有时简直想告诉读者，快点使用搜索引擎吧，这不比我的破教程香~~
+
 ## 换源
 
 [换源](https://mirrors.ustc.edu.cn/help/debian.html)
@@ -51,7 +53,20 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 ## 常用下载
 
-`sudo apt install wget curl vim`
+`sudo apt install wget curl vim htop tldr`
+
+## 输入法
+
+`sudo apt install fcitx5 fcitx5-chinese-addons`
+
+环境设置,在位置`/etc/environment`输入以下内容
+```
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+SDL_IM_MODULE=fcitx
+GLFW_IM_MODULE=fcitx
+```
 
 ## flatpak
 
@@ -71,6 +86,21 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 - zsh+oh-my-zsh
     - zsh: `sudo apt install zsh`
     - oh-my-zsh: [download](https://ohmyz.sh/#install)
+    - 安装zsh主题[powerlevel10k](https://github.com/romkatv/powerlevel10k)
+    ```
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    ```
+    - 安装插件zsh-autosuggestions和zsh-syntax-highlighting
+    ```
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    ```
+
+在~/.zshrc里将plugins项改为如下
+```
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
+```
+
 
 ## 开发环境
 
@@ -110,6 +140,19 @@ download code extension: clangd, ms-python, pylance, xmake，rust-analyzer，rem
     3. download [rustup-install.sh](https://mirrors.ustc.edu.cn/misc/rustup-install.sh)
     4. 把脚本中的 `RUSTUP_UPDATE_ROOT` 变量改为 `https://mirrors.ustc.edu.cn/rust-static/rustup`
     5. 运行rustup-install.sh: `zsh ./rustup-install.sh`
+
+## git global
+
+### username & email
+
+```
+git config --global user.name "your-username"
+git config --global user.email "your-email-address"
+```
+
+### 代理
+
+这段之后再写
 
 ## 感谢
 
