@@ -160,4 +160,4 @@ vscode号称一个code写天下，你基本只用配置插件即可。对我来�
 微软开源的文本编辑器 [code-oss](https://github.com/microsoft/vscode)，而vscode是基于此项目的微软独有软件。如果你在win上安装vscode的时候就会注意到其软件许可证是[MICROSOFT_SOFTWARE_LICENSE](https://code.visualstudio.com/license)，而不是code-oss的[MIT协议](https://opensource.org/license/MIT).
 
 由上述开源仓库编译的产物被称作`codium`，vscode被称作`code`。codium的官网是[这个](https://vscodium.com/)。
-:::
+:::v

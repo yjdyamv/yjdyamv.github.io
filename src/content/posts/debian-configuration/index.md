@@ -55,6 +55,8 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 `sudo apt install wget curl vim htop tldr`
 
+下载[snipaste截图工具](https://zh.snipaste.com/)
+
 ## 输入法
 
 `sudo apt install fcitx5 fcitx5-chinese-addons`
@@ -87,12 +89,12 @@ GLFW_IM_MODULE=fcitx
     - zsh: `sudo apt install zsh`
     - oh-my-zsh: [download](https://ohmyz.sh/#install)
     - 安装zsh主题[powerlevel10k](https://github.com/romkatv/powerlevel10k)
-    ```
+    ```bash
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
     ```
     - 安装插件zsh-autosuggestions和zsh-syntax-highlighting
-    ```
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    ```bash
+    git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     ```
 
@@ -107,8 +109,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
 download [vscode](https://code.visualstudio.com/) or [codium](https://mirror.nju.edu.cn/download/VS%20Codium)
 
 download code extension: clangd, ms-python, pylance, xmake，rust-analyzer，remote-ssh(code)/open remote-ssh(codium)
-
-
 
 - c/cpp: `sudo apt install build-essential`
     - xmake: [download](https://xmake.io/guide/quick-start.html)
@@ -140,19 +140,28 @@ download code extension: clangd, ms-python, pylance, xmake，rust-analyzer，rem
     3. download [rustup-install.sh](https://mirrors.ustc.edu.cn/misc/rustup-install.sh)
     4. 把脚本中的 `RUSTUP_UPDATE_ROOT` 变量改为 `https://mirrors.ustc.edu.cn/rust-static/rustup`
     5. 运行rustup-install.sh: `zsh ./rustup-install.sh`
+- nodejs:
+    - `sudo apt install nodejs npm`
+    - 使用[官方脚本](https://nodejs.org/zh-cn/download)
+    - 使用[`volta`](https://volta.sh/)：`curl https://get.volta.sh | zsh` 然后`volta install node` 还挺方便的。
+        - 后 `npm i -g pnpm`
 
 ## git global
 
+### ssh密钥
+
+我保存在bitwarden里了哈。直接复制到`~/.ssh/id_25519`和`~/.ssh/id_25519.pub`就行。
+
 ### username & email
 
-```
+```bash
 git config --global user.name "your-username"
 git config --global user.email "your-email-address"
 ```
 
 ### 代理
 
-这段之后再写
+这段之后再写,haha
 
 ## 感谢
 
