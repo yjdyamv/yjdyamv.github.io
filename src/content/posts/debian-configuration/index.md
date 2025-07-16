@@ -18,7 +18,7 @@ debian是一个自由操作系统，又被称做Debian GNU/linux，官网是[这
 ## 换源
 
 [换源](https://mirrors.ustc.edu.cn/help/debian.html)
-记得将代号换为`trixie`
+记得将代号换为你想要的版本代号，这里使用`trixie`
 
 `/etc/apt/sources.list`
 ```
@@ -49,6 +49,13 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 :::note
 `sudo apt update && sudo apt upgrade`升级包
+:::
+
+:::note
+1. 换源至测试版
+2. 最小更新`sudo apt upgrade --without-new-pkgs`
+3. 全面更新`sudo apt full-upgrade`
+4. 重启，`sudo apt update && sudo apt upgrade`
 :::
 
 ## 常用下载
@@ -151,6 +158,11 @@ download code extension: clangd, ms-python, pylance, xmake，rust-analyzer，rem
 ### ssh密钥
 
 我保存在bitwarden里了哈。直接复制到`~/.ssh/id_25519`和`~/.ssh/id_25519.pub`就行。
+
+:::note
+提一嘴哈，也可以使用`ssh-keygen`命令。默认使用ed25519算法，以前默认使用rsa算法。ed25519的好处是公钥短，计算快，强度也不低，大致相当于rsa3072位的强度，并且大多的git仓库服务基本都支持此算法，如[github](https://github.com)、[gitea](https://gitea.com)、[gitlab](https://gitlab.com)等。如果想换用rsaa算法可以使用此命令`ssh-keygen -t rsa`加上`-b 4096`可以指定4096位数，ed25519就不用指定位数了。
+:::
+
 
 ### username & email
 
