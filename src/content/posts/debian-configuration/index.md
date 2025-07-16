@@ -68,7 +68,9 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 `sudo apt install fcitx5 fcitx5-chinese-addons`
 
-:::note 防止在vscode里用不了中文
+:::note 
+**防止在vscode里用不了中文**
+
 环境设置,在位置`/etc/environment`输入以下内容，参考了此[网址](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#KDE_Plasma)
 ```
 XMODIFIERS=@im=fcitx
