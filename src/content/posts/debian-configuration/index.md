@@ -68,14 +68,13 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 `sudo apt install fcitx5 fcitx5-chinese-addons`
 
-环境设置,在位置`/etc/environment`输入以下内容
+:::note 防止在vscode里用不了中文
+环境设置,在位置`/etc/environment`输入以下内容，参考了此[网址](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#KDE_Plasma)
 ```
-GTK_IM_MODULE=fcitx
-QT_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
-SDL_IM_MODULE=fcitx
 GLFW_IM_MODULE=fcitx
 ```
+:::
 
 ## flatpak
 
@@ -160,7 +159,7 @@ download code extension: clangd, ms-python, pylance, xmake，rust-analyzer，rem
 我保存在bitwarden里了哈。直接复制到`~/.ssh/id_25519`和`~/.ssh/id_25519.pub`就行。
 
 :::note
-提一嘴哈，也可以使用`ssh-keygen`命令。默认使用ed25519算法，以前默认使用rsa算法。ed25519的好处是公钥短，计算快，强度也不低，大致相当于rsa3072位的强度，并且大多的git仓库服务基本都支持此算法，如[github](https://github.com)、[gitea](https://gitea.com)、[gitlab](https://gitlab.com)等。如果想换用rsaa算法可以使用此命令`ssh-keygen -t rsa`加上`-b 4096`可以指定4096位数，ed25519就不用指定位数了。
+提一嘴哈，也可以使用`ssh-keygen`命令。默认使用ed25519算法，以前默认使用rsa算法。ed25519的好处是公钥短，计算快，强度也不低，大致相当于rsa3072位的强度，并且大多的git仓库服务基本都支持此算法，如[github](https://github.com)、[gitea](https://gitea.com)、[gitlab](https://gitlab.com)等。如果想换用rsa算法可以使用此命令`ssh-keygen -t rsa`加上`-b 4096`可以指定4096位数，ed25519就不用指定位数了。
 :::
 
 

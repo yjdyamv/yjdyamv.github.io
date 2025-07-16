@@ -80,9 +80,13 @@ mingw64是有人将GCC/LLVM 工具链的代码迁移到win上的工具链
 在c++里，你将会自己下载第三方的库（静态库、动态库和头文件等），熟悉可执行文件生成的过程（预处理、编译、链接）。
 :::
 
+:::note
+其实编译器做的就是将源代码翻译成汇编或机器码。
+:::
+
 常见的构建工具有[make](https://www.gnu.org/software/make/),[cmake](https://cmake.org/),[xmake](https://xmake.io)等。cmake应该被叫做构建工具的“构建工具”，因为使用cmake可以生成多种工具链的配置，而你只需编写一遍cmake的配置文件，就可以生成出适用于MSVC+vcpkg或GCC/Clang+make/ninja的配置，之后你就可以使用VS打开生成的工程文件或者在命令行上make就可以编译运行了。
 
-不过我这里主要谈xmake配置、使用，哈哈。xmake既可以当包管理来用，也可以当构建工具用。
+不过我这里主要谈xmake配置、使用，哈哈。**xmake既可以当包管理来用，也可以当构建工具用。**
 
 ### xmake
 
