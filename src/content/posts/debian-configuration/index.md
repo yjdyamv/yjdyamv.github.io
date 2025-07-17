@@ -118,7 +118,7 @@ download [vscode](https://code.visualstudio.com/) or [codium](https://mirror.nju
 
 download code extension: clangd, ms-python, pylance, xmake，rust-analyzer，remote-ssh(code)/open remote-ssh(codium)
 
-- c/cpp: `sudo apt install build-essential`
+- c/cpp: `sudo apt install build-essential clang`
     - xmake: [download](https://xmake.io/guide/quick-start.html)
 - python: [miniforge](https://conda-forge.org/) 使用conda
     - 下载并安装[miniforge](https://mirrors.nju.edu.cn/github-release/conda-forge/miniforge/)
