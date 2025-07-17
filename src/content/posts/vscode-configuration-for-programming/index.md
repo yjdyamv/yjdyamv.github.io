@@ -25,7 +25,9 @@ vscode是一个著名的文本编辑器，深受程序员喜爱。
 
 ~~没想到这个也得教，因为xhs上总是有人进入了vscode的冒牌网站，然后说39.9元永久解锁~~
 
-**vscode是免费的，官网是[这个](https://code.visualstudio.com/)** 然后根据你的系统选择你的下载格式，win就是.exe/msi，mac就是.dmg，ubuntu/debian就是.deb，centos/rocky/fedora就是.rpm
+**vscode是免费的，官网是[https://code.visualstudio.com/](https://code.visualstudio.com/)** 然后根据你的系统选择你的下载格式，win就是.exe/msi，ubuntu/debian就是.deb，centos/rocky/fedora就是.rpm
+
+~~mac我真没用过，原谅我。~~
 
 ![vscode-download-page](./vscode-download.png)
 
@@ -52,7 +54,7 @@ mingw64是有人将GCC/LLVM 工具链的代码迁移到win上的工具链
 **记得将/mingw/bin目录添加到系统环境变量哦**
 
 - ubuntu/debian:
-直接`sudo apt install build-essential`就可以了。~~linux还是这么容易配置开发环境~~
+直接`sudo apt install build-essential clang`就可以了。~~linux还是这么容易配置开发环境~~
 
 ## 语法高亮
 
@@ -99,6 +101,8 @@ mingw64是有人将GCC/LLVM 工具链的代码迁移到win上的工具链
 **安装xmake的vscode的插件**：去vscode插件商店下载哦。
 
 ![xmake-extension](./xmake-extension-download.png)
+
+新建一个空文件夹，然后用vscode打开此文件夹，在vscode的命令面板里输入`> xmake: create project`，然后你就可以选择使用的语言及工程类型了
 
 之后你就能看到哇，可以用点点点来选择你的编译工具链、目标架构平台等详细信息了。
 
