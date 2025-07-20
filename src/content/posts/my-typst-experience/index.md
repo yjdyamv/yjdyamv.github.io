@@ -3,8 +3,8 @@ title: my-typst-experience
 published: 2025-07-13
 description: '想来用物时，便觉天地宽'
 image: './typst-official-site.png'
-tags: ['typst']
-category: 'stories'
+tags: ['typst','typeset']
+category: 'casual'
 draft: false 
 lang: 'zh-CN'
 ---
