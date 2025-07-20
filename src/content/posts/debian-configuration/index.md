@@ -60,7 +60,7 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 ## 常用下载
 
-`sudo apt install wget curl vim htop tldr`
+`sudo apt install wget curl vim htop tldr font-manager`
 
 下载[snipaste截图工具](https://zh.snipaste.com/)
 
@@ -172,9 +172,19 @@ git config --global user.name "your-username"
 git config --global user.email "your-email-address"
 ```
 
-### 代理
+### 代理(ssh)
 
-这段之后再写,haha
+`sudo apt install corkscrew`
+
+编辑此文件`~/.ssh/config`
+
+```
+Host github.com
+    User git
+    ProxyCommand corkscrew 127.0.0.1 7897 %h %p
+```
+
+此方式来自于[stackoverflow](https://stackoverflow.com)的一个[问答](https://stackoverflow.com/questions/19161960/connect-with-ssh-through-a-proxy)
 
 ## 感谢
 
