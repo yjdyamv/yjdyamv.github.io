@@ -186,6 +186,13 @@ Host github.com
 
 此方式来自于[stackoverflow](https://stackoverflow.com)的一个[问答](https://stackoverflow.com/questions/19161960/connect-with-ssh-through-a-proxy)
 
+
+## 服务器安全配置
+
+:::important
+公网上的环境并不太平，每时每刻都有着无数肉鸡使用脚本扫描机器公开的端口（如SSH、VNC、RDP等服务），试图获取机器的权限。SSH请务必开启密钥登陆关闭密码登陆，若是一定要用密码登陆则需使用强密码并设置`fail2ban`。
+:::
+
 ## 感谢
 
 感谢[ustc源的帮助文档](https://github.com/ustclug/mirrorhelp)，此文档以CC BY-NC-SA 4.0开源，作者为[ustclug](https://github.com/ustclug)

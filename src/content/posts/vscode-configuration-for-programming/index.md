@@ -31,6 +31,11 @@ vscode是一个著名的文本编辑器，深受程序员喜爱。
 
 ![vscode-download-page](./vscode-download.png)
 
+:::note
+vsc的全局设置setting.json可以这样打开
+![open-vsc-global-setting](./vscode-global-setting.png)
+:::
+
 # c/c++环境配置
 
 ## c/c++编译器
