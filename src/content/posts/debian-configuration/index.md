@@ -11,7 +11,7 @@ lang: 'zh-CN'
 
 # 我的debian环境+KDE的配置
 
-debian是一个自由操作系统，又被称做Debian GNU/linux，官网是[这个](https://debian.org)。本贴持续更新哈。
+debian是一个自由操作系统，又被称做Debian GNU/linux，官网是[https://debian.org](https://debian.org)。本贴持续更新哈。
 
 ~~有时简直想告诉读者，快点使用搜索引擎吧，这不比我的破教程香~~
 
