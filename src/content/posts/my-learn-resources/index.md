@@ -13,6 +13,7 @@ lang: 'zh-CN'
 
 ## 计算机
 
+- 北京大学计算机基础科学与开发手册：[仓库地址](https://github.com/ZangXuanyi/getting-started-handout)
 - LCPU GETTING STARTED: [网站](https://missing.lcpu.dev),北大LCPU做的很好的课程。~~我也曾贡献过此仓库~~
 - 清华暑培资料等：[基础技能培训](https://docs.net9.org/),[24年暑培](https://summer24.net9.org/)
 - USTC Linux 101：[网址](https://101.lug.ustc.edu.cn/)

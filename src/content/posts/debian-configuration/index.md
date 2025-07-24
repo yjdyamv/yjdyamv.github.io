@@ -60,7 +60,12 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 ## 常用下载
 
-`sudo apt install wget curl vim htop tldr font-manager`
+```bash
+sudo apt install wget curl vim htop tldr font-manager tlp tlp-rdw 
+# tlp 电池优化
+# ThinkPad 需要一些附加软件包。
+# sudo apt install tp-smapi-dkms acpi-call-dkms
+```
 
 下载[snipaste截图工具](https://zh.snipaste.com/)
 
