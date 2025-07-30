@@ -157,21 +157,21 @@ download code extension: clangd, ms-python, pylance, xmake，rust-analyzer，rem
     pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/simple
     ```
 - rust: 
-    1. 将以下内容加入`.zshrc`
+    1. 将以下内容加入`.zshrc`，随后自行执行`source ~/.zshrc`
     ```bash
     export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
     export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
     ```
-    随后执行`source ~/.zshrc`
-    3. download [rustup-install.sh](https://mirrors.ustc.edu.cn/misc/rustup-install.sh)
-    4. 把脚本中的 `RUSTUP_UPDATE_ROOT` 变量改为 `https://mirrors.ustc.edu.cn/rust-static/rustup`
-    5. 运行rustup-install.sh: `zsh ./rustup-install.sh`
+    2. download [rustup-install.sh](https://mirrors.ustc.edu.cn/misc/rustup-install.sh)
+    3. 运行rustup-install.sh: `zsh ./rustup-install.sh`
 - nodejs:
     三选一即可
     - `sudo apt install nodejs npm`
     - 使用[官方脚本](https://nodejs.org/zh-cn/download)
-    - 使用[`volta`](https://volta.sh/)：`curl https://get.volta.sh | zsh` 然后`volta install node` 还挺方便的。
-        - 后 `npm i -g pnpm`
+    - 使用[`volta`](https://volta.sh/)(推荐,速度快)：
+        - 安装volta `curl https://get.volta.sh | zsh` 
+        - 安装node `volta install node` 
+        - 安装pnpm `npm i --g pnpm`
 
 ## git global
 
