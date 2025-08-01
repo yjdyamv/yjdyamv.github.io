@@ -49,7 +49,7 @@ c++主流编译器/工具链有三家，[MSVC](https://visualstudio.microsoft.co
 如果你想在win上使用GCC/Clang那么你就要使用[mingw64](https://www.mingw-w64.org/)啦。
 
 :::note
-mingw64是有人将GCC/LLVM 工具链的代码迁移到win上的工具链
+mingw64是有人将GCC/LLVM 工具链的代码迁移到win上的工具链，现在似乎推荐使用UCRT64了
 :::
 
 ### 配置

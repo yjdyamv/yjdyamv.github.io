@@ -66,7 +66,7 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 ## 常用下载
 
 ```bash
-sudo apt install wget curl vim htop tldr font-manager tlp tlp-rdw 
+sudo apt install wget curl vim htop font-manager tlp tlp-rdw 
 # tlp 电池优化
 # ThinkPad 需要一些附加软件包。
 # sudo apt install tp-smapi-dkms acpi-call-dkms
@@ -110,6 +110,7 @@ GLFW_IM_MODULE=fcitx
     ```bash
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
     ```
+    `~/.zshrc`里`ZSH_THEME="..."`修改为：`ZSH_THEME="powerlevel10k/powerlevel10k"`
     - 安装插件zsh-autosuggestions和zsh-syntax-highlighting
     ```bash
     git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -131,8 +132,11 @@ download [vscode](https://code.visualstudio.com/) or [codium](https://mirror.nju
 
 download code extension: clangd, ms-python, pylance, xmake，rust-analyzer，remote-ssh(code)/open remote-ssh(codium)。
 
-- c/cpp: `sudo apt install build-essential clang`
+- c/cpp: `sudo apt install build-essential clang cmake`
     - xmake: [download](https://xmake.io/guide/quick-start.html)
+    :::note
+    `xmake`在`trixie（debian13）`及以后可以直接`sudo apt install xmake`安装
+    :::
 - python: [miniforge](https://conda-forge.org/) 使用conda
     - 下载并安装[miniforge](https://mirrors.nju.edu.cn/github-release/conda-forge/miniforge/)
     - `~/miniforge3/bin/conda init zsh`
@@ -169,7 +173,20 @@ download code extension: clangd, ms-python, pylance, xmake，rust-analyzer，rem
     - `sudo apt install nodejs npm`
     - 使用[官方脚本](https://nodejs.org/zh-cn/download)
     - 使用[`volta`](https://volta.sh/)(推荐,速度快)：
-        - 安装volta `curl https://get.volta.sh | zsh` 
+        - 安装volta `curl https://get.volta.sh | bash` 
+        - volta换源：修改``~/.volta/hooks.json `
+        ```
+        {
+            "node": {
+                "index": {
+                    "template": "https://mirrors.ustc.edu.cn/node/index.json"
+                },
+                "distro": {
+                    "template": "https://mirrors.ustc.edu.cn/node/v{{version}}/{{filename}}"
+                }
+            }
+        }
+        ```
         - 安装node `volta install node` 
         - 安装pnpm `npm i --g pnpm`
 
@@ -218,7 +235,7 @@ Host github.com
 
 感谢[ustc源的帮助文档](https://github.com/ustclug/mirrorhelp)，此文档以CC BY-NC-SA 4.0开源，作者为[ustclug](https://github.com/ustclug)
 
-感谢[ustc mirror](https://mirrors.ustc.edu.cn/)和[nju mirror](https://mirror.nju.edu.cn/)对于中国开源社区的贡献。
+感谢[ustc mirror](https://mirrors.ustc.edu.cn/)、[nju mirror](https://mirror.nju.edu.cn/)及[校园网联合镜像站](https://help.mirrors.cernet.edu.cn/)对于中国开源社区的贡献。
 
 感谢LCPU的公开课程——[LCPU_Getting_Started](https://github.com/lcpu-club/getting-started),此课程对我帮助很大，使我受益良多。
 
