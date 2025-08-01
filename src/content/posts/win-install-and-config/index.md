@@ -19,7 +19,7 @@ lang: 'zh-CN'
 
 **下载纯净的操作系统iso**: 去[微软官网](https://www.microsoft.com/zh-cn/software-download)下载（推荐）/[MSDN](https://next.itellyou.cn/)下载。并将iso文件放入U盘。（对于Debian的安装也差不多，将iso放入U盘即可）**少用第三方魔改的系统**
 
-以防万一，准备PE系统（[优启通](https://www.itsk.com/)、[微pe](https://www.wepe.com.cn/)）的iso文件，放入U盘。
+以防万一，准备PE系统（[优启通](https://www.itsk.com/)、[微pe](https://www.wepe.com.cn/)）的iso文件，放入U盘。这里放一个我的[分享下载链接](https://www.123865.com/s/9t1Evd-sy9V?pwd=hAkO#)提取码:hAkO。
 
 重启电脑，不断按下你a电脑的bios键，选择使用U盘启动，进入ventoy启动界面即可看到你U盘内的iso文件，点击win的iso，“normal boot”。
 
@@ -30,8 +30,6 @@ OOBE\BYPASSNRO
 ```
 
 随后可能会经历多次重启，直到安装完成。
-
-
 
 ## 环境配置
 
