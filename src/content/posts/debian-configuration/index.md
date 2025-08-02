@@ -17,31 +17,31 @@ debian是一个自由操作系统，又被称做Debian GNU/linux，官网是[htt
 
 ## 换源
 
-[换源](https://mirrors.ustc.edu.cn/help/debian.html)
+[换源](https://help.mirrors.cernet.edu.cn/debian/)
 记得将代号换为你想要的版本代号，这里使用`trixie`
 
 `/etc/apt/sources.list`
 ```
 # 默认注释了源码仓库，如有需要可自行取消注释
-deb http://mirrors.ustc.edu.cn/debian trixie main contrib non-free non-free-firmware
-# deb-src http://mirrors.ustc.edu.cn/debian trixie main contrib non-free non-free-firmware
-deb http://mirrors.ustc.edu.cn/debian trixie-updates main contrib non-free non-free-firmware
-# deb-src http://mirrors.ustc.edu.cn/debian trixie-updates main contrib non-free non-free-firmware
+deb http://mirror.nju.edu.cn/debian/ trixie main contrib non-free non-free-firmware
+# deb-src http://mirror.nju.edu.cn/debian/ trixie main contrib non-free non-free-firmware
+deb http://mirror.nju.edu.cn/debian/ trixie-updates main contrib non-free non-free-firmware
+# deb-src http://mirror.nju.edu.cn/debian/ trixie-updates main contrib non-free non-free-firmware
 # backports 软件源，请按需启用
-deb http://mirrors.ustc.edu.cn/debian trixie-backports main contrib non-free non-free-firmware
-# deb-src http://mirrors.ustc.edu.cn/debian trixie-backports main contrib non-free non-free-firmware
+deb http://mirror.nju.edu.cn/debian/ trixie-backports main contrib non-free non-free-firmware
+# deb-src http://mirror.nju.edu.cn/debian/ trixie-backports main contrib non-free non-free-firmware
 ```
 
 `/etc/apt/sources.list.d/debian.sources`
 ```
 Types: deb
-URIs: http://mirrors.ustc.edu.cn/debian
+URIs: http://mirror.nju.edu.cn/debian/
 Suites: trixie trixie-updates
 Components: main contrib non-free non-free-firmware
 Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 Types: deb
-URIs: http://mirrors.ustc.edu.cn/debian-security
+URIs: http://mirror.nju.edu.cn/debian/-security
 Suites: trixie-security
 Components: main contrib non-free non-free-firmware
 Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
@@ -149,24 +149,23 @@ download code extension: clangd, ms-python, pylance, xmake，rust-analyzer，rem
         - defaults
     show_channel_urls: true
     default_channels:
-        - https://mirrors.ustc.edu.cn/anaconda/pkgs/main
-        - https://mirrors.ustc.edu.cn/anaconda/pkgs/r
-        - https://mirrors.ustc.edu.cn/anaconda/pkgs/msys2
+        - https://mirror.nju.edu.cn/anaconda/pkgs/main
+        - https://mirror.nju.edu.cn/anaconda/pkgs/r
+        - https://mirror.nju.edu.cn/anaconda/pkgs/msys2
     custom_channels:
-        conda-forge: https://mirrors.ustc.edu.cn/anaconda/cloud
-        bioconda: https://mirrors.ustc.edu.cn/anaconda/cloud
+        conda-forge: https://mirror.nju.edu.cn/anaconda/cloud
+        pytorch: https://mirror.nju.edu.cn/anaconda/cloud
     ```
     - pypi换源：
     ```bash
-    # 使用ustc镜像站来升级 pip
-    pip install -i https://mirrors.ustc.edu.cn/pypi/simple pip -U
-    pip config set global.index-url https://mirrors.ustc.edu.cn/pypi/simple
+    python -m pip install -i https://mirror.nju.edu.cn/pypi/web/simple --upgrade pip
+    pip config set global.index-url https://mirror.nju.edu.cn/pypi/web/simple
     ```
 - rust: 
     1. 将以下内容加入`.zshrc`，随后自行执行`source ~/.zshrc`
     ```bash
-    export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
-    export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+    export RUSTUP_DIST_SERVER=https://mirror.nju.edu.cn/rustup
+    export RUSTUP_UPDATE_ROOT=https://mirror.nju.edu.cn/rustup/rustup
     ```
     2. download [rustup-install.sh](https://mirrors.ustc.edu.cn/misc/rustup-install.sh)
     3. 运行rustup-install.sh: `zsh ./rustup-install.sh`
@@ -176,15 +175,15 @@ download code extension: clangd, ms-python, pylance, xmake，rust-analyzer，rem
     - 使用[官方脚本](https://nodejs.org/zh-cn/download)
     - 使用[`volta`](https://volta.sh/)(推荐,速度快)：
         - 安装volta `curl https://get.volta.sh | bash` 
-        - volta换源：修改``~/.volta/hooks.json `
+        - volta换源：修改`~/.volta/hooks.json`
         ```
         {
             "node": {
                 "index": {
-                    "template": "https://mirrors.ustc.edu.cn/node/index.json"
+                    "template": "https://mirror.nju.edu.cn/nodejs-release/index.json"
                 },
                 "distro": {
-                    "template": "https://mirrors.ustc.edu.cn/node/v{{version}}/{{filename}}"
+                    "template": "https://mirror.nju.edu.cn/nodejs-release/v{{version}}/{{filename}}"
                 }
             }
         }
