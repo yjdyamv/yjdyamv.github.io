@@ -33,4 +33,54 @@ OOBE\BYPASSNRO
 
 ## 环境配置
 
+在win上配置环境是件不太优雅的事情，若是有包管理器多好。嘿嘿，还真有，scoop
+
+**注意以下的命令最好在管理员的pwsh下进行，虽然不一定要**
+
+```pwsh
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+```pwsh
+# 1. 设置 Scoop 的安装目录环境变量
+$env:SCOOP='D:\Apps\Scoop'
+# 2. 将这个环境变量永久写入用户配置 (下次打开 PowerShell 依然有效)
+[Environment]::SetEnvironmentVariable('SCOOP', $env:SCOOP, 'User')
+# 3. (可选) 设置全局安装路径 (如果需要全局安装软件)
+$env:SCOOP_GLOBAL='D:\GlobalApps'
+[Environment]::SetEnvironmentVariable('SCOOP_GLOBAL', $env:SCOOP_GLOBAL, 'Machine') # Machine 级别需要管理员权限
+```
+
+安装scoop
+
+```pwsh
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+```
+
+```pwsh
+scoop install git
+# 哈哈，scoop 依赖git管理bucket，得先安装这个
+```
+
+**需要使用代理**
+
+```pwsh
+# setup-my-env.ps1
+# 添加需要的 Buckets
+scoop bucket add extras
+scoop bucket add java
+scoop bucket add nerd-fonts
+
+# 安装常用工具
+scoop install git python nodejs openjdk maven vscode 7zip everything powertoys curl wget grep sed bandizip # ... 添加你需要的其他软件
+
+# 清理旧版本
+scoop cleanup *
+
+Write-Host "环境配置完成！"
+```
+
+参考了此篇[帖子](https://linux.do/t/topic/566873/1)。
+
+哦，对了对于python请安装[miniforge](https://mirrors.nju.edu.cn/github-release/conda-forge/miniforge/),并用`conda init powershell`来初始化，换源参考[debian-configuration](https://blog.yamv.uk/posts/debian-configuration/)
 
