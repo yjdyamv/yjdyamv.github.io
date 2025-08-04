@@ -1,10 +1,10 @@
 ---
-title: win-install-and-config
+title: win-install-and-configuration
 published: 2025-08-01
 description: ''
 image: ''
-tags: []
-category: ''
+tags: ['win', 'configuration']
+category: 'programming'
 draft: false
 lang: 'zh-CN'
 ---
@@ -28,6 +28,8 @@ lang: 'zh-CN'
 ```
 OOBE\BYPASSNRO
 ```
+
+
 
 随后可能会经历多次重启，直到安装完成。
 

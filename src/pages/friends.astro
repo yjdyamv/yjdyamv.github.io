@@ -1,5 +1,6 @@
 ---
 
+import type { ACTION_ERROR_CODES } from "astro:actions";
 import { getEntry, render } from "astro:content";
 import Markdown from "@components/misc/Markdown.astro";
 import Comments from "@components/widget/Comments.svelte"; /*评论 */
@@ -63,6 +64,12 @@ const items = [
 		imgurl: "https://z.wiki/favicon.ico",
 		desc: "图床小镇",
 		siteurl: "https://imgbed.cn/img-cloud-page/map.html",
+	},
+	{
+		title: "三毛笔记",
+		imgurl: "https://aboss.top/favicon.ico",
+		desc: "喜欢编程头发渐少，仅剩三根拒绝秃顶",
+		siteurl: "https://aboss.top/",
 	},
 ];
 
