@@ -4,7 +4,7 @@ published: 2025-08-01
 description: ''
 image: ''
 tags: ['win', 'configuration']
-category: 'programming'
+category: 'Programming'
 draft: false
 lang: 'zh-CN'
 ---

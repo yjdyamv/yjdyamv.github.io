@@ -4,7 +4,7 @@ published: 2025-07-21
 description: ''
 image: ''
 tags: ['casual']
-category: 'privacy'
+category: 'Privacy'
 draft: false 
 lang: 'zh-CN'
 ---

@@ -4,7 +4,7 @@ published: 2025-07-13
 description: '想来用物时，便觉天地宽'
 image: './typst-official-site.png'
 tags: ['typst','typeset']
-category: 'casual'
+category: 'Casual'
 draft: false 
 lang: 'zh-CN'
 ---

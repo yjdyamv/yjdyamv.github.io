@@ -4,7 +4,7 @@ published: 2025-07-14
 description: 'may help your skill develop'
 image: './cover.jpg'
 tags: [learning, resources]
-category: 'resources'
+category: 'Resources'
 draft: false 
 lang: 'zh-CN'
 ---

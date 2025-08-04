@@ -4,7 +4,7 @@ published: 2025-07-20
 description: '推荐排版使用的字体'
 image: './cover.jpeg'
 tags: ['typeset','font']
-category: 'casual'
+category: 'Casual'
 draft: false 
 lang: 'zh-CN'
 ---
