@@ -2,7 +2,7 @@
 title: win-install-and-configuration
 published: 2025-08-01
 description: ''
-image: ''
+image: './win11.jpg'
 tags: ['win', 'configuration']
 category: 'Programming'
 draft: false
@@ -23,13 +23,15 @@ lang: 'zh-CN'
 
 重启电脑，不断按下你电脑的bios键，选择使用U盘启动，进入ventoy启动界面即可看到你U盘内的iso文件，点击win的iso，“normal boot”。
 
-到联网界面后，shift + F10打开命令界面，断网安装
+到选择系统语言的界面后，shift + F10打开命令界面，使用以下命令断网安装（第一个不行就换第二个）
 
 ```
-OOBE\BYPASSNRO
+oobe\bypassnro
 ```
 
-
+```
+start ms-cxh:localonly
+```
 
 随后可能会经历多次重启，直到安装完成。
 
