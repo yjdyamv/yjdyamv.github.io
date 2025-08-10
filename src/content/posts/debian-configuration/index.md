@@ -82,7 +82,16 @@ sudo apt install wget curl vim htop font-manager tlp tlp-rdw
 
 `sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-rime`
 
-词库使用[雾凇拼音](https://github.com/iDvel/rime-ice)，下载仓库解压到`~/.local/share/fcitx5/rime`下，即可使用。
+词库使用[雾凇拼音](https://github.com/iDvel/rime-ice)，下载仓库解压到`~/.local/share/fcitx5/rime`下，即可使用，或使用git。
+
+```bash
+mkdir ~/.local/share/fcitx5/rime
+cd ~/.local/share/fcitx5/rime
+git clone git@github.com:yjdyamv/rime-ice.git rime --depth 1
+# 更新
+cd rime
+git pull
+```
 
 :::note 
 **防止在vscode里用不了中文**
