@@ -86,5 +86,33 @@ Write-Host "环境配置完成！"
 
 **参考了此篇[帖子](https://linux.do/t/topic/566873/1)。**
 
+## 常用软件下载
+
+- 截图贴图工具：[snipaste](https://zh.snipaste.com/) 
+- 局域网文件传输：[localsend](https://localsend.org/) 有些玩意比较私密，不想走微信
+- 火绒：[官网](https://www.huorong.cn/) ~~作用是关闭`windows defender`~~
+- 文本编辑器：[vscode](https://code.visualstudio.com/) 一个code写天下
+
+## 编程环境
+
+### python
+
 哦，对了对于python请安装[miniforge](https://mirrors.nju.edu.cn/github-release/conda-forge/miniforge/),并用`conda init powershell`来初始化，换源参考[debian-configuration](https://blog.yamv.uk/posts/debian-configuration/)
+
+### c/c++
+
+#### MSVC
+安装[vs](https://visualstudio.microsoft.com/zh-hans/)，安装勾选`c/c++开发`即可下载`MSVC`。
+
+:::note
+我也不想下载MSVC，但rust在win上默认依赖MSVC。~~毕竟是win的地盘~~
+:::
+
+#### MSYS2
+
+先等等，之后再写。
+
+## 尾声
+
+windows相比于linux的环境配置还是麻烦些的，在win上奇妙小问题可能很多，不过却是最常见的系统，拥有最广泛的支持。
 

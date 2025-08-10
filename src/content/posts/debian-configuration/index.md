@@ -20,8 +20,9 @@ debian是一个自由操作系统，又被称做Debian GNU/linux，官网是[htt
 [换源](https://help.mirrors.cernet.edu.cn/debian/)
 记得将代号换为你想要的版本代号，这里使用`trixie`
 
-`/etc/apt/sources.list`
+传统格式
 ```
+# /etc/apt/sources.list
 # 默认注释了源码仓库，如有需要可自行取消注释
 deb http://mirror.nju.edu.cn/debian/ trixie main contrib non-free non-free-firmware
 # deb-src http://mirror.nju.edu.cn/debian/ trixie main contrib non-free non-free-firmware
@@ -32,8 +33,9 @@ deb http://mirror.nju.edu.cn/debian/ trixie-backports main contrib non-free non-
 # deb-src http://mirror.nju.edu.cn/debian/ trixie-backports main contrib non-free non-free-firmware
 ```
 
-`/etc/apt/sources.list.d/debian.sources`
+`DEB882格式`：适用于debian12及以上
 ```
+# /etc/apt/sources.list.d/debian.sources
 Types: deb
 URIs: http://mirror.nju.edu.cn/debian/
 Suites: trixie trixie-updates
@@ -74,17 +76,20 @@ sudo apt install wget curl vim htop font-manager tlp tlp-rdw
 # sudo apt install tp-smapi-dkms acpi-call-dkms
 ```
 
-下载[snipaste截图工具](https://zh.snipaste.com/)
+下载截图工具:[snipaste](https://zh.snipaste.com/)
 
 ## 输入法
 
-`sudo apt install fcitx5 fcitx5-chinese-addons`
+`sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-rime`
+
+词库使用[雾凇拼音](https://github.com/iDvel/rime-ice)，下载仓库解压到`~/.local/share/fcitx5/rime`下，即可使用。
 
 :::note 
 **防止在vscode里用不了中文**
 
 环境设置,在位置`/etc/environment`输入以下内容，参考了此[网址](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#KDE_Plasma)
 ```
+# /etc/environment
 XMODIFIERS=@im=fcitx
 GLFW_IM_MODULE=fcitx
 ```
@@ -130,9 +135,15 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
 
 ## 开发环境
 
-download [vscode](https://code.visualstudio.com/) or [codium](https://mirror.nju.edu.cn/download/VS%20Codium)
+下载 [vscode](https://code.visualstudio.com/)
 
-download code extension: clangd, ms-python, pylance, xmake，rust-analyzer，remote-ssh(code)/open remote-ssh(codium)。
+**不要添加vscode仓库**到`/etc/apt/sources.list.d/vscode.list`，国内网络用此仓库更新下载会很慢。
+
+下载插件: clangd, ms-python, pylance, xmake，rust-analyzer，remote-ssh(code)/open remote-ssh(codium)等。
+
+:::note
+可以登陆github账户以同步`setting.json`及插件。
+:::
 
 - c/cpp: `sudo apt install build-essential clang cmake`
     - xmake: [download](https://xmake.io/guide/quick-start.html)
@@ -145,6 +156,7 @@ download code extension: clangd, ms-python, pylance, xmake，rust-analyzer，rem
     - conda换源：
     `conda config --set show_channel_urls yes`来生成`.condarc`,其内容修改为如下。
     ```
+    # ~/.condarc
     channels:
         - defaults
     show_channel_urls: true
@@ -177,6 +189,7 @@ download code extension: clangd, ms-python, pylance, xmake，rust-analyzer，rem
         - 安装volta `curl https://get.volta.sh | bash` 
         - volta换源：修改`~/.volta/hooks.json`
         ```
+        # ~/.volta/hooks.json
         {
             "node": {
                 "index": {
