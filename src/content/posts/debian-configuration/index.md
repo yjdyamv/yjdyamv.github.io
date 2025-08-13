@@ -17,22 +17,6 @@ debian是一个自由操作系统，又被称做Debian GNU/linux，官网是[htt
 
 ## 换源
 
-[换源](https://help.mirrors.cernet.edu.cn/debian/)
-记得将代号换为你想要的版本代号，这里使用`trixie`
-
-传统格式
-```
-# /etc/apt/sources.list
-# 默认注释了源码仓库，如有需要可自行取消注释
-deb http://mirror.nju.edu.cn/debian/ trixie main contrib non-free non-free-firmware
-# deb-src http://mirror.nju.edu.cn/debian/ trixie main contrib non-free non-free-firmware
-deb http://mirror.nju.edu.cn/debian/ trixie-updates main contrib non-free non-free-firmware
-# deb-src http://mirror.nju.edu.cn/debian/ trixie-updates main contrib non-free non-free-firmware
-# backports 软件源，请按需启用
-deb http://mirror.nju.edu.cn/debian/ trixie-backports main contrib non-free non-free-firmware
-# deb-src http://mirror.nju.edu.cn/debian/ trixie-backports main contrib non-free non-free-firmware
-```
-
 `DEB882格式`：适用于debian12及以上
 ```
 # /etc/apt/sources.list.d/debian.sources
@@ -80,13 +64,14 @@ sudo apt install wget curl vim htop font-manager tlp tlp-rdw
 
 ## 输入法
 
-`sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-rime`
+```bash
+sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-rime
+```
 
 词库使用[雾凇拼音](https://github.com/iDvel/rime-ice)，下载仓库解压到`~/.local/share/fcitx5/rime`下，即可使用，或使用git。
 
 ```bash
-mkdir ~/.local/share/fcitx5/rime
-cd ~/.local/share/fcitx5/rime
+cd ~/.local/share/fcitx5
 git clone git@github.com:yjdyamv/rime-ice.git rime --depth 1
 # 更新
 cd rime
@@ -96,12 +81,23 @@ git pull
 :::note 
 **防止在vscode里用不了中文**
 
-环境设置,在位置`/etc/environment`输入以下内容，参考了此[网址](https://fcitx-im.org/wiki/Using_Fcitx_5_on_Wayland#KDE_Plasma)
+环境设置,在位置`/etc/environment`输入以下内容，参考了此[博客帖子](https://blog.dimeta.top/archives/kdexia-shu-ru-fa-pei-zhi-de-xiao-xi-jie)
+
+```                                            
+#
+# This file is parsed by pam_env module
+#
+# Syntax: simple "KEY=VAL" pairs on separate lines
+#
+XIM=fcitx5
+XIM_PROGRAM=fcitx5
+GTK_IM_MODULE=fcitx5
+QT_IM_MODULE=fcitx5
+XMODIFIERS=@im=fcitx5
+SDL_IM_MODULE=fcitx5
+GLFW_IM_MODULE=fcitx5
 ```
-# /etc/environment
-XMODIFIERS=@im=fcitx
-GLFW_IM_MODULE=fcitx
-```
+
 :::
 
 ## flatpak
@@ -188,8 +184,11 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
     export RUSTUP_DIST_SERVER=https://mirror.nju.edu.cn/rustup
     export RUSTUP_UPDATE_ROOT=https://mirror.nju.edu.cn/rustup/rustup
     ```
-    2. download [rustup-install.sh](https://mirrors.ustc.edu.cn/misc/rustup-install.sh)
-    3. 运行rustup-install.sh: `zsh ./rustup-install.sh`
+    2. 使用官方脚本下载安装Rust
+    ```bash
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    ```
+
 - nodejs:
     三选一即可
     - `sudo apt install nodejs npm`
