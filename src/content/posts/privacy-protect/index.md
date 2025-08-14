@@ -2,7 +2,7 @@
 title: privacy-protect
 published: 2025-07-21
 description: ''
-image: ''
+image: './cover.jpg'
 tags: ['casual']
 category: 'Privacy'
 draft: false 
@@ -24,6 +24,10 @@ lang: 'zh-CN'
 :::note
 介绍一下2FA,常见的是使用短信验证码验证，但存在风险（日常下比较安全）。还有电子邮件验证码等。另一种是TTOP（Time-based One-Time Passwords）使用密钥加上时间再hash得到一串字符作为密码（常见的是6位数字）。以及安全密钥验证等。
 :::
+
+附上我个人密码及2FA备份的策略，如下图
+
+![backup-password-and-2FA](./backup-password-and-2FA.png)
 
 ## 致谢
 
