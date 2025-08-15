@@ -17,7 +17,7 @@ debian是一个自由操作系统，又被称做Debian GNU/linux，官网是[htt
 
 ## 换源
 
-`DEB882格式`：适用于debian12及以上
+`DEB882格式`：适用于debian12及以上。目前稳定版是Debian13（Trixie）
 ```
 # /etc/apt/sources.list.d/debian.sources
 Types: deb
@@ -72,7 +72,10 @@ sudo apt install fcitx5 fcitx5-chinese-addons fcitx5-rime
 
 ```bash
 cd ~/.local/share/fcitx5
+# 这里我用的是我自己的仓库
 git clone git@github.com:yjdyamv/rime-ice.git rime --depth 1
+# 这个是原仓库
+# git clone https://github.com/iDvel/rime-ice.git rime --depth 1
 # 更新
 cd rime
 git pull
@@ -102,22 +105,39 @@ GLFW_IM_MODULE=fcitx5
 
 ## flatpak
 
+
+
 - 安装：
-    - `sudo apt install flatpak`
-    - `sudo apt install plasma-discover-backend-flatpak`
-    - `flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo`
-- 换源：`sudo flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub`
+```bash
+# 安装Flatpak
+sudo apt install flatpak
+# 安装Flatpak的KDE plasma扩展
+sudo apt install plasma-discover-backend-flatpak
+# 添加官方仓库
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+```
+- 换源：
+```bash
+sudo flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub
+```
 
 :::note
 下载firefox，`flatpak install flathub org.mozilla.firefox`
 下载matrix客户端，`flatpak install flathub im.fluffychat.Fluffychat`
 :::
 
+## 代理
+
+咳咳，就放个[clash verge rev](https://www.clashverge.dev/)的官网在这吧 [https://www.clashverge.dev/](https://www.clashverge.dev/)，GitHub仓库地址是[https://github.com/clash-verge-rev/clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev)。订阅链接就自己去找吧 （狡黠）
+
 ## 终端美化
 
 - zsh+oh-my-zsh
     - zsh: `sudo apt install zsh`
-    - oh-my-zsh: [download](https://ohmyz.sh/#install)
+    - [oh-my-zsh](https://ohmyz.sh/): 
+    ```bash
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    ```
     - 安装zsh主题[powerlevel10k](https://github.com/romkatv/powerlevel10k)
     ```bash
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
