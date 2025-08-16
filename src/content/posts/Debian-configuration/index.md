@@ -105,14 +105,12 @@ GLFW_IM_MODULE=fcitx5
 
 ## flatpak
 
-
-
 - 安装：
 ```bash
 # 安装Flatpak
-sudo apt install flatpak
+sudo apt install -y flatpak
 # 安装Flatpak的KDE plasma扩展
-sudo apt install plasma-discover-backend-flatpak
+sudo apt install -y plasma-discover-backend-flatpak
 # 添加官方仓库
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
@@ -122,8 +120,16 @@ sudo flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub
 ```
 
 :::note
-下载firefox，`flatpak install flathub org.mozilla.firefox`
-下载matrix客户端，`flatpak install flathub im.fluffychat.Fluffychat`
+```bash
+# 下载Firefox
+flatpak install flathub org.mozilla.firefox
+# 下载matrix客户端
+# flatpak install flathub im.fluffychat.Fluffychat
+# 下载localsend
+# flatpak install flathub org.localsend.localsend_app
+# 其他不过多枚举。
+```
+
 :::
 
 ## 代理
@@ -236,7 +242,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
 
 ### ssh密钥
 
-我保存在bitwarden里了哈。直接复制到`~/.ssh/id_25519`和`~/.ssh/id_25519.pub`就行。
+我保存在`Bitwarden`里了哈。直接复制到`~/.ssh/id_25519`和`~/.ssh/id_25519.pub`就行。
 
 :::note
 提一嘴哈，也可以使用`ssh-keygen -t ed25519`命令。ed25519的好处是公钥短，计算快，强度也不低，大致相当于rsa3072位的强度，并且大多的git仓库服务基本都支持此算法，如[github](https://github.com)、[gitea](https://gitea.com)、[gitlab](https://gitlab.com)等。如果想换用RSA算法可以使用此命令`ssh-keygen -t rsa`加上`-b 4096`可以指定4096位数，ed25519就不用指定位数了（其实也指定不了，因为定死了）。
