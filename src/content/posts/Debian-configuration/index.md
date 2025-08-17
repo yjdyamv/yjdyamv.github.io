@@ -62,6 +62,17 @@ sudo apt install wget curl vim htop font-manager tlp tlp-rdw
 
 下载截图工具:[snipaste](https://zh.snipaste.com/)
 
+Chrome浏览器：(速度竟然还挺快)
+
+```bash
+# 获取GPG验证密钥
+curl -fSsL https://dl.google.com/linux/linux_signing_key.pub | sudo gpg --dearmor | sudo tee /usr/share/keyrings/google-chrome.gpg >> /dev/null
+# 添加google-chrome仓库
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
+# 安装
+sudo apt update && sudo apt install -y google-chrome-stable
+```
+
 ## 输入法
 
 ```bash
@@ -216,9 +227,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
     ```
 
 - nodejs:
-    三选一即可
-    - `sudo apt install nodejs npm`
-    - 使用[官方脚本](https://nodejs.org/zh-cn/download)
     - 使用[`volta`](https://volta.sh/)(推荐,速度快)：
         - 安装volta `curl https://get.volta.sh | bash` 
         - volta换源：修改`~/.volta/hooks.json`
@@ -237,6 +245,10 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
         ```
         - 安装node `volta install node` 
         - 安装pnpm `npm i --g pnpm`
+        - npm换源：使用淘宝源
+        ```bash
+        npm config set registry https://registry.npmmirror.com
+        ```
 
 ## git global
 
