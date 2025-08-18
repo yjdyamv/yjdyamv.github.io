@@ -251,7 +251,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
         }
         ```
         - 安装node `volta install node` 
-        - 安装pnpm `npm i --g pnpm`
+        - 安装pnpm、yarn `volta install corepack`
         - npm换源：使用淘宝源
         ```bash
         npm config set registry https://registry.npmmirror.com
