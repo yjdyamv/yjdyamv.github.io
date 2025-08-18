@@ -194,7 +194,14 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
     :::
 - python: [miniforge](https://conda-forge.org/) 使用conda
     - 下载并安装[miniforge](https://mirrors.nju.edu.cn/github-release/conda-forge/miniforge/)
-    - `~/miniforge3/bin/conda init zsh`
+    :::note
+    注意此处不要手快回车了，输入`yes`来进行`conda init`。目的是将设置环境变量及conda环境激活脚本终端在打开时执行。
+    ![conda-init](./conda-init.png)
+    要是回车了也有补救办法：
+    ```bash
+    ~/miniforge3/bin/conda init zsh $$ ~/miniforge3/bin/mamba shell init
+    ```
+    :::
     - conda换源：
     `conda config --set show_channel_urls yes`来生成`.condarc`,其内容修改为如下。
     ```
