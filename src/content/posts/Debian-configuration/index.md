@@ -73,6 +73,8 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl
 sudo apt update && sudo apt install -y google-chrome-stable
 ```
 
+光盘写入：`sudo apt install brasero`
+
 ## 输入法
 
 ```bash

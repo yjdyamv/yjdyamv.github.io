@@ -26,14 +26,21 @@ lang: 'zh-CN'
 到选择系统语言的界面后，shift + F10打开命令界面，使用以下命令断网安装（第一个不行就换第二个）
 
 ```
+# 第一个
 oobe\bypassnro
-```
-
-```
+# 第二个
 start ms-cxh:localonly
 ```
 
+**再不行就网络换成飞行模式**
+
 随后可能会经历多次重启，直到安装完成。
+
+:::note
+激活win：[HEU_KMS_Activator](https://github.com/zbezj/HEU_KMS_Activator/releases)
+
+解压缩用[7zip](https://7-zip.org)吧（不知道为啥win11的文件管理器解压不了rar文件 你还能有微软聪明.jpg）
+:::
 
 ## 环境配置
 
