@@ -2,6 +2,7 @@
 
 import type { ACTION_ERROR_CODES } from "astro:actions";
 import { getEntry, render } from "astro:content";
+import { title } from "node:process";
 import Markdown from "@components/misc/Markdown.astro";
 import Comments from "@components/widget/Comments.svelte"; /*评论 */
 import I18nKey from "../i18n/i18nKey";
@@ -70,6 +71,12 @@ const items = [
 		imgurl: "https://aboss.top/favicon.ico",
 		desc: "喜欢编程头发渐少，仅剩三根拒绝秃顶",
 		siteurl: "https://aboss.top/",
+	},
+	{
+		title: "Skylwn",
+		imgurl: "https://image.skylwn.com/original/avatar.png",
+		desc: "Skylwn的博客",
+		siteurl: "https://www.skylwn.com/",
 	},
 ];
 
