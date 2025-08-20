@@ -189,7 +189,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
 可以登陆github账户以同步`setting.json`及插件。
 :::
 
-- c/cpp: `sudo apt install build-essential clang cmake`
+- c/cpp: `sudo apt install build-essential clang cmake clangd`
     - xmake: [download](https://xmake.io/guide/quick-start.html)
     :::note
     `xmake`在`trixie（debian13）`及以后可以直接`sudo apt install xmake`安装
