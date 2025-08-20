@@ -3,7 +3,7 @@ title: Docker-install-and-config
 published: 2025-08-20
 description: 'Docker的安装与配置'
 image: './docker.jpg'
-tags: ['docker','config']
+tags: ['docker','configuration']
 category: 'Programming'
 draft: false 
 lang: 'zh-CN'
