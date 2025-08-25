@@ -182,7 +182,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
 
 **不要添加vscode仓库**到`/etc/apt/sources.list.d/vscode.list`，国内网络用此仓库更新下载会很慢。
 
-下载插件: clangd, ms-python, pylance, xmake，rust-analyzer，remote-ssh(code)/open remote-ssh(codium)等。
+下载插件: `clangd`, `ms-python`, `pylance`, `xmake`，`rust-analyzer`，`remote-ssh(code)/open remote-ssh(codium)`等。
 
 :::note
 可以登陆github账户以同步`setting.json`及插件。
@@ -270,7 +270,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
 ed25519算法在OpenSSH 6.5 时引入，在 9.5 时成为默认算法，此前RSA为默认算法。有些机器系统可能很老，OpenSSH版本低则可能不支持ed25519，这时就得用RSA密钥了。RSA可以调整密钥位数，ed25519不能。RSA已经有对应的量子算法破解（不过这得等待量子计算机建设的发展了，现在的量子计算机还没有多少量子比特）。RSA的好处是兼容性好、灵活性好，但安全性有所降低。
 :::
 
-
 ### username & email
 
 ```bash
@@ -305,5 +304,4 @@ Host github.com
 
 感谢[ustc mirror](https://mirrors.ustc.edu.cn/)、[nju mirror](https://mirror.nju.edu.cn/)及[校园网联合镜像站](https://help.mirrors.cernet.edu.cn/)对于中国开源社区的贡献。
 
-感谢LCPU的公开课程——[LCPU_Getting_Started](https://github.com/lcpu-club/getting-started),此课程对我帮助很大，使我受益良多。
-
+感谢LCPU的公开课程——[LCPU Getting Started](https://github.com/lcpu-club/getting-started),此课程对我帮助很大，使我受益良多。
