@@ -26,11 +26,11 @@ Suites: trixie trixie-updates
 Components: main contrib non-free non-free-firmware
 Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
-Types: deb
-URIs: http://mirror.nju.edu.cn/debian/-security
-Suites: trixie-security
-Components: main contrib non-free non-free-firmware
-Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+# Types: deb
+# URIs: http://security.debian.org/debian-security
+# Suites: trixie-security
+# Components: main contrib non-free non-free-firmware
+# Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 ```
 
 :::note
@@ -142,7 +142,6 @@ flatpak install flathub org.mozilla.firefox
 # flatpak install flathub org.localsend.localsend_app
 # 其他不过多枚举。
 ```
-
 :::
 
 ## 代理
