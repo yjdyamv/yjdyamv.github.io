@@ -44,9 +44,9 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 
 1. 换源至测试版
 2. 最小更新 `sudo apt upgrade --without-new-pkgs`
-3. 重启（似乎需要）
+3. 重启
 4. 中等更新 `sudo apt upgrade`
-5. 重启，进入x11桌面
+5. 重启
 6. 全面更新 `sudo apt full-upgrade`
 7. 重启， `sudo apt update && sudo apt upgrade`
 :::
