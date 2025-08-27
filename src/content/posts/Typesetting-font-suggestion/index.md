@@ -40,3 +40,9 @@ lang: 'zh-CN'
 之后也可以说说数学字体这个事。
 
 数学字体：`New Computer Modern Math`:(开源免费，[TexFont](https://ctan.org/tex-archive/fonts/newcomputermodern)，由CTAN开源)、`Libertinus Math`(开源免费，[https://github.com/alerque/libertinus](https://github.com/alerque/libertinus))、`Cambria Math`:(微软开发，默认搭载上)
+
+:::note
+有时候我们想安装一个文件夹下的所有字体
+- Debian
+把该字体文件夹放在`~/.local/share/fonts`文件夹下（如果没有就创建），随后执行`fc-cache -f -r -v`更新字体缓存。
+:::
