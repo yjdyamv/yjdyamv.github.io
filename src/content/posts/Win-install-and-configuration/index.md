@@ -40,6 +40,8 @@ start ms-cxh:localonly
 激活win：[HEU_KMS_Activator](https://github.com/zbezj/HEU_KMS_Activator/releases)
 
 解压缩用[7zip](https://7-zip.org)吧（不知道为啥win11的文件管理器解压不了rar文件 你还能有微软聪明.jpg）
+
+**记得关闭windows安全中心**
 :::
 
 ## 环境配置
@@ -99,6 +101,8 @@ Write-Host "环境配置完成！"
 - 局域网文件传输：[localsend](https://localsend.org/) 有些玩意比较私密，不想走微信
 - 火绒：[官网](https://www.huorong.cn/) ~~作用是关闭`windows defender`~~
 - 文本编辑器：[vscode](https://code.visualstudio.com/) 一个code写天下
+
+_有时候那些下载的破解软件的补丁软件可能会被windows defender删去，关闭它，防止它乱删软件_
 
 ## 编程环境
 
