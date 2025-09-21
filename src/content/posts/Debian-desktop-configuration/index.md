@@ -60,9 +60,9 @@ sudo apt install wget curl vim htop font-manager tlp tlp-rdw
 # sudo apt install tp-smapi-dkms acpi-call-dkms
 ```
 
-下载截图工具:[snipaste](https://zh.snipaste.com/)
+- 下载截图工具:[snipaste](https://zh.snipaste.com/)，不过KDE自带的spectacle功能也挺好用的
 
-Chrome浏览器：(速度竟然还挺快)
+- Chrome浏览器：(速度竟然还挺快)
 
 ```bash
 # 获取GPG验证密钥
@@ -72,8 +72,6 @@ echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-chrome.gpg] http://dl
 # 安装
 sudo apt update && sudo apt install -y google-chrome-stable
 ```
-
-光盘写入：`sudo apt install brasero`
 
 ## 输入法
 
@@ -132,17 +130,23 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 sudo flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub
 ```
 
-:::note
+- 下载所需软件
 ```bash
 # 下载Firefox
 flatpak install flathub org.mozilla.firefox
-# 下载matrix客户端
-# flatpak install flathub im.fluffychat.Fluffychat
-# 下载localsend
-# flatpak install flathub org.localsend.localsend_app
-# 其他不过多枚举。
 ```
-:::
+
+```bash
+# 下载matrix客户端
+flatpak install flathub im.fluffychat.Fluffychat
+```
+
+```bash
+# 下载localsend
+flatpak install flathub org.localsend.localsend_app
+```
+
+其他的就不列举了
 
 ## 代理
 
@@ -150,28 +154,30 @@ flatpak install flathub org.mozilla.firefox
 
 ## 终端美化
 
-- zsh+oh-my-zsh
-    - zsh: `sudo apt install zsh`
-    - [oh-my-zsh](https://ohmyz.sh/): 
-    ```bash
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    ```
-    - 安装zsh主题[powerlevel10k](https://github.com/romkatv/powerlevel10k)
-    ```bash
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-    ```
-    `~/.zshrc`里`ZSH_THEME="..."`修改为：`ZSH_THEME="powerlevel10k/powerlevel10k"`
-    - 安装插件zsh-autosuggestions和zsh-syntax-highlighting
-    ```bash
-    git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-    ```
-
+- zsh: 
+```bash
+sudo apt install zsh
+```
+- 安装[oh-my-zsh](https://ohmyz.sh/)
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+- 安装zsh主题[powerlevel10k](https://github.com/romkatv/powerlevel10k)
+```bash
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
+`~/.zshrc`里`ZSH_THEME="..."`修改为：`ZSH_THEME="powerlevel10k/powerlevel10k"`
+- 安装插件zsh-autosuggestions和zsh-syntax-highlighting
+```bash
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
 在`~/.zshrc`里将plugins项改为如下以启用扩展。`z`、`extract`、`web-search`均为内置插件。
 ```
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
 ```
 
+注：
 - `extract`：`x asdf.tar.gz`可以方便解压，无需了解后缀。
 - `z`：`z dir`即可到达曾经去过的dir文件夹下
 - `web-search`：`bing zsh是什么`可在终端中直接搜索
@@ -185,78 +191,90 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
 下载插件: `clangd`, `ms-python`, `pylance`, `xmake`，`rust-analyzer`，`remote-ssh(code)/open remote-ssh(codium)`等。
 
 :::note
-可以登陆github账户以同步`setting.json`及插件。
+**可以登陆github账户以同步`setting.json`及插件。**
 :::
 
-- c/cpp: `sudo apt install build-essential clang cmake clangd`
-    - xmake: [download](https://xmake.io/guide/quick-start.html)
-    :::note
-    `xmake`在`trixie（debian13）`及以后可以直接`sudo apt install xmake`安装
-    :::
-- python: [miniforge](https://conda-forge.org/) 使用conda
-    - 下载并安装[miniforge](https://mirrors.nju.edu.cn/github-release/conda-forge/miniforge/)
-    :::note
-    注意此处不要手快回车了，输入`yes`来进行`conda init`。目的是将设置环境变量及conda环境激活脚本终端在打开时执行。
-    ![conda-init](./conda-init.png)
-    要是回车了也有补救办法：
-    ```bash
-    ~/miniforge3/bin/conda init zsh $$ ~/miniforge3/bin/mamba shell init
-    ```
-    :::
-    - conda换源：
-    `conda config --set show_channel_urls yes`来生成`.condarc`,其内容修改为如下。
-    ```
-    # ~/.condarc
-    channels:
-        - defaults
-    show_channel_urls: true
-    default_channels:
-        - https://mirror.nju.edu.cn/anaconda/pkgs/main
-        - https://mirror.nju.edu.cn/anaconda/pkgs/r
-        - https://mirror.nju.edu.cn/anaconda/pkgs/msys2
-    custom_channels:
-        conda-forge: https://mirror.nju.edu.cn/anaconda/cloud
-        pytorch: https://mirror.nju.edu.cn/anaconda/cloud
-    ```
-    - pypi换源：
-    ```bash
-    python -m pip install -i https://mirror.nju.edu.cn/pypi/web/simple --upgrade pip
-    pip config set global.index-url https://mirror.nju.edu.cn/pypi/web/simple
-    ```
-- rust: 
-    1. 将以下内容加入`.zshrc`，随后自行执行`source ~/.zshrc`
-    ```bash
-    export RUSTUP_DIST_SERVER=https://mirror.nju.edu.cn/rustup
-    export RUSTUP_UPDATE_ROOT=https://mirror.nju.edu.cn/rustup/rustup
-    ```
-    2. 使用官方脚本下载安装Rust
-    ```bash
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-    ```
+### c/cpp
+- gcc、clang工具链及clangd语法分析与代码提示工具
+```bash
+sudo apt install build-essential clang clangd
+```
+- 构建工具
+```bash
+sudo apt install xmake cmake meson
+```
+:::note
+`xmake`在`trixie（debian13）`及以后可以直接`sudo apt install xmake`安装
+:::
 
-- nodejs:
-    - 使用[`volta`](https://volta.sh/)(推荐,速度快)：
-        - 安装volta `curl https://get.volta.sh | bash` 
-        - volta换源：修改`~/.volta/hooks.json`
-        ```
-        # ~/.volta/hooks.json
-        {
-            "node": {
-                "index": {
-                    "template": "https://mirror.nju.edu.cn/nodejs-release/index.json"
-                },
-                "distro": {
-                    "template": "https://mirror.nju.edu.cn/nodejs-release/v{{version}}/{{filename}}"
-                }
-            }
+### python
+1. 下载并安装[miniforge](https://mirrors.nju.edu.cn/github-release/conda-forge/miniforge/)
+:::note
+注意此处不要手快回车了，输入`yes`来进行`conda init`。目的是将设置环境变量及conda环境激活脚本终端在打开时执行。
+![conda-init](./conda-init.png)
+要是回车了也有补救办法：
+```bash
+~/miniforge3/bin/conda init zsh $$ ~/miniforge3/bin/mamba shell init
+```
+:::
+2. conda换源：
+`conda config --set show_channel_urls yes`来生成`.condarc`,其内容修改为如下。
+```
+# ~/.condarc
+channels:
+    - defaults
+show_channel_urls: true
+default_channels:
+    - https://mirror.nju.edu.cn/anaconda/pkgs/main
+    - https://mirror.nju.edu.cn/anaconda/pkgs/r
+    - https://mirror.nju.edu.cn/anaconda/pkgs/msys2
+custom_channels:
+    conda-forge: https://mirror.nju.edu.cn/anaconda/cloud
+    pytorch: https://mirror.nju.edu.cn/anaconda/cloud
+```
+3. pypi换源：
+```bash
+python -m pip install -i https://mirror.nju.edu.cn/pypi/web/simple --upgrade pip
+pip config set global.index-url https://mirror.nju.edu.cn/pypi/web/simple
+```
+
+### rust
+1. 将以下内容加入`.zshrc`，随后自行执行`source ~/.zshrc`
+```bash
+export RUSTUP_DIST_SERVER=https://mirror.nju.edu.cn/rustup
+export RUSTUP_UPDATE_ROOT=https://mirror.nju.edu.cn/rustup/rustup
+```
+2. 使用官方脚本下载安装Rust
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+### nodejs:
+- 使用[`volta`](https://volta.sh/)(推荐,速度快)：
+    - 安装volta 
+```bash
+curl https://get.volta.sh | bash 
+```
+- volta换源：修改`~/.volta/hooks.json`
+```
+# ~/.volta/hooks.json
+{
+"node": {
+    "index": {
+        "template": "https://mirror.nju.edu.cn/nodejs-release/index.json"
+        },
+        "distro": {
+            "template": "https://mirror.nju.edu.cn/nodejs-release/v{{version}}/{{filename}}"
         }
-        ```
-        - 安装node `volta install node` 
-        - 安装pnpm、yarn `volta install corepack`
-        - npm换源：使用淘宝源
-        ```bash
-        npm config set registry https://registry.npmmirror.com
-        ```
+    }
+}
+```
+- 安装node `volta install node` 
+- 安装pnpm、yarn等包管理 `volta install corepack`
+- npm换源：使用淘宝源
+```bash
+npm config set registry https://registry.npmmirror.com
+```
 
 ## git global
 
@@ -284,9 +302,12 @@ git config --global user.email "your-email-address"
 编辑此文件`~/.ssh/config`
 
 ```
+# ~/.ssh/config
+
 Host github.com
     User git
     ProxyCommand corkscrew 127.0.0.1 7897 %h %p
+    IdentityFile ~/.ssh/id_ed25519-github
 ```
 
 此方式来自于[stackoverflow](https://stackoverflow.com)的一个[问答](https://stackoverflow.com/questions/19161960/connect-with-ssh-through-a-proxy)
