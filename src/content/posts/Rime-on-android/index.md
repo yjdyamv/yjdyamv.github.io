@@ -3,7 +3,7 @@ title: Rime-on-android
 published: 2025-08-14
 description: ''
 image: './rime.png'
-tags: ['input method']
+tags: ['input method', 'android']
 category: 'Privacy'
 draft: false 
 lang: 'zh-CN'
