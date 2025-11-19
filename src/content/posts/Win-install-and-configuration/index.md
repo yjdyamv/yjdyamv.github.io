@@ -122,7 +122,31 @@ _有时候那些下载的破解软件的补丁软件可能会被windows defender
 
 #### MSYS2
 
-先等等，之后再写。
+- 可以获得类似linux上的库安装体验，以及最新版的gcc等工具
+
+1. 官网是[msys2.org](https://msys2.org)，可以在这下载，也可以去镜像站下载
+2. 换源
+
+```bash
+sed -i "s#https\?://mirror.msys2.org/#https://mirror.nju.edu.cn/msys2/#g" /etc/pacman.d/mirrorlist*
+```
+
+3. 安装GCC等
+
+```bash
+pacman -Sy
+pacman -S mingw-w64-ucrt-x86_64-toolchain mingw-w64-cmake
+```
+
+### Rust
+
+```bash
+pacman -Sy mingw-w64-ucrt-x86_64-rustup
+```
+
+```bash
+rustup install stable-x86_64-pc-windows-gnu
+```
 
 ## 尾声
 
