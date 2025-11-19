@@ -12,12 +12,14 @@ lang: 'zh-CN'
 # 我使用typst的经历
 
 ## 初始
+
 大约一年前，我看着同学的报告如此美观，标题、参考文献、关键词，这一切都是这么赏心悦目（正式），“这格式是真的漂亮啊”，随后想到了之前大计老师提过一嘴的LaTex，正巧图书馆培训也有关于科研写作的培训，就去学了下，之后也在后一学期的课程报告的文档上也用上了，就是那个最经典的article类，别说还怪正式的。
 
 ![latex-display1](./latex-display1.png)
 ![latex-display2](./latex-display2.png)
 
 这对我的信心有着极大的增强，可是正当我想要为我校做一个本科生毕业论文模板的时候，傻眼了：
+
 - 各种包、宏，不知道哪个宏是哪个包里面的
 - “\”乱飞，眼花缭乱
 - 看其他高校（THU）的代码，没有注释
@@ -50,7 +52,7 @@ LUG群里有位大佬——[OrangeX4](https://github.com/OrangeX4) (之后就知
 
 平时有些科目要交报告，上面会有数学公式要写，用typst写数学公式，爽。
 
-期末要做poster，在[universe]()里选了[peace-of-poster](https://typst.app/universe/package/peace-of-posters)做模板，迅速完成了，爽，还有另一门课要交实验报告，诶恰好，universe上有，爽。
+期末要做poster，在[universe](https://typst.app/universe)里选了[peace-of-poster](https://typst.app/universe/package/peace-of-posters)做模板，迅速完成了，爽，还有另一门课要交实验报告，诶恰好，universe上有，爽。
 
 期末完了，迅速用touying的自带主题改了一个本校的slides模板，爽。
 

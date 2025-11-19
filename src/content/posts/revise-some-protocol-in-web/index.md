@@ -30,6 +30,7 @@ DHCP（Dynamic Host Configuration Procotol）是一种动态分配主机网络�
 DHCP是应用层协议，使用了UDP协议（传输层），客户端是68端口，服务端是67端口。网络层使用IP地址，客户端广播（源IP：0.0.0.0，目标：255.255.255.255）。数据链路层使用MAC地址，客户端广播（目标：ff:ff:ff:ff:ff:ff，源地址主机知道）。
 
 过程：
+
 1. DHCP Discover：Client广播发送数据，找到DHCP Server
 2. DHCP Offer：Sever 返回（广播）IP地址、DNS、网关、子网掩码、租期与续租时间。
 3. DHCP Request：Client广播数据IP地址（我要的）
@@ -56,6 +57,7 @@ CDN（Content Delivery Network）是内容分发网络。
 数据主要是一些**静态资源以及time等动态资源**。
 
 作用：
+
 1. 加快了数据的获取（下载某些资源的网速）
 2. 隔离了源服务器与用户
 
@@ -65,14 +67,10 @@ CDN有负载均衡（原理是DNS里用到的广播啦）距离最近的CDN服�
 
 TCP 是传输层的协议 提供端口。
 
-
-
 ## UDP
 
 UDP 是传输层的协议 提供端口。
 
 ## HTTP 1.1/2.0/3.0及其区别
-
-
 
 ## HTTPS

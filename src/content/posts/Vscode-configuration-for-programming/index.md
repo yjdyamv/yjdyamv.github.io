@@ -14,6 +14,7 @@ lang: 'zh-CN'
 vscode是一个著名的文本编辑器，深受程序员喜爱。
 
 优点：
+
 - 轻量化~~尤其相对于是VS,Pycharm这种重器~~
 - 插件众多，主流选择
 - 主要由微软维护 ~~不怕跑路~~
@@ -55,11 +56,24 @@ mingw64是有人将GCC/LLVM 工具链的代码迁移到win上的工具链，现�
 ### 配置
 
 - win:
-去github上[下载](https://github.com/brechtsanders/winlibs_mingw/releases)别人预编译好的版本。如果网络不好，那么可以下载[南大镜像版](https://mirrors.nju.edu.cn/github-release/brechtsanders/winlibs_mingw/)
-**记得将/mingw/bin目录添加到系统环境变量哦**
+  - 去github上[下载](https://github.com/brechtsanders/winlibs_mingw/releases)别人预编译好的版本。如果网络不好，那么可以下载[南大镜像版](https://mirrors.nju.edu.cn/github-release/brechtsanders/winlibs_mingw/) **记得将/mingw/bin目录添加到系统环境变量哦**
+  - **（推荐）**使用msys2的ucrt64环境
+    1. 去下载msys2安装包，安装
+    2. 换源:
 
-- ubuntu/debian:
-直接`sudo apt install build-essential clang`就可以了。~~linux还是这么容易配置开发环境~~
+    ```bash
+    sed -i "s#https\?://mirror.msys2.org/#https://mirror.nju.edu.cn/msys2/#g" /etc/pacman.d/mirrorlist*
+    ```
+
+    3. 更新并安装
+
+    ```bash
+    pacman -Sy
+    pacman -S mingw-w64-ucrt-x86_64-toolchain mingw-w64-cmake
+    ```
+
+    4. 然后添加`D:/msys2/ucrt64/bin`到环境变量（假设安装在`D:/msys2`了）
+- ubuntu/debian: 直接`sudo apt install build-essential`就可以了。~~linux还是这么容易配置开发环境~~
 
 ## 语法高亮
 
@@ -75,12 +89,13 @@ mingw64是有人将GCC/LLVM 工具链的代码迁移到win上的工具链，现�
 
 构建工具在多文件、依赖管理等方面起着重要作用。
 
-因为c++缺少官方的包管理，也就意味着你不能像python里直接`pip install package_name`或者rust里`cargo add `来添加和下载依赖项。~~现代的语言都有包管理~~。但存在着[vcpkg](https://learn.microsoft.com/zh-cn/vcpkg/get_started/overview),[conan](https://conan.io/)这样的包管理器。使用包管理器你可以很方便的管理依赖包的版本，如常用的opengl和boost库等。
+因为c++缺少官方的包管理，也就意味着你不能像python里直接`pip install package_name`或者rust里`cargo add`来添加和下载依赖项。~~现代的语言都有包管理~~。但存在着[vcpkg](https://learn.microsoft.com/zh-cn/vcpkg/get_started/overview),[conan](https://conan.io/),还有pacman、apt、yum、dnf这样的包管理器。使用包管理器你可以很方便的下载依赖包，如常用的opengl和boost库等。
 
 ~~虽然C++20引入了module,但目前主流编译器（MSVC,GCC,Clang）支持不完善，MSVC的支持相对完善些。但这个特性不太常用~~
 
 :::note
 （举手）诶，等一下，要是包管理的仓库里没有我要的包怎么办呢？
+
 - 这里就要引入构建工具了。你将会手动下载所需的库、设置查找库的目录和设置链接库的名字。
 - 为这个库打包并上传至官方包管理仓库，以后你就可以很轻松的install此库了。
 
@@ -135,6 +150,7 @@ python最好的就是它包多，科学计算的人在用，数据分析的人�
 - 下载[anaconda/miniconda](https://www.anaconda.com/download)等商业发行版或者是[miniforge](https://conda-forge.org/)这样的社区领导的发行版（推荐）
 
 管理python环境包的方法主要有两种
+
 - 虚拟环境(venv)
 - conda
 
@@ -168,8 +184,7 @@ anaconda 由于包含了许多常用包，导致很重，约1GB，而miniforge�
 [清华大学镜像站](https://mirrors.tuna.tsinghua.edu.cn/),[中国科学技术大学镜像站](https://mirrors.ustc.edu.cn/),[南京大学镜像站](https://mirror.nju.edu.cn/)，这些镜像站可以方便国外常用软件的下载和换源，以及linux的下载和换源。
 :::
 
-
-# 结
+# 语言
 
 vscode号称一个code写天下，你基本只用配置插件即可。对我来说，因为我的主系统是debian+win，我有跨平台的要求，所以选择了vscode。如果只在win上开发，你当然可以选择“宇宙第一IDE”VS。至于其他的文本编辑器如vim,emacs等就靠读者自己探索吧。~~因为我主力是code，vim主要用于在命令行里编辑文件（linux自带vi和nano），emacs用的少~~
 

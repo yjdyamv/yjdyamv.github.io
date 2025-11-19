@@ -12,10 +12,10 @@ lang: 'zh-CN'
 # 下载firefox和chromium的安装包
 
 - firefox
-    - 官方ftp：[https://ftp.mozilla.org/pub/](https://ftp.mozilla.org/pub/) 。注意子目录下的fenix是安卓版本的，那个firefox子目录是桌面版的
-- chromium 
-    - 官方ftp：[chromium](https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html) 选择所需的平台和版本号
-    - 当前平台最新chromium下载 [https://download-chromium.appspot.com/](https://download-chromium.appspot.com/)
+  - 官方ftp：[https://ftp.mozilla.org/pub/](https://ftp.mozilla.org/pub/) 。注意子目录下的fenix是安卓版本的，那个firefox子目录是桌面版的
+- chromium
+  - 官方ftp：[chromium](https://commondatastorage.googleapis.com/chromium-browser-snapshots/index.html) 选择所需的平台和版本号
+  - 当前平台最新chromium下载 [https://download-chromium.appspot.com/](https://download-chromium.appspot.com/)
 
 | 安卓端 | firefox | edge | chrome |
 | -------- | ------- | -------- | ------- |
@@ -25,4 +25,3 @@ lang: 'zh-CN'
 | 网页适应性 | 较强 | 强 | 强 |
 
 故此，在安卓端推荐使用firefox或者edge。至于桌面端相差不大。
-

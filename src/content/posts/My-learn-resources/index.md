@@ -21,7 +21,7 @@ lang: 'zh-CN'
 
 ## 数学
 
-- [普林斯顿微积分](https://github.com/stonycat/some-books-and-note) 
+- [普林斯顿微积分](https://github.com/stonycat/some-books-and-note)
 - [基本分析讲义(东南大学 李逸)](https://math.seu.edu.cn/_upload/article/files/c2/4d/82649ffb4368a52ca63e1992f361/0263befd-d1b7-4285-8237-2b559e8f9f48.pdf)
 - 物理系的允文君的数学基础笔记，[百度网盘](https://pan.baidu.com/s/5By4TG8MUnRW4dfX5zj3OcQ?)
 

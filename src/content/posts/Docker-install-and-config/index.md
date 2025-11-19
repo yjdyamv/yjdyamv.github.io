@@ -36,14 +36,19 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 ## 去掉sudo权限
 
 - 添加用户到docker组
+
 ```bash
 sudo gpasswd -a ${USER} docker 
 ```
+
 - 增加读写权限
+
 ```bash
 sudo chmod a+rw /var/run/docker.sock
 ```
+
 - 重启docker
+
 ```bash
 sudo systemctl restart docker
 ```
@@ -92,7 +97,7 @@ Environment="NO_PROXY=localhost,127.0.0.1"
 
 本文整合了docker文档与知乎的一个文章
 
-- 安装：[https://docs.docker.com/engine/install/debian/](https://docs.docker.com/engine/install/debian/) 
+- 安装：[https://docs.docker.com/engine/install/debian/](https://docs.docker.com/engine/install/debian/)
 - 去sudo权限：[https://zhuanlan.zhihu.com/p/484171630](https://zhuanlan.zhihu.com/p/484171630)
 - 配置代理：[https://docs.docker.com/engine/daemon/proxy/#environment-variables](https://docs.docker.com/engine/daemon/proxy/#environment-variables)
 

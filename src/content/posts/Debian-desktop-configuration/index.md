@@ -18,6 +18,7 @@ debian是一个自由操作系统，又被称做Debian GNU/linux，官网是[htt
 ## 换源
 
 `DEB882格式`：适用于debian12及以上。目前稳定版是Debian13（Trixie）
+
 ```
 # /etc/apt/sources.list.d/debian.sources
 Types: deb
@@ -49,6 +50,7 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 5. 重启
 6. 全面更新 `sudo apt full-upgrade`
 7. 重启， `sudo apt update && sudo apt upgrade`
+
 :::
 
 ## 常用下载
@@ -92,12 +94,12 @@ cd rime
 git pull
 ```
 
-:::note 
+:::note
 **防止在vscode里用不了中文**
 
 环境设置,在位置`/etc/environment`输入以下内容，参考了此[博客帖子](https://blog.dimeta.top/archives/kdexia-shu-ru-fa-pei-zhi-de-xiao-xi-jie)
 
-```                                            
+```plaintext
 #
 # This file is parsed by pam_env module
 #
@@ -117,6 +119,7 @@ GLFW_IM_MODULE=fcitx5
 ## flatpak
 
 - 安装：
+
 ```bash
 # 安装Flatpak
 sudo apt install -y flatpak
@@ -125,12 +128,15 @@ sudo apt install -y plasma-discover-backend-flatpak
 # 添加官方仓库
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
+
 - 换源：
+
 ```bash
 sudo flatpak remote-modify flathub --url=https://mirrors.ustc.edu.cn/flathub
 ```
 
 - 下载所需软件
+
 ```bash
 # 下载Firefox
 flatpak install flathub org.mozilla.firefox
@@ -154,30 +160,41 @@ flatpak install flathub org.localsend.localsend_app
 
 ## 终端美化
 
-- zsh: 
+- zsh:
+
 ```bash
 sudo apt install zsh
 ```
+
 - 安装[oh-my-zsh](https://ohmyz.sh/)
+
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
+
 - 安装zsh主题[powerlevel10k](https://github.com/romkatv/powerlevel10k)
+
 ```bash
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
+
 `~/.zshrc`里`ZSH_THEME="..."`修改为：`ZSH_THEME="powerlevel10k/powerlevel10k"`
+
 - 安装插件zsh-autosuggestions和zsh-syntax-highlighting
+
 ```bash
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
+
 在`~/.zshrc`里将plugins项改为如下以启用扩展。`z`、`extract`、`web-search`均为内置插件。
-```
+
+```plaintext
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
 ```
 
 注：
+
 - `extract`：`x asdf.tar.gz`可以方便解压，无需了解后缀。
 - `z`：`z dir`即可到达曾经去过的dir文件夹下
 - `web-search`：`bing zsh是什么`可在终端中直接搜索
@@ -195,30 +212,41 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
 :::
 
 ### c/cpp
+
 - gcc、clang工具链及clangd语法分析与代码提示工具
+
 ```bash
 sudo apt install build-essential clang clangd
 ```
+
 - 构建工具
+
 ```bash
 sudo apt install xmake cmake meson
 ```
+
 :::note
 `xmake`在`trixie（debian13）`及以后可以直接`sudo apt install xmake`安装
 :::
 
 ### python
+
 1. 下载并安装[miniforge](https://mirrors.nju.edu.cn/github-release/conda-forge/miniforge/)
+
 :::note
 注意此处不要手快回车了，输入`yes`来进行`conda init`。目的是将设置环境变量及conda环境激活脚本终端在打开时执行。
 ![conda-init](./conda-init.png)
 要是回车了也有补救办法：
+
 ```bash
 ~/miniforge3/bin/conda init zsh $$ ~/miniforge3/bin/mamba shell init
 ```
+
 :::
+
 2. conda换源：
 `conda config --set show_channel_urls yes`来生成`.condarc`,其内容修改为如下。
+
 ```
 # ~/.condarc
 channels:
@@ -232,31 +260,45 @@ custom_channels:
     conda-forge: https://mirror.nju.edu.cn/anaconda/cloud
     pytorch: https://mirror.nju.edu.cn/anaconda/cloud
 ```
+
 3. pypi换源：
+
 ```bash
 python -m pip install -i https://mirror.nju.edu.cn/pypi/web/simple --upgrade pip
 pip config set global.index-url https://mirror.nju.edu.cn/pypi/web/simple
 ```
 
 ### rust
+
 1. 将以下内容加入`.zshrc`，随后自行执行`source ~/.zshrc`
+
 ```bash
 export RUSTUP_DIST_SERVER=https://mirror.nju.edu.cn/rustup
 export RUSTUP_UPDATE_ROOT=https://mirror.nju.edu.cn/rustup/rustup
 ```
+
 2. 使用官方脚本下载安装Rust
+
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-### nodejs:
+:::note
+debian13以上可以直接`sudo apt install rustup`，然后使用`rustup install stable`来下载工具链
+:::
+
+### nodejs
+
 - 使用[`volta`](https://volta.sh/)(推荐,速度快)：
-    - 安装volta 
+  - 安装volta
+
 ```bash
 curl https://get.volta.sh | bash 
 ```
+
 - volta换源：修改`~/.volta/hooks.json`
-```
+
+```plaintext
 # ~/.volta/hooks.json
 {
 "node": {
@@ -269,9 +311,11 @@ curl https://get.volta.sh | bash
     }
 }
 ```
-- 安装node `volta install node` 
+
+- 安装node `volta install node`
 - 安装pnpm、yarn等包管理 `volta install corepack`
 - npm换源：使用淘宝源
+
 ```bash
 npm config set registry https://registry.npmmirror.com
 ```
@@ -301,7 +345,7 @@ git config --global user.email "your-email-address"
 
 编辑此文件`~/.ssh/config`
 
-```
+```plaintext
 # ~/.ssh/config
 
 Host github.com
