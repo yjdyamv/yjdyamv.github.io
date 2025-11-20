@@ -9,7 +9,7 @@ draft: false
 lang: 'zh-CN'
 ---
 
-# 前言
+## 前言
 
 vscode是一个著名的文本编辑器，深受程序员喜爱。
 
@@ -22,7 +22,7 @@ vscode是一个著名的文本编辑器，深受程序员喜爱。
 
 本篇文章主要讲述vscode在c++和python开发上的配置。供记录自己的思路和为他人做参考。那么我们开始吧。由于作者主要使用debian和win系统，所以对mac少有提及。
 
-# vscode下载
+## vscode下载
 
 ~~没想到这个也得教，因为xhs上总是有人进入了vscode的冒牌网站，然后说39.9元永久解锁~~
 
@@ -37,9 +37,9 @@ vsc的全局设置setting.json可以这样打开
 ![open-vsc-global-setting](./vscode-global-setting.png)
 :::
 
-# c/c++环境配置
+## c/c++环境配置
 
-## c/c++编译器
+### c/c++编译器
 
 c++主流编译器/工具链有三家，[MSVC](https://visualstudio.microsoft.com/zh-hans/downloads/)、[GCC](https://gcc.gnu.org/)和[Clang](https://clang.llvm.org/)。其中MSVC是由[微软](https://learn.microsoft.com/zh-cn/cpp/?view=msvc-170)维护，GCC由[GNU](https://www.gnu.org/)维护，Clang由[LLVM](https://llvm.org/)维护。（在这里不区分GCC和gcc的区别，有想了解的可自行查阅）
 
@@ -53,7 +53,7 @@ c++主流编译器/工具链有三家，[MSVC](https://visualstudio.microsoft.co
 mingw64是有人将GCC/LLVM 工具链的代码迁移到win上的工具链，现在似乎推荐使用UCRT64了
 :::
 
-### 配置
+#### 配置
 
 - win:
   - 去github上[下载](https://github.com/brechtsanders/winlibs_mingw/releases)别人预编译好的版本。如果网络不好，那么可以下载[南大镜像版](https://mirrors.nju.edu.cn/github-release/brechtsanders/winlibs_mingw/) **记得将/mingw/bin目录添加到系统环境变量哦**
@@ -61,21 +61,21 @@ mingw64是有人将GCC/LLVM 工具链的代码迁移到win上的工具链，现�
     1. 去下载msys2安装包，安装
     2. 换源:
 
-    ```bash
-    sed -i "s#https\?://mirror.msys2.org/#https://mirror.nju.edu.cn/msys2/#g" /etc/pacman.d/mirrorlist*
-    ```
+        ```bash
+        sed -i "s#https\?://mirror.msys2.org/#https://mirror.nju.edu.cn/msys2/#g" /etc/pacman.d/mirrorlist*
+        ```
 
     3. 更新并安装
 
-    ```bash
-    pacman -Sy
-    pacman -S mingw-w64-ucrt-x86_64-toolchain mingw-w64-cmake
-    ```
+        ```bash
+        pacman -Sy
+        pacman -S mingw-w64-ucrt-x86_64-toolchain mingw-w64-cmake
+        ```
 
     4. 然后添加`D:/msys2/ucrt64/bin`到环境变量（假设安装在`D:/msys2`了）
 - ubuntu/debian: 直接`sudo apt install build-essential`就可以了。~~linux还是这么容易配置开发环境~~
 
-## 语法高亮
+### 语法高亮
 
 因为vscode是一个文本编辑器，所以它无法为众多编程语言提供文本高亮以及文本补全等IDE必备功能，而是使用了LSP协议为这一功能进行了封装，使得其他人可以很方便的为vscode编写插件，让它拥有这样的功能。可以查看此网站来进一步了解[LSP](https://microsoft.github.io/language-server-protocol/)
 
@@ -85,7 +85,7 @@ mingw64是有人将GCC/LLVM 工具链的代码迁移到win上的工具链，现�
 你当然可以去下载[CodeRunner](https://github.com/formulahendry/vscode-code-runner)或[codelldb](https://github.com/vadimcn/codelldb)这样的插件，以让你的vscode更像一个IDE
 :::
 
-## 构建工具/包管理
+### 构建工具/包管理
 
 构建工具在多文件、依赖管理等方面起着重要作用。
 
@@ -110,7 +110,7 @@ mingw64是有人将GCC/LLVM 工具链的代码迁移到win上的工具链，现�
 
 不过我这里主要谈xmake配置、使用，哈哈。**xmake既可以当包管理来用，也可以当构建工具用。**
 
-### xmake
+#### xmake
 
 为什么是xmake呢？xmake相比于cmake有什么优势呢？语法较简洁，目前较为先进的构建系统，对于小项目开发很友好。[xmake](https://github.com/xmake-io/xmake)是国人一位大牛制作的，已经在github上斩获上万star。
 
@@ -134,7 +134,7 @@ mingw64是有人将GCC/LLVM 工具链的代码迁移到win上的工具链，现�
 在vscode里会出现高亮不对（找不到头文件在哪的报错），请查看[xmake configuration intellsence](https://xmake.io/guide/extensions/ide-integration-plugins.html#configure-intellsence)来配置vscode
 :::
 
-# python环境配置
+## python环境配置
 
 python最好的就是它包多，科学计算的人在用，数据分析的人在用，后端框架也有。并且也有方便的包管理工具，如`pip`和`conda`。
 
@@ -144,7 +144,7 @@ python最好的就是它包多，科学计算的人在用，数据分析的人�
 ~~没错没错，c/cpp和rust就是编译性语言~~
 :::
 
-## 下载python
+### 下载python
 
 - 在[官网](https://www.python.org/downloads/)下载python
 - 下载[anaconda/miniconda](https://www.anaconda.com/download)等商业发行版或者是[miniforge](https://conda-forge.org/)这样的社区领导的发行版（推荐）
@@ -170,7 +170,7 @@ anaconda 由于包含了许多常用包，导致很重，约1GB，而miniforge�
 **我们在完成上述配置后一定要对pypi和conda进行换源，因为python在你在你命令`pip install package`后，会向某服务器下载你要的包，默认是python官方的服务器（国外），为了高速下载包请自己换源至国内高校镜像站**
 :::
 
-## 插件配置
+### 插件配置
 
 请下载[ms-python](https://github.com/Microsoft/vscode-python),之后你的python代码就有高亮和代码提示了，好诶。
 
@@ -184,7 +184,7 @@ anaconda 由于包含了许多常用包，导致很重，约1GB，而miniforge�
 [清华大学镜像站](https://mirrors.tuna.tsinghua.edu.cn/),[中国科学技术大学镜像站](https://mirrors.ustc.edu.cn/),[南京大学镜像站](https://mirror.nju.edu.cn/)，这些镜像站可以方便国外常用软件的下载和换源，以及linux的下载和换源。
 :::
 
-# 语言
+## 结语
 
 vscode号称一个code写天下，你基本只用配置插件即可。对我来说，因为我的主系统是debian+win，我有跨平台的要求，所以选择了vscode。如果只在win上开发，你当然可以选择“宇宙第一IDE”VS。至于其他的文本编辑器如vim,emacs等就靠读者自己探索吧。~~因为我主力是code，vim主要用于在命令行里编辑文件（linux自带vi和nano），emacs用的少~~
 

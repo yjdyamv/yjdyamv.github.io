@@ -233,33 +233,33 @@ sudo apt install xmake cmake meson
 
 1. 下载并安装[miniforge](https://mirrors.nju.edu.cn/github-release/conda-forge/miniforge/)
 
-:::note
-注意此处不要手快回车了，输入`yes`来进行`conda init`。目的是将设置环境变量及conda环境激活脚本终端在打开时执行。
-![conda-init](./conda-init.png)
-要是回车了也有补救办法：
+    :::note
+    注意此处不要手快回车了，输入`yes`来进行`conda init`。目的是将设置环境变量及conda环境激活脚本终端在打开时执行。
+    ![conda-init](./conda-init.png)
+    要是回车了也有补救办法：
 
-```bash
-~/miniforge3/bin/conda init zsh $$ ~/miniforge3/bin/mamba shell init
-```
+    ```bash
+    ~/miniforge3/bin/conda init zsh $$ ~/miniforge3/bin/mamba shell init
+    ```
 
-:::
+    :::
 
 2. conda换源：
 `conda config --set show_channel_urls yes`来生成`.condarc`,其内容修改为如下。
 
-```
-# ~/.condarc
-channels:
-    - defaults
-show_channel_urls: true
-default_channels:
-    - https://mirror.nju.edu.cn/anaconda/pkgs/main
-    - https://mirror.nju.edu.cn/anaconda/pkgs/r
-    - https://mirror.nju.edu.cn/anaconda/pkgs/msys2
-custom_channels:
-    conda-forge: https://mirror.nju.edu.cn/anaconda/cloud
-    pytorch: https://mirror.nju.edu.cn/anaconda/cloud
-```
+    ```txt
+    # ~/.condarc
+    channels:
+        - defaults
+    show_channel_urls: true
+    default_channels:
+        - https://mirror.nju.edu.cn/anaconda/pkgs/main
+        - https://mirror.nju.edu.cn/anaconda/pkgs/r
+        - https://mirror.nju.edu.cn/anaconda/pkgs/msys2
+    custom_channels:
+        conda-forge: https://mirror.nju.edu.cn/anaconda/cloud
+        pytorch: https://mirror.nju.edu.cn/anaconda/cloud
+    ```
 
 3. pypi换源：
 
@@ -272,16 +272,16 @@ pip config set global.index-url https://mirror.nju.edu.cn/pypi/web/simple
 
 1. 将以下内容加入`.zshrc`，随后自行执行`source ~/.zshrc`
 
-```bash
-export RUSTUP_DIST_SERVER=https://mirror.nju.edu.cn/rustup
-export RUSTUP_UPDATE_ROOT=https://mirror.nju.edu.cn/rustup/rustup
-```
+    ```bash
+    export RUSTUP_DIST_SERVER=https://mirror.nju.edu.cn/rustup
+    export RUSTUP_UPDATE_ROOT=https://mirror.nju.edu.cn/rustup/rustup
+    ```
 
 2. 使用官方脚本下载安装Rust
 
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
+    ```bash
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    ```
 
 :::note
 debian13以上可以直接`sudo apt install rustup`，然后使用`rustup install stable`来下载工具链
