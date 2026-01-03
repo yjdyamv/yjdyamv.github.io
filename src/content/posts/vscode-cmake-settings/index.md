@@ -87,6 +87,8 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
     //  "CMAKE_VS_INCLUDE_INSTALL_TO_DEFAULT_BUILD": "ON",
     //  // 并行编译
     //  "CMAKE_BUILD_PARALLEL_LEVEL": "0"
+    // // Windows 动态库导出全部符号（.dll, .lib等）对于使用动态库来说必不可少
+    // "CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS": "ON",
     // },
     "cmake.generator": "Ninja", // cmake的生成器为Ninja
     "cmake.preferredGenerators": [
