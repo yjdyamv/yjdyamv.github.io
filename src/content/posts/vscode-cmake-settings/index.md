@@ -17,78 +17,133 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
 // settings.json
     // // 1. CMake设置 适用于GCC/CLang/Clang-cl
     "cmake.configureSettings": {
-        // 默认Debug模式
-        "CMAKE_BUILD_TYPE": "Debug",
+        // 不指定构建模式，在插件界面选择
+        // "CMAKE_BUILD_TYPE": "Debug", // "Release" , "RelWithDebInfo" , 
+        // 库默认生成静态库，除非指定为`add_library(mylib SHARED test.c)` 或以下的选项打开
+        // "BUILD_SHARED_LIBS": "ON",
         // 生成编译命令数据库，供clangd使用
         "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-        // 为C/C++调试版本添加调试信息，使用DWARF-4格式
+        // 各构建类型均有的安全设置
+        // -fstack-protector-strong: 强化的栈溢出保护
+        // -D_FORTIFY_SOURCE=2: 编译时检测缓冲区溢出和其他常见的内存安全问题，
+        // -fstack-clash-protection: 防止栈冲突攻击
+        "CMAKE_CXX_FLAGS": "-fstack-protector-strong -D_FORTIFY_SOURCE=2 -fstack-clash-protection",
+        "CMAKE_C_FLAGS": "-fstack-protector-strong -D_FORTIFY_SOURCE=2 -fstack-clash-protection",
+        "CMAKE_EXE_LINKER_FLAGS": "-pie",  // 链接时安全选项，在win上对于main.exe会产生类似libmain.dll.a的中间文件
+        // 1. Debug版本
+        // 为C/C++调试版本添加调试信息，使用DWARF-5格式
         // -g: 生成调试信息
         // -gdwarf-5是最新的
-        "CMAKE_CXX_FLAGS_DEBUG": "${CMAKE_CXX_FLAGS_DEBUG} -g -gdwarf-5 -fdiagnostics-color=always -fno-omit-frame-pointer",
-        "CMAKE_C_FLAGS_DEBUG": "${CMAKE_C_FLAGS_DEBUG} -g -gdwarf-5 -fdiagnostics-color=always -fno-omit-frame-pointer",
-        // Release版本优化
-        "CMAKE_CXX_FLAGS_RELEASE": "${CMAKE_CXX_FLAGS_RELEASE} -O3 -DNDEBUG",
-        "CMAKE_C_FLAGS_RELEASE": "${CMAKE_C_FLAGS_RELEASE} -O3 -DNDEBUG",
-        // RelWithDebInfo版本（推荐用于性能分析）
-        "CMAKE_CXX_FLAGS_RELWITHDEBINFO": "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} -O2 -g -gdwarf-5",
-        "CMAKE_C_FLAGS_RELWITHDEBINFO": "${CMAKE_C_FLAGS_RELWITHDEBINFO} -O2 -g -gdwarf-5",
+        // -fdiagnostics-color=always: 编译器输出彩色诊断信息
+        // -fno-omit-frame-pointer: 保留帧指针，便于堆栈跟踪和性能分析工具（如perf）获取完整的调用栈
+        "CMAKE_CXX_FLAGS_DEBUG": "-g -O1 -gdwarf-5 -fdiagnostics-color=always -fno-omit-frame-pointer",
+        "CMAKE_C_FLAGS_DEBUG": "-g -O1 -gdwarf-5 -fdiagnostics-color=always -fno-omit-frame-pointer",
+        // 2. Release版本优化
+        // -O3: 启用最高级别的优化（内联、循环展开、向量化等），显著提升性能但编译时间增长
+        // -DNDEBUG: 禁用assert宏，减少运行时开销（assert在Release版本应该被禁用）
+        "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG",
+        "CMAKE_C_FLAGS_RELEASE": "-O3 -DNDEBUG",
+        // 3. RelWithDebInfo版本（推荐用于性能分析）
+        "CMAKE_CXX_FLAGS_RELWITHDEBINFO": "-O2 -g -gdwarf-5",
+        "CMAKE_C_FLAGS_RELWITHDEBINFO": "-O2 -g -gdwarf-5",
         // C/C++标准设置
         "CMAKE_CXX_STANDARD": "23", // 98 11 14 17 20 23 26
         "CMAKE_C_STANDARD": "23", // 90 99 11 17 23
         "CMAKE_CXX_STANDARD_REQUIRED": "ON", // 强制要求指定的C++标准，如果不支持则编译失败
+        "CMAKE_C_STANDARD_REQUIRED": "ON", // 同上
         // 编译器警告设置 - 启用全面的代码质量检查
-        // "CMAKE_CXX_FLAGS": "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic",  // -Wall:常见警告 -Wextra:额外警告 -Wpedantic:严格标准合规警告
-        // "CMAKE_C_FLAGS": "${CMAKE_C_FLAGS} -Wall -Wextra -Wpedantic",      // 同上，针对C语言代码
+        // "CMAKE_CXX_FLAGS": "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wconversion -Wshadow",  // -Wall:常见警告 -Wextra:额外警告 -Wpedantic:严格标准合规警告 -Wconversion 隐式转换警告 -Wshadow 变量遮蔽警告
+        // "CMAKE_C_FLAGS": "${CMAKE_C_FLAGS} -Wall -Wextra -Wpedantic -Wconversion -Wshadow",      // 同上，针对C语言代码
         // 显示详细的编译信息 - 用于调试构建过程
         "CMAKE_VERBOSE_MAKEFILE": "OFF", // 设为ON可以看到完整的编译命令，用于调试构建问题，一般设置为OFF即可
-        // 生成位置无关代码 - 对于共享库和现代安全特性很重要
-        "CMAKE_POSITION_INDEPENDENT_CODE": "ON",
         // 着色输出设置 - 让编译错误和警告信息更易读
         "CMAKE_COLOR_MAKEFILE": "ON", // 在Makefile生成器中启用彩色输出
         "CMAKE_COLOR_DIAGNOSTICS": "ON", // 在支持的编译器中启用彩色诊断信息
+        // 生成位置无关代码 - 对于共享库和现代安全特性很重要
+        "CMAKE_POSITION_INDEPENDENT_CODE": "ON",
         // 并行编译设置 - 提高编译速度
         "CMAKE_BUILD_PARALLEL_LEVEL": "0", // 0表示使用所有可用CPU核心进行并行编译
-        // 让CMake自动检测是否支持
-        // "CMAKE_INTERPROCEDURAL_OPTIMIZATION": "ON",
-        "CMAKE_INTERPROCEDURAL_OPTIMIZATION_DEBUG": "OFF", // Debug版本关闭LTO
-        "CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE": "ON", // 仅Release版本启用
+        // 过程间优化(ITO)设置 - 跨文件优化以提升性能
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION": "ON",  
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION_DEBUG": "OFF",     
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE": "ON",    // 只在 Release 开启
+        "CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELWITHDEBINFO": "OFF",
+        // "CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS": "ON",  // 对GCC无影响，仅对MSVC有用
+        // RPATH设置 - 确保运行时能找到共享库
+        "CMAKE_MACOSX_RPATH": "ON",                // macOS RPATH设置
+        "CMAKE_SKIP_BUILD_RPATH": "OFF",           // 构建时保留RPATH
+        "CMAKE_BUILD_WITH_INSTALL_RPATH": "OFF",   // 构建时不使用安装RPATH
+        "CMAKE_INSTALL_RPATH_USE_LINK_PATH": "ON", // 安装时使用链接路径
     },
     // // 2. CMake设置 适用于MSVC
     // "cmake.configureSettings": {
-    //  // 默认Debug模式
-    //  "CMAKE_BUILD_TYPE": "Debug",
+    //  // 不指定构建模式，在插件界面选择
+    //   // "CMAKE_BUILD_TYPE": "Debug", // "Release" , "RelWithDebInfo" 
     //  // 生成编译命令数据库，供clangd使用
     //  "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
-    //  // Debug 调试信息 - 修正了语法错误
-    //  "CMAKE_CXX_FLAGS_DEBUG": "/ZI /Od /MDd",
-    //  "CMAKE_C_FLAGS_DEBUG": "/ZI /Od /MDd",
+    //  // Debug 调试信息 
+    //  // /Zi: 生成完整的调试信息（PDB格式）
+    //  // /Od: 禁用优化，确保代码按原始逻辑执行
+    //  // /MDd: 使用多线程调试版DLL运行时库
+    //  // /RTC1: 运行时错误检查（栈帧和未初始化变量）
+    //  // /D_DEBUG: 定义_DEBUG宏
+    //  // /fp:precise: 精确浮点模型，确保调试时浮点运算一致性
+    //  // /Oy-: 禁用帧指针省略，保证完整的调用栈信息
+    //  // /DEBUG:FULL: 生成完整的调试信息
+    //  // /INCREMENTAL: 启用增量链接，加快链接速度
+    //  "CMAKE_CXX_FLAGS_DEBUG": "/Zi /Od /MDd /RTC1 /D_DEBUG /fp:precise /Oy-",
+    //  "CMAKE_C_FLAGS_DEBUG": "/Zi /Od /MDd /RTC1 /D_DEBUG /fp:precise /Oy-",
     //  "CMAKE_EXE_LINKER_FLAGS_DEBUG": "/DEBUG:FULL /INCREMENTAL",
     //  // Release版本优化
-    //  "CMAKE_CXX_FLAGS_RELEASE": "/O2 /DNDEBUG /MD",
-    //  "CMAKE_C_FLAGS_RELEASE": "/O2 /DNDEBUG /MD",
-    //  "CMAKE_EXE_LINKER_FLAGS_RELEASE": "/INCREMENTAL:NO /OPT:REF /OPT:ICF",
+    //  // /Ox: 最大速度优化（等同于 /Og /Oi /Ot /Oy /Ob2 /Gs /GF /Gy）
+    //  // /DNDEBUG: 禁用assert宏，移除调试代码
+    //  // /MD: 使用多线程发布版DLL运行时库
+    //  // /GL: 启用全程序优化（需要配合链接时代码生成）,这个和/LTCG配合使用会有问题。关掉了
+    //  // /Gw: 优化全局数据，移除未引用的全局数据
+    //  // /LTCG: 启用链接时代码生成，允许跨模块优化
+    //  // /INCREMENTAL:NO: 禁用增量链接，生成优化的可执行文件
+    //  // /OPT:REF: 移除未引用的函数和数据
+    //  // /OPT:ICF: 启用相同代码折叠，减少可执行文件大小
+    //  "CMAKE_CXX_FLAGS_RELEASE": "/Ox /DNDEBUG /MD /Gw",
+    //  "CMAKE_C_FLAGS_RELEASE": "/Ox /DNDEBUG /MD /Gw",
+    //  "CMAKE_EXE_LINKER_FLAGS_RELEASE": "/INCREMENTAL:NO /OPT:REF /OPT:ICF /LTCG",
     //  // RelWithDebInfo版本（推荐用于性能分析）
-    //  "CMAKE_CXX_FLAGS_RELWITHDEBINFO": "/O2 /Zi /DNDEBUG /MD",
-    //  "CMAKE_C_FLAGS_RELWITHDEBINFO": "/O2 /Zi /DNDEBUG /MD",
+    //  "CMAKE_CXX_FLAGS_RELWITHDEBINFO": "/O2 /Zi /DNDEBUG /MD /Oy- /fp:precise",
+    //  "CMAKE_C_FLAGS_RELWITHDEBINFO": "/O2 /Zi /DNDEBUG /MD /Oy- /fp:precise",
     //  "CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO": "/DEBUG /INCREMENTAL:NO /OPT:REF",
     //  // C/C++标准设置
-    //  "CMAKE_CXX_STANDARD": "20",
-    //  "CMAKE_C_STANDARD": "17",  // C23在MSVC中支持有限，建议用C17
+    //  "CMAKE_CXX_STANDARD": "23", // 98 11 14 17 20 23 26
+    //  "CMAKE_C_STANDARD": "23",  // 90 99 11 17 23
     //  "CMAKE_CXX_STANDARD_REQUIRED": "ON",
     //  "CMAKE_C_STANDARD_REQUIRED": "ON",
-    //  // MSVC 编译器警告设置
-    //  "CMAKE_CXX_FLAGS": "/W4 /WX- /permissive- /EHsc", // W4高级警告，permissive-严格标准
-    //  "CMAKE_C_FLAGS": "/W4 /WX-",
+    //  // 各构建类型均有的安全及其他设置
+    //  // /W4: 启用4级警告（高级警告，推荐用于代码质量检查）
+    //  // /WX-: 警告不视为错误（设为/WX则警告当错误处理）
+    //  // /permissive-: 严格C++标准合规模式，禁用Microsoft扩展
+    //  // /EHsc: C++异常处理模型（同步异常，extern "C"函数不抛异常）
+    //  // /utf-8: 源代码和执行字符集都使用UTF-8编码
+    //  // /Zc:__cplusplus: 正确设置__cplusplus宏值
+    //  // /Zc:__STDC__: 在C模式下正确定义__STDC__宏
+    //  // /Gs: 启用堆栈保护，防止栈溢出攻击
+    //  // /guard:cf: 启用控制流保护，防止代码执行被篡改
+    //  // /Qspectre: 启用Spectre漏洞缓解措施
+    //  // /NXCOMPAT /DYNAMICBASE /GUARD:CF: 链接器选项，启用数据执行保护和地址空间布局随机化等安全特性
+    //  "CMAKE_CXX_FLAGS": "/W4 /WX- /permissive- /EHsc /utf-8 /GS /guard:cf /Qspectre", // W4高级警告，permissive-严格标准
+    //  "CMAKE_C_FLAGS": "/W4 /WX- /utf-8 /GS /guard:cf /Qspectre",
+    //  "CMAKE_EXE_LINKER_FLAGS": "/NXCOMPAT /DYNAMICBASE /GUARD:CF",
+    //  // 生成位置无关代码
+    //  "CMAKE_POSITION_INDEPENDENT_CODE": "ON",
     //  // 调试和开发相关设置
     //  "CMAKE_VERBOSE_MAKEFILE": "OFF",
     //  "CMAKE_COLOR_DIAGNOSTICS": "ON",
+    //  // LTO这个优化在MSVC下有问题，关掉
     //  // MSVC 特定优化
     //  "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreadedDLL", // Release用MD，Debug会自动用MDd
-    //  "CMAKE_VS_INCLUDE_INSTALL_TO_DEFAULT_BUILD": "ON",
+    //  "CMAKE_VS_INCLUDE_INSTALL_TO_DEFAULT_BUILD": "ON", // 在Visual Studio中包含安装目标
     //  // 并行编译
-    //  "CMAKE_BUILD_PARALLEL_LEVEL": "0"
-    // // Windows 动态库导出全部符号（.dll, .lib等）对于使用动态库来说必不可少
-    // "CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS": "ON",
+    //  "CMAKE_BUILD_PARALLEL_LEVEL": "0",
+    //  // Windows 动态库导出全部符号（.dll, .lib等）对于使用动态库来说必不可少
+    //  "CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS": "ON",
     // },
     "cmake.generator": "Ninja", // cmake的生成器为Ninja
     "cmake.preferredGenerators": [
