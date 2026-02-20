@@ -55,7 +55,6 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
     // -s: 删除符号表，进一步减小文件大小
     "CMAKE_CXX_FLAGS_MINSIZEREL": "-Os -DNDEBUG -ffunction-sections -fdata-sections",
     "CMAKE_C_FLAGS_MINSIZEREL": "-Os -DNDEBUG -ffunction-sections -fdata-sections",
-    // MinSizeRel链接器设置
     "CMAKE_EXE_LINKER_FLAGS_MINSIZEREL": "-Wl,--gc-sections -s",
     "CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL": "-Wl,--gc-sections -s",
     // 各构建类型均有的安全设置
@@ -82,8 +81,9 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
     // 并行编译设置 - 提高编译速度
     "CMAKE_BUILD_PARALLEL_LEVEL": "0", // 0表示使用所有可用CPU核心进行并行编译
     // IPO/LTO似乎有点问题就不启用了
-    // RPATH设置 - 确保运行时能找到共享库
+    // 还是设置下好...
     "CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS": "ON",
+    // RPATH设置 - 确保运行时能找到共享库
     "CMAKE_MACOSX_RPATH": "ON", // macOS RPATH设置
     "CMAKE_SKIP_BUILD_RPATH": "OFF", // 构建时保留RPATH
     "CMAKE_BUILD_WITH_INSTALL_RPATH": "OFF", // 构建时不使用安装RPATH
@@ -104,7 +104,8 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
   //   // 生成编译命令数据库，供clangd使用
   //   "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
   //   // 1. Debug 调试信息
-  //   // /Zi: 生成完整的调试信息（PDB格式）
+  //   // /Z7: 生成的对象文件还包含完整符号化调试信息（链接器传递 /Debug 可以把调试信息放到PDB（程序数据库）里）
+  //   // /Zi: 生成.pdb文件（对象文件不包含调试信息），推荐使用，最终的库和可执行文件更小
   //   // /Od: 禁用优化，确保代码按原始逻辑执行
   //   // /MDd: 使用多线程调试版DLL运行时库
   //   // /RTC1: 运行时错误检查（栈帧和未初始化变量）
@@ -146,6 +147,7 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
   //   "CMAKE_C_STANDARD_REQUIRED": "ON",
   //   // 各构建类型均有的安全及其他设置
   //   // /W4: 启用4级警告（高级警告，推荐用于代码质量检查）
+  //   // /Wall: 启用所有警告（包括一些冗长的警告，一般不推荐开启）
   //   // /WX-: 警告不视为错误（设为/WX则警告当错误处理）
   //   // /permissive-: 严格C++标准合规模式，禁用Microsoft扩展
   //   // /EHsc: C++异常处理模型（同步异常，extern "C"函数不抛异常）
@@ -302,6 +304,7 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
   "lldb.consoleMode": "split",
   "lldb.displayFormat": "auto", // 变量显示格式
   "lldb.launch.expressions": "native", // 表达式求值模式
+  "lldb.useNativePDBReader": true,
 
 ```
 
