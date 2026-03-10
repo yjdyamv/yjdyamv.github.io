@@ -1,21 +1,22 @@
 ---
 title: vscode-cmake-settings
 published: 2026-01-01
-description: ''
-image: ''
+description: ""
+image: ""
 tags: []
-category: ''
-draft: false 
-lang: 'zh-CN'
+category: ""
+draft: false
+lang: "zh-CN"
 ---
 
 cmake是一个C/C++的跨平台的构建工具，也是现在的事实标准，QT6、KDE、ROS2及其他知名库均开始采用cmake构建。
 
 cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefile、ninja及其他构建工具。而这些构建工具又会将它们自己的配置文件转换成编译器和链接器的参数供其调用。而cmake本身是没有什么预配置的，我们最好做些cmake构建的预配置才能让我们使用的方便，比如针对特定编译器的编译选项和调试选项等。
 
-```jsonc
+````jsonc
 // settings.json
-  // // 1. CMake设置 主要适用于[GCC/CLang](linux+win(ucrt64)) Clang(msvc)有点诡异
+{
+  // // 1. CMake设置 主要适用于[GCC/CLang](linux+win(ucrt64)) Clang(msvc)有点诡异 clang-cl可以接受以下的部分参数（
   "cmake.configureSettings": {
     // 定义Ninja Multi-Config列表 效果和传`-DCMAKE_CONFIGURATION_TYPES=Debug;Release;RelWithDebInfo;MinSizeRel`一样
     "CMAKE_CONFIGURATION_TYPES": [
@@ -25,7 +26,6 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
       "MinSizeRel",
     ],
     // 不指定构建模式，在插件界面选择
-    // "CMAKE_BUILD_TYPE": "Debug", // "Release" , "RelWithDebInfo" , "MinSizeRel"
     // 库默认生成静态库，除非指定为`add_library(mylib SHARED test.c)` 或以下的选项打开
     // "BUILD_SHARED_LIBS": "ON",
     // 生成编译命令数据库，供clangd使用
@@ -61,16 +61,16 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
     // -fstack-protector-strong: 强化的栈溢出保护
     // -D_FORTIFY_SOURCE=2: 编译时检测缓冲区溢出和其他常见的内存安全问题，
     // -fstack-clash-protection: 防止栈冲突攻击
-    "CMAKE_CXX_FLAGS": "-fstack-protector-strong -D_FORTIFY_SOURCE=2 -fstack-clash-protection",
-    "CMAKE_C_FLAGS": "-fstack-protector-strong -D_FORTIFY_SOURCE=2 -fstack-clash-protection",
+    // 编译器警告设置 - 启用全面的代码质量检查
+    // -Wall：常见警告 -Wextra：额外警告 -Wpedantic：严格标准合规警告 -Wconversion：隐式转换警告 -Wshadow：变量遮蔽警告
+    "CMAKE_CXX_FLAGS": "-fstack-protector-strong -D_FORTIFY_SOURCE=2 -fstack-clash-protection -Wall -Wextra -Wpedantic",
+    "CMAKE_C_FLAGS": "-fstack-protector-strong -D_FORTIFY_SOURCE=2 -fstack-clash-protection -Wall -Wextra -Wpedantic",
     // C/C++标准设置
     "CMAKE_CXX_STANDARD": "23", // 98 11 14 17 20 23 26
     "CMAKE_C_STANDARD": "23", // 90 99 11 17 23
     "CMAKE_CXX_STANDARD_REQUIRED": "ON", // 强制要求指定的C++标准，如果不支持则编译失败
     "CMAKE_C_STANDARD_REQUIRED": "ON", // 同上
-    // 编译器警告设置 - 启用全面的代码质量检查
-    // "CMAKE_CXX_FLAGS": "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wconversion -Wshadow",  // -Wall:常见警告 -Wextra:额外警告 -Wpedantic:严格标准合规警告 -Wconversion 隐式转换警告 -Wshadow 变量遮蔽警告
-    // "CMAKE_C_FLAGS": "${CMAKE_C_FLAGS} -Wall -Wextra -Wpedantic -Wconversion -Wshadow",      // 同上，针对C语言代码
+    // 另：-Werror：将warning视作error
     // 显示详细的编译信息 - 用于调试构建过程
     "CMAKE_VERBOSE_MAKEFILE": "OFF", // 设为ON可以看到完整的编译命令，用于调试构建问题，一般设置为OFF即可
     // 着色输出设置 - 让编译错误和警告信息更易读
@@ -81,15 +81,17 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
     // 并行编译设置 - 提高编译速度
     "CMAKE_BUILD_PARALLEL_LEVEL": "0", // 0表示使用所有可用CPU核心进行并行编译
     // IPO/LTO似乎有点问题就不启用了
-    // 还是设置下好...
+    // 关于windows上的动态库符号导出还是设置下好...
     "CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS": "ON",
-    // RPATH设置 - 确保运行时能找到共享库
+    // RPATH(RUNTIME PATH)设置 - 确保运行时能找到共享库 // 在win上无用
     "CMAKE_MACOSX_RPATH": "ON", // macOS RPATH设置
     "CMAKE_SKIP_BUILD_RPATH": "OFF", // 构建时保留RPATH
     "CMAKE_BUILD_WITH_INSTALL_RPATH": "OFF", // 构建时不使用安装RPATH
     "CMAKE_INSTALL_RPATH_USE_LINK_PATH": "ON", // 安装时使用链接路径
+    // 由于我的RPATH设置为lib，所以`LIBRARY DESTINATION`也得设置为`lib`，否则找不到.so / .dynlib
+    "CMAKE_INSTALL_RPATH": "$ORIGIN/../lib", // 安装时的RPATH设置，$ORIGIN表示可执行文件所在目录
   },
-  // // 2. CMake设置 适用于MSVC/clang-cl(msvc) clang-cl可以接受大部分MSVC选项，及部分gcc/clang
+  // // 2. CMake设置 适用于MSVC/clang-cl(msvc) clang-cl可以接受大部分MSVC选项，及部分gcc/clang选项
   // // cl选项以"/"或"-"开头，都可以
   // "cmake.configureSettings": {
   //   // 定义Ninja Multi-Config列表 效果和传`-DCMAKE_CONFIGURATION_TYPES=Debug;Release;RelWithDebInfo;MinSizeRel`一样
@@ -100,7 +102,6 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
   //     "MinSizeRel",
   //   ],
   //   // 不指定构建模式，在插件界面选择
-  //   // "CMAKE_BUILD_TYPE": "Debug", // "Release" , "RelWithDebInfo"
   //   // 生成编译命令数据库，供clangd使用
   //   "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
   //   // 1. Debug 调试信息
@@ -163,32 +164,44 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
   //   // 生成位置无关代码
   //   "CMAKE_POSITION_INDEPENDENT_CODE": "ON",
   //   // 调试和开发相关设置
-  //   "CMAKE_VERBOSE_MAKEFILE": "OFF",
+  //   "CMAKE_VERBOSE_MAKEFILE": "OFF", // 设为ON可以看到完整的编译命令，用于调试构建问题，一般设置为OFF即可
   //   "CMAKE_COLOR_DIAGNOSTICS": "ON",
   //   // LTO/IPO这个优化在MSVC下有问题，关掉
-  //   // MSVC 特定优化
-  //   "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreadedDLL", // Release用MD，Debug会自动用MDd
+  //   // MSVC 特定
   //   "CMAKE_VS_INCLUDE_INSTALL_TO_DEFAULT_BUILD": "ON", // 在Visual Studio中包含安装目标
   //   // 并行编译
   //   "CMAKE_BUILD_PARALLEL_LEVEL": "0",
   //   // Windows 动态库导出全部符号（.dll, .lib等）对于使用动态库来说必不可少
   //   "CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS": "ON",
+  //   // 防止找不到dll，所以把dll也放在bin目录下，即设置 `LIBRARY DESTINATION`为`bin`
+  //   // win上RPath无效，不设置了
   // },
+
+  // // cmake install 示例
+  // // ```
+  // // install(TARGETS "testc" "hello_lib"
+  // //   RUNTIME DESTINATION bin   # 可执行文件和DLL
+  // //   LIBRARY DESTINATION lib   # 非Windows系统的共享库（如.so），Windows上DLL属于RUNTIME
+  // //   ARCHIVE DESTINATION lib   # 静态库和导入库
+  // // )
+  // // ```
+
   "cmake.buildDirectory": "${workspaceFolder}/build",
   "cmake.generator": "Ninja Multi-Config", // cmake的生成器为Ninja Multi-Config
   "cmake.preferredGenerators": [
     "Ninja Multi-Config", // 优先使用Ninja Multi-Config/Ninja 快且跨平台
     "Ninja", // Ninja单配置
-    "Unix Makefiles", // 类Unix makefile
-    "NMake Makefiles", // Windows NMake
-    "MinGW Makefiles", // Windows MinGW make
-    // "Visual Studio 18 2026"
+    // "Unix Makefiles", // 类Unix makefile
+    // "NMake Makefiles", // Windows NMake
+    // "MinGW Makefiles", // Windows MinGW make
+    // "Visual Studio 18 2026" // 生成vs工程文件，版本有点多（
   ],
   "cmake.configureOnOpen": false, // 打开文件夹不自动构建
   "cmake.buildBeforeRun": true, // 运行前自动构建
   "cmake.clearOutputBeforeBuild": true, // 构建前清除输出
   "cmake.launchBehavior": "reuseTerminal",
-  "cmake.installPrefix": "./bin",
+  "cmake.installPrefix": "install",
+
   // // 1.适用于GCC/Clang的调试
   // // 1.1.1 使用GDB(MS C/C++ Extension)
   // "cmake.debugConfig": {
@@ -241,7 +254,7 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
   // // 1.2 使用LLDB
   "cmake.debugConfig": {
     "type": "lldb",
-    // "MIMode": "lldb", // 哥们，必不可少啊，不然默认是gdb(~~呜呜，有点玄幻)
+    "MIMode": "lldb", // 不然默认是gdb(~~呜呜，有点玄幻)，这个本来不是codelldb的，可恶的ms
     "cwd": "${workspaceFolder}",
     "environment": [],
     "console": "integratedTerminal",
@@ -275,13 +288,13 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
     ],
   },
   // // 2. 适用于MSVC的调试
-  // // 使用MSVC的调试器
+  // // 调试MSVC编译的项目相比于lldb体验更好（毕竟是亲儿子
   // "cmake.debugConfig": {
-  //  "type": "cppvsdbg", // 使用VS的调试器
-  //  "cwd": "${workspaceFolder}",
-  //  "environment": [],
-  //  "console": "integratedTerminal",
-  //  "stopAtEntry": true
+  // 	"type": "cppvsdbg", // 使用VS的调试器
+  // 	"cwd": "${workspaceFolder}",
+  // 	"environment": [],
+  // 	"console": "integratedTerminal",
+  // 	"stopAtEntry": true
   // },
 
   // lldb插件相关设置
@@ -305,7 +318,7 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
   "lldb.displayFormat": "auto", // 变量显示格式
   "lldb.launch.expressions": "native", // 表达式求值模式
   "lldb.useNativePDBReader": true,
-
-```
+}
+````
 
 如上是对cmake的编译选项及调试的设置
