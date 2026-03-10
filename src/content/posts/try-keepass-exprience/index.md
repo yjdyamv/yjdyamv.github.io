@@ -31,6 +31,8 @@ lang: "zh-CN"
     - [strongbox](https://strongboxsafe.com/)
     - [keepassium](https://keepassium.com/)
 
+em，近来keyguard也开始beta支持keepass了，值得期待
+
 ## 离线
 
 有的是不带云同步（纯离线）、有的是带webdav等其他方式同步。
@@ -53,3 +55,11 @@ lang: "zh-CN"
   - 质询响应
 
 对于密码库版本主流有KDBX3和KDBX4两版本，无脑选后者即可。对于数据库加密算法没什么可说的，都很好。KDF算法选Argon2id即可。对于数据库凭证，三者都可以添加以保证安全性，其中密钥文件是任意一个文件即可，或者由keepassXC生成也行，必须保证内容不变，对于质询响应就是插入yubikey等物理密钥。
+
+![KeepassXC生成的密钥文件](./keepassXC-gen-private-key-file.png)
+
+![](./kdbx-setting.png)
+![](./keepassXC-gen-private-key-file.png)
+![](./keepassXC-add-item.png)
+![](./keepassXC-set-TOTP.png)
+![](./keepassXC-set-TOTP-secret.png)
