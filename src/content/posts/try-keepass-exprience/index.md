@@ -59,7 +59,6 @@ em，近来keyguard也开始beta支持keepass了，值得期待
 ![KeepassXC生成的密钥文件](./keepassXC-gen-private-key-file.png)
 
 ![](./kdbx-setting.png)
-![](./keepassXC-gen-private-key-file.png)
 ![](./keepassXC-add-item.png)
 ![](./keepassXC-set-TOTP.png)
 ![](./keepassXC-set-TOTP-secret.png)
