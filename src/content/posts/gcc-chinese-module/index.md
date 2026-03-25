@@ -1,6 +1,6 @@
 ---
-title: cmake-locale-unix
-published: 2026-03-08
+title: gcc-chinese-module
+published: 2026-03-25
 description: ''
 image: ''
 tags: []
@@ -9,17 +9,7 @@ draft: false
 lang: 'zh-CN'
 ---
 
-近来使用cmake的时候在调整`cmake_minimum_required`的时候发现了些现象和一些当前cmake主线上还在处理的issue
-
-首先是`cmake_minimum_required`的用法，一般放在`CMakeLists.txt`的开头来规定cmake的版本
-
-```cmake
-cmake_minimum_required(VERSION 3.15.0)
-```
-
-然而这个名字本身也挺有意思的，“最小版本”这个本身也挺耐人寻味的，那版本不同会引发什么呢？常用的`3.15`、`3.23`版本试了没什么，换成`4.1.0`时发现支持了`module`（构建输出的东西不同了）。以上是我在windows上试验的，而在linux上我试验的时候发现了点问题。
-
-切到linux上时，`cmake_minimum_required`设置为了`4.1.0`，构建报错了
+近来使用gcc和cmake时遇到gcc无法处理中文路径的问题。报错如下。
 
 ```log
 [build] Starting build
@@ -37,4 +27,12 @@ cmake_minimum_required(VERSION 3.15.0)
 [build] Build finished with exit code 1
 ```
 
-而在我之前的`3.10`没有这个问题。经确认是中文路径的问题，`3.27`以下不会触发这个问题。那么有没有办法解决呢？直接的方法是将项目移动到其他位置，使路径不包含中文。经过搜索这是cmake还在解决的一个[issue](https://gitlab.kitware.com/cmake/cmake/-/issues/27562)，计划于`4.3.0`完成。
+经过试验，设置`cmake_minimum_required`为`3.27`以上并将`CMAKE_CXX_STANDARD`设置为`20`以上会开启对`module`的支持，这就是错误的原因，gcc scan module deps有问题：处理带中文路径失败。以下方法均可解决问题。
+
+- 设置`cmake_minimum_required`为`3.27`及以下
+- 设置`CMAKE_CXX_SCAN_FOR_MODULES`为`OFF`
+- 使用`MSVC`或`clang`
+
+其中前两种方法都是关闭`cmake`对`module`的支持，第三种方法是`MSVC`或`clang`没有这个问题。
+
+另外的，近来`GCC`已经有人针对这个问题提了个[issue](https://gcc.gnu.org/bugzilla/show_bug.cgi?id=120458)，并有[patch](https://gcc.gnu.org/pipermail/gcc-patches/2026-February/709351.html)了，只能期待在版本号到`16`时会到`release`上。
