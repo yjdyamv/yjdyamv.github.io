@@ -14,7 +14,6 @@ cmake是一个C/C++的跨平台的构建工具，也是现在的事实标准，Q
 cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefile、ninja及其他构建工具。而这些构建工具又会将它们自己的配置文件转换成编译器和链接器的参数供其调用。而cmake本身是没有什么预配置的，我们最好做些cmake构建的预配置才能让我们使用的方便，比如针对特定编译器的编译选项和调试选项等。
 
 ````jsonc
-// settings.json
 {
   // // 1. CMake设置 主要适用于[GCC/CLang](linux+win(ucrt64)) Clang(msvc)有点诡异 clang-cl可以接受以下的部分参数（
   "cmake.configureSettings": {
@@ -33,16 +32,21 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
     // 1. Debug版本
     // 为C/C++调试版本添加调试信息，使用DWARF-5格式
     // -g: 生成调试信息
+    // -O0: 禁用优化（以后不许更改）
     // -gdwarf-5是最新的
     // -fdiagnostics-color=always: 编译器输出彩色诊断信息
     // -fno-omit-frame-pointer: 保留帧指针，便于堆栈跟踪和性能分析工具（如perf）获取完整的调用栈
-    "CMAKE_CXX_FLAGS_DEBUG": "-g -O1 -gdwarf-5 -fdiagnostics-color=always -fno-omit-frame-pointer",
-    "CMAKE_C_FLAGS_DEBUG": "-g -O1 -gdwarf-5 -fdiagnostics-color=always -fno-omit-frame-pointer",
+    "CMAKE_CXX_FLAGS_DEBUG": "-g -O0 -gdwarf-5 -fdiagnostics-color=always -fno-omit-frame-pointer",
+    "CMAKE_C_FLAGS_DEBUG": "-g -O0 -gdwarf-5 -fdiagnostics-color=always -fno-omit-frame-pointer",
     // 2. Release版本优化
     // -O3: 启用最高级别的优化（内联、循环展开、向量化等），显著提升性能但编译时间增长
     // -DNDEBUG: 禁用assert宏，减少运行时开销（assert在Release版本应该被禁用）
-    "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG",
-    "CMAKE_C_FLAGS_RELEASE": "-O3 -DNDEBUG",
+    // 安全选项（可选）
+    // -fstack-protector-strong: 强化的栈溢出保护
+    // -D_FORTIFY_SOURCE=2: 编译时检测缓冲区溢出和其他常见的内存安全问题，
+    // -fstack-clash-protection: 防止栈冲突攻击
+    "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG -fstack-protector-strong -D_FORTIFY_SOURCE=2 -fstack-clash-protection",
+    "CMAKE_C_FLAGS_RELEASE": "-O3 -DNDEBUG -fstack-protector-strong -D_FORTIFY_SOURCE=2 -fstack-clash-protection",
     // 3. RelWithDebInfo版本（推荐用于性能分析）
     "CMAKE_CXX_FLAGS_RELWITHDEBINFO": "-O2 -g -gdwarf-5",
     "CMAKE_C_FLAGS_RELWITHDEBINFO": "-O2 -g -gdwarf-5",
@@ -57,20 +61,16 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
     "CMAKE_C_FLAGS_MINSIZEREL": "-Os -DNDEBUG -ffunction-sections -fdata-sections",
     "CMAKE_EXE_LINKER_FLAGS_MINSIZEREL": "-Wl,--gc-sections -s",
     "CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL": "-Wl,--gc-sections -s",
-    // 各构建类型均有的安全设置
-    // -fstack-protector-strong: 强化的栈溢出保护
-    // -D_FORTIFY_SOURCE=2: 编译时检测缓冲区溢出和其他常见的内存安全问题，
-    // -fstack-clash-protection: 防止栈冲突攻击
     // 编译器警告设置 - 启用全面的代码质量检查
     // -Wall：常见警告 -Wextra：额外警告 -Wpedantic：严格标准合规警告 -Wconversion：隐式转换警告 -Wshadow：变量遮蔽警告
-    "CMAKE_CXX_FLAGS": "-fstack-protector-strong -D_FORTIFY_SOURCE=2 -fstack-clash-protection -Wall -Wextra -Wpedantic",
-    "CMAKE_C_FLAGS": "-fstack-protector-strong -D_FORTIFY_SOURCE=2 -fstack-clash-protection -Wall -Wextra -Wpedantic",
+    // 另：-Werror：将warning视作error
+    "CMAKE_CXX_FLAGS": "-Wall -Wextra -Wpedantic",
+    "CMAKE_C_FLAGS": "-Wall -Wextra -Wpedantic",
     // C/C++标准设置
     "CMAKE_CXX_STANDARD": "23", // 98 11 14 17 20 23 26
     "CMAKE_C_STANDARD": "23", // 90 99 11 17 23
     "CMAKE_CXX_STANDARD_REQUIRED": "ON", // 强制要求指定的C++标准，如果不支持则编译失败
     "CMAKE_C_STANDARD_REQUIRED": "ON", // 同上
-    // 另：-Werror：将warning视作error
     // 显示详细的编译信息 - 用于调试构建过程
     "CMAKE_VERBOSE_MAKEFILE": "OFF", // 设为ON可以看到完整的编译命令，用于调试构建问题，一般设置为OFF即可
     // 着色输出设置 - 让编译错误和警告信息更易读
@@ -90,6 +90,9 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
     "CMAKE_INSTALL_RPATH_USE_LINK_PATH": "ON", // 安装时使用链接路径
     // 由于我的RPATH设置为lib，所以`LIBRARY DESTINATION`也得设置为`lib`，否则找不到.so / .dynlib
     "CMAKE_INSTALL_RPATH": "$ORIGIN/../lib", // 安装时的RPATH设置，$ORIGIN表示可执行文件所在目录
+    // 不启用模块的功能
+    // 这对编译器有要求，然而GCC对含有中文字符的模块/头文件的路径处理不好，故禁用
+    "CMAKE_CXX_SCAN_FOR_MODULES": "OFF",
   },
   // // 2. CMake设置 适用于MSVC/clang-cl(msvc) clang-cl可以接受大部分MSVC选项，及部分gcc/clang选项
   // // cl选项以"/"或"-"开头，都可以
@@ -290,11 +293,11 @@ cmake是构建工具的构建工具。cmake可以生成 VS工程文件、makefil
   // // 2. 适用于MSVC的调试
   // // 调试MSVC编译的项目相比于lldb体验更好（毕竟是亲儿子
   // "cmake.debugConfig": {
-  // 	"type": "cppvsdbg", // 使用VS的调试器
-  // 	"cwd": "${workspaceFolder}",
-  // 	"environment": [],
-  // 	"console": "integratedTerminal",
-  // 	"stopAtEntry": true
+  //  "type": "cppvsdbg", // 使用VS的调试器
+  //  "cwd": "${workspaceFolder}",
+  //  "environment": [],
+  //  "console": "integratedTerminal",
+  //  "stopAtEntry": true
   // },
 
   // lldb插件相关设置
