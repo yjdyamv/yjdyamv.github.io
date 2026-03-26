@@ -27,7 +27,7 @@ lang: 'zh-CN'
 
 附上我个人密码及2FA备份的策略，如下图
 
-![backup-password-and-2FA](./backup-password-and-2FA.png)
+![backup-password-and-2FA](./my-backup-stratger.png)
 
 ## 致谢
 
