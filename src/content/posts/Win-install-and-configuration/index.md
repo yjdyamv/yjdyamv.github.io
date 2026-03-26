@@ -25,7 +25,7 @@ lang: 'zh-CN'
 
 到选择系统语言的界面后，shift + F10打开命令界面，使用以下命令断网安装（第一个不行就换第二个）
 
-```
+```powershell
 # 第一个
 oobe\bypassnro
 # 第二个
@@ -97,10 +97,19 @@ Write-Host "环境配置完成！"
 
 ## 常用软件下载
 
-- 截图贴图工具：[snipaste](https://zh.snipaste.com/)
+- 截图贴图工具：[snipaste](https://zh.snipaste.com/) / [flameshot](https://flameshot.org/)
 - 局域网文件传输：[localsend](https://localsend.org/) 有些玩意比较私密，不想走微信
 - 火绒：[官网](https://www.huorong.cn/) ~~作用是关闭`windows defender`~~
 - 文本编辑器：[vscode](https://code.visualstudio.com/) 一个code写天下
+- pdf阅读器： [Okular](https://okular.kde.org/zh-cn/)
+- 中州输入法：[小狼毫](https://rime.im/)
+  - rime词库：[雾凇拼音](https://github.com/iDvel/rime-ice)
+- 代理软件：[Clash-verge-rev](https://github.com/clash-verge-rev/clash-verge-rev/)
+- 文件搜索工具：[Everything](https://www.voidtools.com/zh-cn/support/everything/)
+- 媒体播放器：[VLC](https://www.videolan.org/vlc/index.zh_CN.html)
+- 剪切板管理器：[Ditto](https://github.com/sabrogden/Ditto)
+- 密码管理器：[Bitwarden 浏览器插件](https://github.com/bitwarden/clients) [KeepassXC](https://keepassxc.org/)
+- 浏览器：[Firefox企业版](https://www.firefox.com/zh-CN/browsers/enterprise/) [Chrome企业版](https://chromeenterprise.google/intl/zh_cn/download/) [Chrome国内](https://www.google.cn/intl/zh-CN/chrome/)
 
 _有时候那些下载的破解软件的补丁软件可能会被windows defender删去，关闭它，防止它乱删软件_
 
@@ -131,7 +140,7 @@ _有时候那些下载的破解软件的补丁软件可能会被windows defender
 sed -i "s#https\?://mirror.msys2.org/#https://mirror.nju.edu.cn/msys2/#g" /etc/pacman.d/mirrorlist*
 ```
 
-3. 安装GCC等
+1. 安装GCC等
 
 ```bash
 pacman -Sy
