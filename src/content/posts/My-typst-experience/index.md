@@ -37,7 +37,7 @@ lang: 'zh-CN'
 LUG群里有位大佬——[OrangeX4](https://github.com/OrangeX4) (之后就知道他为啥是大佬了)，我在搜索typst后看到了方橙大大写的[知乎文章](https://zhuanlan.zhihu.com/p/669097092),其中对typst的使用体验进行了描述，其中对typst进行了客观详实的描述，尤其是这几点很吸引我：
 
 - typst编译快，基本相当实时预览
-- typst有包管理，本地开发无需下载所有包（说的就是你，texlive）
+- typst本地开发无需下载所有包（说的就是你，texlive）
 - typst报错可读性好，latex的报错可读性差
 - 现代的编程语言，latex是宏语言
 - 制作模板的能力强
