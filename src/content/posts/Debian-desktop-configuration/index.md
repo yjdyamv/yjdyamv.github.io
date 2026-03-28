@@ -289,31 +289,31 @@ debian13以上可以直接`sudo apt install rustup`，然后使用`rustup instal
 
 ### nodejs
 
-- 使用[`volta`](https://volta.sh/)(推荐,速度快)：
-  - 安装volta
+- 使用[`mise`](https://mise.jdx.dev/)(推荐,速度快)：
+  - 安装mise
 
 ```bash
-curl https://get.volta.sh | bash 
+curl https://mise.run | sh
 ```
 
-- volta换源：修改`~/.volta/hooks.json`
+- volta换源：修改`~/.config/mise/config.toml` 或者执行以下命令
 
-```plaintext
-# ~/.volta/hooks.json
-{
-"node": {
-    "index": {
-        "template": "https://mirror.nju.edu.cn/nodejs-release/index.json"
-        },
-        "distro": {
-            "template": "https://mirror.nju.edu.cn/nodejs-release/v{{version}}/{{filename}}"
-        }
-    }
-}
+```bash
+mise settings node.mirror_url=https://mirrors.ustc.edu.cn/node/
 ```
 
-- 安装node `volta install node`
-- 安装pnpm、yarn等包管理 `volta install corepack`
+```toml
+# ~/.config/mise/config.toml
+[settings]
+
+[settings.node]
+mirror_url = "https://mirrors.ustc.edu.cn/node/"
+
+[tools]
+node = "24"
+```
+
+- 安装node `mise install node@24` 并设置全局node为24版 `mise use -g node@24`
 - npm换源：使用淘宝源
 
 ```bash

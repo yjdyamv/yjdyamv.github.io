@@ -157,6 +157,16 @@ pacman -Sy mingw-w64-ucrt-x86_64-rustup
 rustup install stable-x86_64-pc-windows-gnu
 ```
 
+### Node.js
+
+使用mise管理
+
+```powershell
+winget install jdx.mise
+```
+
+换源与全局设置等详见 [Debian配置](../Debian-desktop-configuration/index.md/)的Nodejs一节
+
 ## 尾声
 
 windows相比于linux的环境配置还是麻烦些的，在win上奇妙小问题可能很多，不过却是最常见的系统，拥有最广泛的支持。
