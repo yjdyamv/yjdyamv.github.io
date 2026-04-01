@@ -1,0 +1,27 @@
+---
+title: PowerShell配置
+date: 2025-11-08
+tags: []
+categories: '日常配置'
+---
+
+对于Win上的powershell有关配置值得说明一下
+
+- 现在推荐使用微软维护的最新版[Powershell](https://github.com/PowerShell/PowerShell/releases/)。win自带的powershell是个老旧版本。也可使用`winget`下载 `winget install Microsoft.PowerShell`。
+- 且终端推荐使用[WindowsTerminal](https://github.com/microsoft/terminal/)
+- 使用[ohmyposh](https://ohmyposh.dev/) 安装
+
+```pwsh
+winget install JanDeDobbeleer.OhMyPosh --source winget
+# 没有winget 就手动下载
+# Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://ohmyposh.dev/install.ps1'))
+```
+
+- 设置powershell的配置文件
+
+```pwsh
+# ohmyposh 以某一主题启动
+oh-my-posh init pwsh --config "powerlevel10k_classic" | Invoke-Expression
+```
+
+- 设置Powershell的终端字体，比如为Maple Momo CN NF，并将Windows Terminal的默认终端设置为之前下载的pwsh

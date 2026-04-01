@@ -1,0 +1,3 @@
+baseURL = 'https://blog.yamv.uk/'
+locale = 'zh-CN'
+title = '我的博客'
