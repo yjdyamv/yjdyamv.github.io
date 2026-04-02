@@ -30,24 +30,22 @@ Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 # Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
 ```
 
-:::note
-换源后记得升级包哦
+> [!note]
+> 换源后记得升级包哦
+>
+> `sudo apt update && sudo apt upgrade`升级包
+>
 
-`sudo apt update && sudo apt upgrade`升级包
-:::
-
-:::note
-**升级系统版本到测试版的方法**
-
-1. 换源至测试版
-2. 最小更新 `sudo apt upgrade --without-new-pkgs`
-3. 重启
-4. 中等更新 `sudo apt upgrade`
-5. 重启
-6. 全面更新 `sudo apt full-upgrade`
-7. 重启， `sudo apt update && sudo apt upgrade`
-
-:::
+> [!note]
+> **升级系统版本到测试版的方法**
+>
+> 1. 换源至测试版
+> 2. 最小更新 `sudo apt upgrade --without-new-pkgs`
+> 3. 重启
+> 4. 中等更新 `sudo apt upgrade`
+> 5. 重启
+> 6. 全面更新 `sudo apt full-upgrade`
+> 7. 重启， `sudo apt update && sudo apt upgrade`
 
 ## 常用下载
 
@@ -90,27 +88,26 @@ cd rime
 git pull
 ```
 
-:::note
-**防止在vscode里用不了中文**
-
-环境设置,在位置`/etc/environment`输入以下内容，参考了此[博客帖子](https://blog.dimeta.top/archives/kdexia-shu-ru-fa-pei-zhi-de-xiao-xi-jie)
-
-```plaintext
-#
-# This file is parsed by pam_env module
-#
-# Syntax: simple "KEY=VAL" pairs on separate lines
-#
-XIM=fcitx5
-XIM_PROGRAM=fcitx5
-GTK_IM_MODULE=fcitx5
-QT_IM_MODULE=fcitx5
-XMODIFIERS=@im=fcitx5
-SDL_IM_MODULE=fcitx5
-GLFW_IM_MODULE=fcitx5
-```
-
-:::
+> [!note]
+> **防止在vscode里用不了中文**
+> 
+> 环境设置,在位置`/etc/environment`输入以下内容，参考了此[博客帖子](https://blog.dimeta.top/archives/kdexia-shu-ru-fa-pei-zhi-de-xiao-xi-jie)
+> 
+> ```plaintext
+> #
+> # This file is parsed by pam_env module
+> #
+> # Syntax: simple "KEY=VAL" pairs on separate lines
+> #
+> XIM=fcitx5
+> XIM_PROGRAM=fcitx5
+> GTK_IM_MODULE=fcitx5
+> QT_IM_MODULE=fcitx5
+> XMODIFIERS=@im=fcitx5
+> SDL_IM_MODULE=fcitx5
+> GLFW_IM_MODULE=fcitx5
+> ```
+> 
 
 ## flatpak
 
@@ -203,9 +200,8 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract web-search)
 
 下载插件: `clangd`, `ms-python`, `pylance`, `xmake`，`rust-analyzer`，`remote-ssh(code)/open remote-ssh(codium)`等。
 
-:::note
-**可以登陆github账户以同步`setting.json`及插件。**
-:::
+> [!note]
+> **可以登陆github账户以同步`setting.json`及插件。**
 
 ### c/cpp
 
@@ -221,24 +217,20 @@ sudo apt install build-essential clang clangd
 sudo apt install xmake cmake meson
 ```
 
-:::note
-`xmake`在`trixie（debian13）`及以后可以直接`sudo apt install xmake`安装
-:::
+> [!info]
+> `xmake`在`trixie（debian13）`及以后可以直接`sudo apt install xmake`安装
 
 ### python
 
 1. 下载并安装[miniforge](https://mirrors.nju.edu.cn/github-release/conda-forge/miniforge/)
 
-    :::note
-    注意此处不要手快回车了，输入`yes`来进行`conda init`。目的是将设置环境变量及conda环境激活脚本终端在打开时执行。
-    ![conda-init](./conda-init.png)
-    要是回车了也有补救办法：
-
-    ```bash
-    ~/miniforge3/bin/conda init zsh $$ ~/miniforge3/bin/mamba shell init
-    ```
-
-    :::
+    > note
+    > 注意此处不要手快回车了，输入`yes`来进行`conda init`。目的是将设置环境变量及conda环境激活脚本终端在打开时执行。
+    > ![conda-init](./conda-init.png)
+    > 要是回车了也有补救办法：
+    > ```bash
+    > ~/miniforge3/bin/conda init zsh $$ ~/miniforge3/bin/mamba shell init
+    > ```
 
 2. conda换源：
 `conda config --set show_channel_urls yes`来生成`.condarc`,其内容修改为如下。
@@ -279,9 +271,8 @@ pip config set global.index-url https://mirror.nju.edu.cn/pypi/web/simple
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     ```
 
-:::note
-debian13以上可以直接`sudo apt install rustup`，然后使用`rustup install stable`来下载工具链
-:::
+> [!info]
+> debian13以上可以直接`sudo apt install rustup`，然后使用`rustup install stable`来下载工具链
 
 ### nodejs
 
@@ -322,11 +313,10 @@ npm config set registry https://registry.npmmirror.com
 
 我保存在`Bitwarden`里了哈。直接复制到`~/.ssh/id_25519`和`~/.ssh/id_25519.pub`就行。
 
-:::note
-提一嘴哈，也可以使用`ssh-keygen -t ed25519`命令。ed25519的好处是公钥短，计算快，强度也不低，大致相当于rsa3072位的强度，并且大多的git仓库服务基本都支持此算法，如[github](https://github.com)、[gitea](https://gitea.com)、[gitlab](https://gitlab.com)等。如果想换用RSA算法可以使用此命令`ssh-keygen -t rsa`加上`-b 4096`可以指定4096位数，ed25519就不用指定位数了（其实也指定不了，因为定死了）。
-
-ed25519算法在OpenSSH 6.5 时引入，在 9.5 时成为默认算法，此前RSA为默认算法。有些机器系统可能很老，OpenSSH版本低则可能不支持ed25519，这时就得用RSA密钥了。RSA可以调整密钥位数，ed25519不能。RSA已经有对应的量子算法破解（不过这得等待量子计算机建设的发展了，现在的量子计算机还没有多少量子比特）。RSA的好处是兼容性好、灵活性好，但安全性有所降低。
-:::
+> [!note]
+>提一嘴哈，也可以使用`ssh-keygen -t ed25519`命令。ed25519的好处是公钥短，计算快，强度也不低，大致相当于rsa3072位的强度，并且大多的git仓库服务基本都支持此算法，如[github](https://github.com)、[gitea](https://gitea.com)、[gitlab](https://gitlab.com)等。如果想换用RSA算法可以使用此命令`ssh-keygen -t rsa`加上`-b 4096`可以指定4096位数，ed25519就不用指定位数了（其实也指定不了，因为定死了）。
+>
+> ed25519算法在OpenSSH 6.5 时引入，在 9.5 时成为默认算法，此前RSA为默认算法。有些机器系统可能很老，OpenSSH版本低则可能不支持ed25519，这时就得用RSA密钥了。RSA可以调整密钥位数，ed25519不能。RSA已经有对应的量子算法破解（不过这得等待量子计算机建设的发展了，现在的量子计算机还没有多少量子比特）。RSA的好处是兼容性好、灵活性好，但安全性有所降低。
 
 ### username & email
 

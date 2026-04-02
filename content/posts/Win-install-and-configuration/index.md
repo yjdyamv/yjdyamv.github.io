@@ -32,13 +32,12 @@ start ms-cxh:localonly
 
 随后可能会经历多次重启，直到安装完成。
 
-:::note
-激活win：[HEU_KMS_Activator](https://github.com/zbezj/HEU_KMS_Activator/releases)
-
-解压缩用[7zip](https://7-zip.org)吧（不知道为啥win11的文件管理器解压不了rar文件 你还能有微软聪明.jpg）
-
-**记得关闭windows安全中心**
-:::
+> [!note]
+> 激活win：[HEU_KMS_Activator](https://github.com/zbezj/HEU_KMS_Activator/releases)
+> 
+> 解压缩用[7zip](https://7-zip.org)吧（不知道为啥win11的文件管理器解压不了rar文件 你还能有微软聪明.jpg）
+> 
+> **记得关闭windows安全中心**
 
 ## 环境配置
 
@@ -121,9 +120,10 @@ _有时候那些下载的破解软件的补丁软件可能会被windows defender
 
 安装[vs](https://visualstudio.microsoft.com/zh-hans/)，安装勾选`c/c++开发`即可下载`MSVC`。
 
-:::note
-我也不想下载MSVC，但rust在win上默认依赖MSVC。~~毕竟是win的地盘~~
-:::
+> [!note]
+> 我也不想下载MSVC，但rust依赖c的工具链。~~毕竟是win的地盘~~
+>
+> 当然也可以使用windows-gnu的工具链，这样rust工具链也要使用gnu工具链
 
 #### MSYS2
 

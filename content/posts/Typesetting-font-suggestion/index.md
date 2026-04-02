@@ -25,9 +25,8 @@ categories: '随意杂谈'
 
 "Source Han"是adobe家的，Noto是google家的，Sim开头的是中易家的。前两者可以说是一个字体两个名字，后者因为自带于word和wps等排版软件中所以常用，甚至于在行距段距等方面均成为事实标准，写毕业论文要求的“宋体”就是它（无奈）。
 
-:::note
-还有一点，就是有些字体没有加粗，只能用伪粗体，中易说的就是你。实际上word/wps、latex和typst遇上了这玩意的加粗用的都是伪粗体，而思源则可以正常加粗。至于英文里的斜体，中文里常用楷体或仿宋来表示强调。楷体和仿宋是中文所特有的。
-:::
+> [!note]
+> 还有一点，就是有些字体没有加粗，只能用伪粗体，中易说的就是你。实际上word/wps、latex和typst遇上了这玩意的加粗用的都是伪粗体，而思源则可以正常加粗。至于英文里的斜体，中文里常用楷体或仿宋来表示强调。楷体和仿宋是中文所特有的。
 
 思源/Noto系列字体可以在镜像站里下载。开源字体均可以在github上下载，如思源/noto、IBM Plex、Maple Mono、JetBrains Mono。而至于那些对个人和商业免费的字体可以去官网或第三方网站下载。
 
@@ -37,10 +36,8 @@ categories: '随意杂谈'
 
 数学字体：`New Computer Modern Math`:(开源免费，[TexFont](https://ctan.org/tex-archive/fonts/newcomputermodern)，由CTAN开源)、`Libertinus Math`(开源免费，[https://github.com/alerque/libertinus](https://github.com/alerque/libertinus))、`Cambria Math`:(微软开发，默认搭载上)
 
-:::note
-有时候我们想安装一个文件夹下的所有字体
-
-- Debian
-把该字体文件夹放在`~/.local/share/fonts`文件夹下（如果没有就创建），随后执行`fc-cache -f -r -v`更新字体缓存。
-
-:::
+> [!note]
+> 有时候我们想安装一个文件夹下的所有字体
+> 
+> - Debian
+> 把该字体文件夹放在`~/.local/share/fonts`文件夹下（如果没有就创建），随后执行`fc-cache -f -r -v`更新字体缓存。
