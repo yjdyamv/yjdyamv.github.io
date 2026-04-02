@@ -1,7 +1,7 @@
 ---
 title: VSCode CMake设置
 date: 2026-01-01
-tags: []
+tags: ['CMake', 'VSCode']
 categories: "日常配置"
 ---
 

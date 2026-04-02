@@ -1,7 +1,7 @@
 ---
 title: Clangd和Clang-Format的全局配置
 date: 2026-01-01
-tags: []
+tags: ['Clangd', 'Clang-Format', 'VSCode']
 categories: '日常配置'
 ---
 

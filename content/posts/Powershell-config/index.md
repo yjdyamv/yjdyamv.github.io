@@ -1,7 +1,7 @@
 ---
 title: PowerShell配置
 date: 2025-11-08
-tags: []
+tags: ['Windows', 'PowerShell']
 categories: '日常配置'
 ---
 

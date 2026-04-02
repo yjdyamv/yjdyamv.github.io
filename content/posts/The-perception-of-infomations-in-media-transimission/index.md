@@ -3,6 +3,7 @@ title: 媒体传输中信息的感知
 date: 2025-08-02
 tags: []
 categories: ''
+drafr: true
 ---
 
 # 媒介在信息传递中的感悟

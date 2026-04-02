@@ -1,7 +1,7 @@
 ---
 title: QGIS：一个优秀的开源GIS工具
 date: 2025-12-27
-tags: []
+tags: ['qgis', 'gis']
 categories: ''
 ---
 

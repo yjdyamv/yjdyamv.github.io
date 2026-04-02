@@ -1,7 +1,7 @@
 ---
 title: Android上的Rime
 date: 2025-08-14
-tags: ['输入法','Android']
+tags: ['输入法','Android','Rime']
 categories: '隐私'
 ---
 
