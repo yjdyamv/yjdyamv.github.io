@@ -20,22 +20,6 @@
  pageRef = "tags"
  weight = 15
 
-[[main]]
- name = "父级"
- weight = 20
-
-[[main]]
- name = "示例子菜单 1"
- parent = "父级"
- pageRef = "posts"
- weight = 20
-
-[[main]]
- name = "示例子菜单 2"
- parent = "父级"
- pageRef = "posts"
- weight = 20
-
 [[subnavigation]]
  name = "一个有趣的话题"
  pageRef = "tags/interesting-topic"
@@ -52,4 +36,23 @@
  pageRef = "categories"
  weight = 25
 
+# [[main]]
+#  name = "父级"
+#  weight = 25
+
+# [[main]]
+#  name = "示例子菜单 1"
+#  parent = "父级"
+#  pageRef = "posts"
+#  weight = 25
+
+# [[main]]
+#  name = "示例子菜单 2"
+#  parent = "父级"
+#  pageRef = "posts"
+#  weight = 25
+
 [[main]]
+ name = "友链"
+ pageRef = "friends"
+ weight = 25
