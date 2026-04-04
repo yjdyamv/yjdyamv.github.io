@@ -1,7 +1,7 @@
 ---
 title: 排版字体建议
 date: 2025-07-20
-tags: ['typeset','font']
+tags: ['排版','字体', 'LaTeX', 'Typst']
 categories: '随意杂谈'
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Windows安装与配置
 date: 2025-08-01
-tags: ['Windows','配置']
+tags: ['Windows','配置', 'C++', 'Python', 'Rust', 'Nodejs']
 categories: '日常配置'
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: GCC中文模块
 date: 2026-03-25
-tags: ['GCC','中文']
+tags: ['GCC','中文','C++']
 categories: '问题追踪'
 ---
 

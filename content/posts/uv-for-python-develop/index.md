@@ -2,7 +2,7 @@
 date = '2026-04-02T12:32:33+08:00'
 draft = false
 title = 'uv for Python develop'
-tags = ['uv', 'python', 'astral']
+tags = ['uv', 'Python', 'Astral.sh']
 +++
 
 uv的使用，官方文档：[https://docs.astral.sh/uv/](https://docs.astral.sh/uv/)

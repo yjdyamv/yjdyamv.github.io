@@ -1,7 +1,7 @@
 ---
 title: CMake的一些注意事项
 date: 2025-10-07
-tags: ['CMake', 'attention']
+tags: ['CMake']
 categories: ''
 ---
 
