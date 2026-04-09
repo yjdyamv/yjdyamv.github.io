@@ -50,10 +50,7 @@
   border: 1px solid rgba(var(--color-primary-200), 1);
   text-decoration: none;
   color: inherit;
-  transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease,
-    border-color 0.18s ease;
+  transition: var(--friend-card-transition);
   min-height: 220px;
   height: auto;
 }
@@ -62,8 +59,10 @@
 .friend-card:hover,
 .friend-card:focus-visible {
   transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  box-shadow: var(--friend-card-shadow-hover);
   border-color: rgba(var(--color-primary-300), 1);
+  outline: 2px solid rgba(var(--color-primary-300), 0.3);
+  outline-offset: 2px;
 }
 
 /* Avatar container styling */
@@ -136,6 +135,13 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   cursor: help;
+}
+
+/* CSS custom properties for consistent theming */
+:root {
+  --friend-card-transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  --friend-card-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+  --friend-card-shadow-hover: 0 24px 48px rgba(15, 23, 42, 0.12);
 }
 
 /* Dark mode styling for friends page */

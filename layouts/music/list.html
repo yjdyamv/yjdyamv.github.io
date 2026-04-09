@@ -1,0 +1,147 @@
+{{ define "main" }}
+<!-- Music page main content -->
+<main class="page-main music-page">
+  <!-- Page header with title and description -->
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    <div class="page-description">{{ .Content }}</div>
+  </header>
+
+  <!-- Music section -->
+  {{ if .Params.music }}
+  <section class="music-section">
+    <h2>🎵 编程音乐</h2>
+    <p class="section-description">适合编程时听的背景音乐，帮助集中注意力。</p>
+    <div class="music-grid">
+      {{ range .Params.music }}
+      <div class="music-card">
+        <!-- Music cover image -->
+        <div class="music-cover">
+          {{ if .cover }}
+          <img src="{{ .cover }}" alt="{{ .name }}" loading="lazy" width="120" height="120" />
+          {{ else }}
+          <div class="music-cover-placeholder">
+            <span>🎵</span>
+          </div>
+          {{ end }}
+          {{ if .category }}
+          <span class="music-category">{{ .category }}</span>
+          {{ end }}
+        </div>
+        
+        <!-- Music information -->
+        <div class="music-info">
+          <h3>{{ .name }}</h3>
+          {{ with .artist }}
+          <p class="music-artist">{{ . }}</p>
+          {{ end }}
+          {{ with .description }}
+          <p class="music-description">{{ . }}</p>
+          {{ end }}
+          
+          <!-- Action buttons -->
+          <div class="music-actions">
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="music-btn">
+              收听
+            </a>
+            {{ if .spotify }}
+            <a href="{{ .spotify }}" target="_blank" rel="noopener noreferrer" class="music-btn spotify">
+              Spotify
+            </a>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Podcasts section -->
+  {{ if .Params.podcasts }}
+  <section class="music-section">
+    <h2>🎙️ 技术播客</h2>
+    <p class="section-description">学习新技术和了解行业动态的好方式。</p>
+    <div class="music-grid">
+      {{ range .Params.podcasts }}
+      <div class="music-card podcast-card">
+        <!-- Podcast cover image -->
+        <div class="music-cover">
+          {{ if .cover }}
+          <img src="{{ .cover }}" alt="{{ .name }}" loading="lazy" width="120" height="120" />
+          {{ else }}
+          <div class="music-cover-placeholder">
+            <span>🎙️</span>
+          </div>
+          {{ end }}
+          {{ if .category }}
+          <span class="music-category">{{ .category }}</span>
+          {{ end }}
+        </div>
+        
+        <!-- Podcast information -->
+        <div class="music-info">
+          <h3>{{ .name }}</h3>
+          {{ with .host }}
+          <p class="music-artist">主持人: {{ . }}</p>
+          {{ end }}
+          {{ with .description }}
+          <p class="music-description">{{ . }}</p>
+          {{ end }}
+          
+          <!-- Podcast metadata -->
+          <div class="podcast-meta">
+            {{ if .frequency }}
+            <span class="podcast-frequency">{{ .frequency }}</span>
+            {{ end }}
+            {{ if .episodes }}
+            <span class="podcast-episodes">{{ .episodes }} 集</span>
+            {{ end }}
+          </div>
+          
+          <!-- Action buttons -->
+          <div class="music-actions">
+            <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="music-btn">
+              收听
+            </a>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Background sounds section -->
+  {{ if .Params.background_sounds }}
+  <section class="music-section">
+    <h2>🌧️ 环境音效</h2>
+    <p class="section-description">白噪音和自然声音，帮助深度专注。</p>
+    <div class="sound-grid">
+      {{ range .Params.background_sounds }}
+      <div class="sound-card">
+        <div class="sound-icon">
+          {{ if eq .category "Nature Sounds" }}🌧️{{ else }}🎵{{ end }}
+        </div>
+        <div class="sound-info">
+          <h4>{{ .name }}</h4>
+          {{ with .description }}
+          <p>{{ . }}</p>
+          {{ end }}
+          <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" class="sound-link">
+            访问网站
+          </a>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+</main>
+
+<!-- External CSS for music page styling -->
+<link rel="stylesheet" href="/css/music.css" media="print" onload="this.media='all'" />
+
+<!-- External JavaScript for music page interactions -->
+<script src="/js/music.js" defer></script>
+{{ end }}

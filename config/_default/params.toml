@@ -9,10 +9,13 @@ colorScheme = "github"
 defaultAppearance = "light" # valid options: light or dark
 autoSwitchAppearance = true
 
-enableA11y = false
+enableA11y = true
 enableSearch = true
 enableCodeCopy = true
-enableStructuredBreadcrumbs = false
+enableStructuredBreadcrumbs = true
+enableReadingProgress = true
+enableTOCNavigation = true
+enableThemePersistence = true
 # enableStyledScrollbar = true # disable to use native scrollbar style (defaults to true)
 
 replyByEmail = false
@@ -27,7 +30,7 @@ disableTextInHeader = false
 
 # defaultBackgroundImage = "IMAGE.jpg" # used as default for background images
 # defaultFeaturedImage = "IMAGE.jpg" # used as default for featured images in all articles
-# defaultSocialImage = "/android-chrome-512x512.png" # used as default for social media sharing (Open Graph and Twitter)
+defaultSocialImage = "/android-chrome-512x512.png" # used as default for social media sharing (Open Graph and Twitter)
 hotlinkFeatureImage = false
 # imagePosition = "50% 50%"
 
