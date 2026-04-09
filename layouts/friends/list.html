@@ -1,0 +1,156 @@
+{{ define "main" }}
+<main class="page-main friend-page">
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+    <div class="page-description">{{ .Content }}</div>
+  </header>
+
+  {{ if .Params.friends }}
+  <section class="friends-section">
+    <h2>友链</h2>
+    <div class="friends-grid">
+      {{ range .Params.friends }}
+      <a class="friend-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+        <div class="friend-avatar">
+          {{ if .avatar }}
+          <img src="{{ .avatar }}" alt="{{ .name }}" loading="lazy" />
+          {{ else }}
+          <span>{{ .name | first 1 }}</span>
+          {{ end }}
+        </div>
+        <div class="friend-body">
+          <h3>{{ .name }}</h3>
+          {{ with .description }}
+          <p>{{ . }}</p>
+          {{ end }} {{ with .note }}
+          <p class="friend-note">{{ . }}</p>
+          {{ end }}
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }} {{ if .Params.websites }}
+  <section class="friends-section">
+    <h2>推荐站点</h2>
+    <div class="friends-grid">
+      {{ range .Params.websites }}
+      <a class="friend-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+        <div class="friend-avatar">
+          {{ if .avatar }}
+          <img src="{{ .avatar }}" alt="{{ .name }}" loading="lazy" />
+          {{ else }}
+          <span>{{ .name | first 1 }}</span>
+          {{ end }}
+        </div>
+        <div class="friend-body">
+          <h3>{{ .name }}</h3>
+          {{ with .description }}
+          <p>{{ . }}</p>
+          {{ end }} {{ with .note }}
+          <p class="friend-note">{{ . }}</p>
+          {{ end }}
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+</main>
+
+<style>
+  .friend-page .page-description {
+    margin-top: 0.75rem;
+    color: var(--text-muted, #6b7280);
+    line-height: 1.8;
+  }
+
+  .friends-section {
+    margin-top: 2rem;
+  }
+
+  .friends-section h2 {
+    margin-bottom: 1rem;
+    font-size: 1.45rem;
+    color: var(--text-heading, #111827);
+  }
+
+  .friends-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .friend-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+    background: var(--card-bg, #ffffff);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    text-decoration: none;
+    color: inherit;
+    transition:
+      transform 0.18s ease,
+      box-shadow 0.18s ease,
+      border-color 0.18s ease;
+    min-height: 180px;
+  }
+
+  .friend-card:hover,
+  .friend-card:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.14);
+  }
+
+  .friend-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 9999px;
+    background: rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+  }
+
+  .friend-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .friend-avatar span {
+    font-size: 1.2rem;
+    color: var(--text-muted, #6b7280);
+  }
+
+  .friend-body h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+    line-height: 1.2;
+  }
+
+  .friend-body p {
+    margin: 0;
+    color: var(--text-muted, #6b7280);
+    line-height: 1.7;
+  }
+
+  .friend-note {
+    margin-top: 0.75rem;
+    color: var(--text-muted, #4b5563);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 680px) {
+    .friend-card {
+      min-height: auto;
+    }
+  }
+</style>
+{{ end }}

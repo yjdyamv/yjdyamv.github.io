@@ -20,15 +20,15 @@
  pageRef = "tags"
  weight = 15
 
-[[subnavigation]]
- name = "一个有趣的话题"
- pageRef = "tags/interesting-topic"
- weight = 10
+# [[subnavigation]]
+#  name = "一个有趣的话题"
+#  pageRef = "tags/interesting-topic"
+#  weight = 10
 
 [[subnavigation]]
- name = "我的精彩分类"
+ name = "我的GitHub"
  pre = "github"
- pageRef = "categories/awesome"
+ url = "https://github.com/yjdyamv"
  weight = 20
 
 [[main]]
