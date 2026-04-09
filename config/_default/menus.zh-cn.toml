@@ -36,55 +36,9 @@
  pageRef = "categories"
  weight = 25
 
-# 内容分类父目录
-[[main]]
- name = "内容分类"
- weight = 20
-
-# 技术分类子菜单
-[[main]]
- name = "技术教程"
- parent = "内容分类"
- pageRef = "categories/技术教程"
- weight = 21
-
-[[main]]
- name = "日常配置"
- parent = "内容分类"
- pageRef = "categories/日常配置"
- weight = 22
-
-[[main]]
- name = "学习笔记"
- parent = "内容分类"
- pageRef = "categories/学习笔记"
- weight = 23
-
 # 友链（独立菜单项，最右侧）
 [[main]]
  name = "友链"
  pageRef = "friends"
  weight = 45
  icon = "👥"
-
-# 资源导航父目录
-[[main]]
- name = "资源导航"
- weight = 35
- icon = "🔗"
-
-# 资源子菜单
-[[main]]
- name = "音乐推荐"
- parent = "资源导航"
- pageRef = "music"
- weight = 36
- icon = "🎵"
-
-[[main]]
- name = "工具推荐"
- parent = "资源导航"
- pageRef = "tools"
- weight = 37
- icon = "🛠️"
-

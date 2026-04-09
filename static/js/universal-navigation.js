@@ -561,7 +561,6 @@ class UniversalNavigation {
       'tags': '/tags/',
       'categories': '/categories/',
       'friends': '/友链/',
-      'music': '/音乐/',
       'about': '/about/',
       'projects': '/projects/',
       'search': '/search/',
@@ -583,9 +582,7 @@ class UniversalNavigation {
       'categories': '📂',
       'about': '👤',
       'projects': '🚀',
-      'music': '🎵',
-      'friends': '👥',
-      'tools': '🛠️'
+      'friends': '👥'
     };
     
     return iconMap[iconName] || iconName;
