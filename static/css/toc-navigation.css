@@ -48,6 +48,8 @@
   max-height: 400px;
   overflow-y: auto;
   padding-right: 0.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .toc-list {
@@ -76,6 +78,7 @@
   transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
+  z-index: 0;
 }
 
 .toc-link:hover {
@@ -124,21 +127,27 @@
 
 /* 滚动条样式 */
 .toc-list-container::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .toc-list-container::-webkit-scrollbar-track {
   background: rgba(var(--color-neutral-100), 1);
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 .toc-list-container::-webkit-scrollbar-thumb {
   background: rgba(var(--color-neutral-300), 1);
-  border-radius: 3px;
+  border-radius: 4px;
+  min-height: 40px;
 }
 
 .toc-list-container::-webkit-scrollbar-thumb:hover {
   background: rgba(var(--color-neutral-400), 1);
+  cursor: pointer;
+}
+
+.toc-list-container::-webkit-scrollbar-thumb:active {
+  background: rgba(var(--color-neutral-500), 1);
 }
 
 /* 暗色模式 */
@@ -185,10 +194,16 @@
 
 .dark .toc-list-container::-webkit-scrollbar-thumb {
   background: rgba(var(--color-neutral-600), 1);
+  min-height: 40px;
 }
 
 .dark .toc-list-container::-webkit-scrollbar-thumb:hover {
   background: rgba(var(--color-neutral-500), 1);
+  cursor: pointer;
+}
+
+.dark .toc-list-container::-webkit-scrollbar-thumb:active {
+  background: rgba(var(--color-neutral-400), 1);
 }
 
 /* 响应式设计 */
@@ -266,7 +281,6 @@
 /* 加载状态 */
 .toc-navigation.loading .toc-list-container {
   opacity: 0.6;
-  pointer-events: none;
 }
 
 .toc-navigation.loading::after {
