@@ -1,0 +1,8 @@
+{{/* 扩展文章布局，为目录导航添加容器 */}}
+
+{{ if and (or (eq .Section "posts") (eq .Type "posts")) .Params.showTableOfContents }}
+  {{/* 在文章内容前添加目录导航容器 */}}
+  <div class="article-sidebar">
+    {{/* 目录导航将自动插入到这里 */}}
+  </div>
+{{ end }}

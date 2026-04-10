@@ -147,6 +147,13 @@ class BlogEnhancements {
     // 只在文章页面初始化
     if (!this.isArticlePage()) return;
     
+    // 检查是否已有目录（可能是主题自带的）
+    const existingTOC = document.querySelector('.table-of-contents, .toc-container, .blowfish-toc');
+    if (existingTOC) {
+      this.log('主题目录已存在，跳过自定义目录');
+      return;
+    }
+    
     if (typeof TOCNavigation !== 'undefined') {
       this.modules.toc = new TOCNavigation();
       this.log('目录导航已初始化');
