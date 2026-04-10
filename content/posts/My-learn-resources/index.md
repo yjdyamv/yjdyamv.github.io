@@ -14,6 +14,7 @@ categories: ['学习']
 - 清华暑培资料等：[基础技能培训](https://docs.net9.org/),[24年暑培](https://summer24.net9.org/)
 - USTC Linux 101：[网址](https://101.lug.ustc.edu.cn/)
 - 翁恺c语言mooc
+- 408王道考研书
 
 ## 数学
 

@@ -1,11 +1,9 @@
 ---
-title: 安装Firefox和Chromium
+title: 下载安装Firefox和Chromium
 date: 2025-09-23
 tags: ['浏览器','Android']
 categories: ['隐私']
 ---
-
-# 下载firefox和chromium的安装包
 
 - firefox
   - 官方ftp：[https://ftp.mozilla.org/pub/](https://ftp.mozilla.org/pub/) 。注意子目录下的fenix是安卓版本的，那个firefox子目录是桌面版的

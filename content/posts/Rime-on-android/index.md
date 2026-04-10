@@ -5,8 +5,6 @@ tags: ['输入法','Android','Rime']
 categories: '隐私'
 ---
 
-# 中州韵输入法在安卓上的配置
-
 [Rime](https://rime.im/)是一个跨平台的开源输入法框架，我使用[雾凇拼音](https://github.com/iDvel/rime-ice)。
 
 首先下载并安装[小企鹅输入法](https://github.com/fcitx5-android/fcitx5-android/releases)、[小企鹅输入法中州韵插件](https://github.com/fcitx5-android/fcitx5-android/releases)和[剪贴板插件](https://github.com/fcitx5-android/fcitx5-android/releases) **（不错，他们都在fcitx5-android的release里，建议从F-Droid/GitHub下载）**
