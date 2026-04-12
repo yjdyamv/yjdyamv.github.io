@@ -18,6 +18,10 @@ friends:
     avatar: "https://images.jiaheqi.cloud/20250312gongyuanxun.jpg"
     description: "花无凋零之时，意无传达之日，爱情恒古不变，紫罗兰永世长存"
     # note: "包含很多开源项目推荐和工具使用心得，适合关注代码质量的同学。"
+  - name: "for_the_zero的小站"
+    url: "https://ftz.is-a.dev/"
+    avatar: "https://ftz.is-a.dev/assets/intro/avatar.png"
+    description: "想要成为一个有趣的、厉害的、快乐的、善良的、……能被你记住的人"
 websites:
   - name: "Linux.do"
     url: "https://linux.do"
