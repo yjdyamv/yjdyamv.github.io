@@ -13,22 +13,22 @@ summary = "文章摘要，显示在列表页"
 tags = []
 categories = []
 
-# 文章特色图（可选）
+# # 文章特色图（可选）
 # featuredImage = "/images/featured-image.jpg"
 # featuredImagePreview = "/images/featured-image-preview.jpg"
 
-# 作者信息（可选，会覆盖全局配置）
+# # 作者信息（可选，会覆盖全局配置）
 # author = "作者名"
 # authorImage = "/images/author.jpg"
 
-# 社交分享图（可选）
+# # 社交分享图（可选）
 # images = ["/images/social-share.jpg"]
 
-# 文章系列（可选）
+# # 文章系列（可选）
 # series = ["系列名称"]
 # series_weight = 1
 
-# 隐藏文章（可选）
+# # 隐藏文章（可选）
 # hiddenFromHomePage = false
 # hiddenFromSearch = false
 +++
