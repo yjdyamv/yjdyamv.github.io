@@ -2,7 +2,7 @@ disabled = false
 languageCode = "zh-CN"
 languageName = "简体中文"
 weight = 1
-title = "我的博客"
+title = "Yjdyamv Blog"
 
 [params]
   displayName = "简体中文"
@@ -48,7 +48,7 @@ title = "我的博客"
     # { lastfm = "https://lastfm.com/user/username" },
     # { linkedin = "https://linkedin.com/in/username" },
     # { mastodon = "https://mastodon.instance/@username" },
-    # { matrix = "https://matrix.to/#/URI" },
+    { matrix = "https://matrix.to/#/@utility2170:tchncs.de" },
     # { medium = "https://medium.com/username" },
     # { microsoft = "https://www.microsoft.com/" },
     # { orcid = "https://orcid.org/userid" },
@@ -73,6 +73,6 @@ title = "我的博客"
     # { whatsapp = "https://wa.me/phone-number" },
     # { youtube = "https://youtube.com/username" },
     # { ko-fi = "https://ko-fi.com/username" },
-    # { codeberg = "https://codeberg.org/username"},
+    { codeberg = "https://codeberg.org/yjdyamv"},
     # { printables = "https://www.printables.com/@username"},
   ]
