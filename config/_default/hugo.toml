@@ -3,7 +3,7 @@
 # https://blowfish.page/docs/getting-started/
 
 # theme = "blowfish" # UNCOMMENT THIS LINE # IF you use hugo mod, NOT git submodule.
-baseURL = "https://blog.yamv.uk/"
+baseURL = "https://yjdyamv.codeberg.page/blogs/"
 defaultContentLanguage = "zh-CN"
 
 # pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles

@@ -187,6 +187,6 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
 [author]
   name = 'yjdyamv'
   email = 'yjdyamv@tutamail.com'
-  image = '../../assets/icon.png'
+  image = '../assets/icon.png'
   imageQuality = 96
   
