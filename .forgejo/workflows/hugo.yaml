@@ -29,7 +29,8 @@ jobs:
           HUGO_ENV: production
         run: |
           hugo \
-            --minify
+            --minify \
+            --gc
       - name: Upload generated files
         uses: https://code.forgejo.org/actions/upload-artifact@v3
         with:
