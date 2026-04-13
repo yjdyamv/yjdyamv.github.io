@@ -69,8 +69,8 @@
 </main>
 
   <!-- External CSS for friends page styling -->
-  <link rel="stylesheet" href="/css/friends.css" media="print" onload="this.media='all'" />
+  <link rel="stylesheet" href="{{ "css/friends.css" | absURL }}" media="print" onload="this.media='all'" />
 
   <!-- External JavaScript for friends page interactions -->
-  <script src="/js/friends.js" defer></script>
+  <script src="{{ "js/friends.js" | absURL }}" defer></script>
 {{ end }}
