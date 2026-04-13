@@ -25,9 +25,16 @@ jobs:
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: "latest"
+          extended: true
 
-      - name: Build
-        run: hugo --gc --minify
+      - name: Build for GitHub Pages
+        run: hugo --gc --minify --baseURL https://yjdyamv.github.io/
+
+      - name: Prepare deployment directory
+        run: |
+          # 创建blogs目录并将构建输出移动到其中
+          mkdir -p blogs
+          cp -r public/* blogs/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
@@ -35,4 +42,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./public
+          publish_dir: ./blogs
