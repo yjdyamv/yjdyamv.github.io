@@ -28,7 +28,7 @@ jobs:
           extended: true
 
       - name: Build for GitHub Pages
-        run: hugo --gc --minify --baseURL https://yjdyamv.github.io/
+        run: hugo --gc --minify --cleanDestinationDir --baseURL https://yjdyamv.github.io/
 
       - name: Prepare deployment directory
         run: |

@@ -30,7 +30,8 @@ jobs:
         run: |
           hugo \
             --minify \
-            --gc
+            --gc \
+            --cleanDestinationDir
       - name: Upload generated files
         uses: https://code.forgejo.org/actions/upload-artifact@v3
         with:

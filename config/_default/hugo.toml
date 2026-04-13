@@ -13,8 +13,10 @@ summaryLength = 0
 
 buildDrafts = false
 buildFuture = false
+buildUseResourceCache = true
 
 enableEmoji = true
+enableMissingTranslationPlaceholders = false
 
 # googleAnalytics = "G-XXXXXXXXX"
 
@@ -24,6 +26,13 @@ enableEmoji = true
 [imaging]
   anchor = 'Center'
   quality = 96
+  [imaging.responsive]
+    widths = [400, 600, 800, 1200, 1600]
+    quality = 96
+  [imaging.exif]
+    disableDate = true
+    disableLatLong = true
+    disableCopyright = true
 
 [taxonomies]
   tag = "tags"
@@ -68,3 +77,29 @@ enableEmoji = true
       name = 'fragmentrefs'
       type = 'fragments'
       weight = 10
+
+[minify]
+  disableXML = true
+  [minify.tdewolff]
+    [minify.tdewolff.html]
+      keepSpecialComments = true
+      keepDefaultAttrVals = true
+      keepDocumentTags = true
+      keepEndTags = true
+      keepQuotes = true
+      keepWhitespace = false
+    [minify.tdewolff.css]
+      version = 3
+      precision = 0
+    [minify.tdewolff.js]
+      keepVarNames = true
+      noCopyright = true
+      precision = 0
+    [minify.tdewolff.json]
+      keepNumbers = true
+      precision = 0
+    [minify.tdewolff.svg]
+      keepComments = false
+      precision = 0
+    [minify.tdewolff.xml]
+      keepWhitespace = false

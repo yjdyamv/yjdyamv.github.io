@@ -189,4 +189,32 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   email = 'yjdyamv@tutamail.com'
   image = '/icon.png'
   imageQuality = 96
+
+[security]
+  [security.headers]
+    [security.headers.STS]
+      maxAge = 31536000
+      includeSubDomains = true
+      preload = false
+    [security.headers.XFrameOptions]
+      deny = false
+      sameorigin = true
+    [security.headers.XContentTypeOptions]
+      nosniff = true
+    [security.headers.XXSSProtection]
+      enabled = true
+      mode = "block"
+    [security.headers.referrerPolicy]
+      policy = "strict-origin-when-cross-origin"
+    [security.headers.contentSecurityPolicy]
+      defaultSrc = ["'self'"]
+      styleSrc = ["'self'", "'unsafe-inline'"]
+      scriptSrc = ["'self'", "'unsafe-inline'"]
+      imgSrc = ["'self'", "data:", "https:"]
+      fontSrc = ["'self'"]
+      connectSrc = ["'self'"]
+      frameSrc = ["'none'"]
+      objectSrc = ["'none'"]
+      mediaSrc = ["'self'"]
+      manifestSrc = ["'self'"]
   
