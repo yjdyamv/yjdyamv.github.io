@@ -13,7 +13,6 @@ summaryLength = 0
 
 buildDrafts = false
 buildFuture = false
-buildUseResourceCache = true
 
 enableEmoji = true
 enableMissingTranslationPlaceholders = false
@@ -26,19 +25,13 @@ enableMissingTranslationPlaceholders = false
 [imaging]
   anchor = 'Center'
   quality = 96
-  [imaging.responsive]
-    widths = [400, 600, 800, 1200, 1600]
-    quality = 96
   [imaging.exif]
     disableDate = true
     disableLatLong = true
-    disableCopyright = true
 
 [taxonomies]
   tag = "tags"
   category = "categories"
-  author = "authors"
-  series = "series"
 
 [sitemap]
   changefreq = 'daily'
@@ -61,39 +54,24 @@ enableMissingTranslationPlaceholders = false
         weight = 100
 
     [[related.indices]]
-        name = "series"
-        weight = 50
-
-    [[related.indices]]
-        name = "authors"
-        weight = 20
-
-    [[related.indices]]
         name = "date"
         weight = 10
 
-    [[related.indices]]
-      applyFilter = false
-      name = 'fragmentrefs'
-      type = 'fragments'
-      weight = 10
+
 
 [minify]
   disableXML = true
   [minify.tdewolff]
     [minify.tdewolff.html]
-      keepSpecialComments = true
       keepDefaultAttrVals = true
       keepDocumentTags = true
       keepEndTags = true
       keepQuotes = true
       keepWhitespace = false
     [minify.tdewolff.css]
-      version = 3
       precision = 0
     [minify.tdewolff.js]
       keepVarNames = true
-      noCopyright = true
       precision = 0
     [minify.tdewolff.json]
       keepNumbers = true

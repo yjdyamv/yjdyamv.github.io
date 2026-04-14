@@ -20,17 +20,6 @@
  pageRef = "tags"
  weight = 15
 
-# [[subnavigation]]
-#  name = "一个有趣的话题"
-#  pageRef = "tags/interesting-topic"
-#  weight = 10
-
-[[subnavigation]]
- name = "我的GitHub"
- pre = "github"
- url = "https://github.com/yjdyamv"
- weight = 20
-
 [[main]]
  name = "分类"
  pageRef = "categories"
@@ -42,3 +31,14 @@
  pageRef = "friends"
  weight = 45
  icon = "👥"
+
+# [[subnavigation]]
+#  name = "一个有趣的话题"
+#  pageRef = "tags/interesting-topic"
+#  weight = 10
+
+[[subnavigation]]
+ name = "我的GitHub"
+ pre = "github"
+ url = "https://github.com/yjdyamv"
+ weight = 20
