@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>QGis on Yjdyamv Blog</title>
+    <link>https://yjdyamv.github.io/tags/qgis/</link>
+    <description>Recent content in QGis on Yjdyamv Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>yjdyamv@tutamail.com (yjdyamv)</managingEditor>
+    <webMaster>yjdyamv@tutamail.com (yjdyamv)</webMaster>
+    <copyright>© 2026 yjdyamv</copyright>
+    <lastBuildDate>Sat, 27 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://yjdyamv.github.io/tags/qgis/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>QGIS：一个优秀的开源GIS工具</title>
+      <link>https://yjdyamv.github.io/posts/qgis-a-awesome-opensource-gis-tool/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/qgis-a-awesome-opensource-gis-tool/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

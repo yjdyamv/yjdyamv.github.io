@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yjdyamv.github.io/sitemap.xml

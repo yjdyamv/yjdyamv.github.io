@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>随意杂谈 on Yjdyamv Blog</title>
+    <link>https://yjdyamv.github.io/categories/%E9%9A%8F%E6%84%8F%E6%9D%82%E8%B0%88/</link>
+    <description>Recent content in 随意杂谈 on Yjdyamv Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>yjdyamv@tutamail.com (yjdyamv)</managingEditor>
+    <webMaster>yjdyamv@tutamail.com (yjdyamv)</webMaster>
+    <copyright>© 2026 yjdyamv</copyright>
+    <lastBuildDate>Mon, 01 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://yjdyamv.github.io/categories/%E9%9A%8F%E6%84%8F%E6%9D%82%E8%B0%88/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>1Password在Linux上导出数据的问题</title>
+      <link>https://yjdyamv.github.io/posts/1password-export-data-on-linux-issue-and-solution/</link>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/1password-export-data-on-linux-issue-and-solution/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>排版字体建议</title>
+      <link>https://yjdyamv.github.io/posts/typesetting-font-suggestion/</link>
+      <pubDate>Sun, 20 Jul 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/typesetting-font-suggestion/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>我的Typst体验</title>
+      <link>https://yjdyamv.github.io/posts/my-typst-experience/</link>
+      <pubDate>Sun, 13 Jul 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/my-typst-experience/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

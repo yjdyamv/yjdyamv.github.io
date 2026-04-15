@@ -1,0 +1,78 @@
+# Security and cache headers for static site
+# Netlify-style headers file (may work on other platforms)
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+/*.css
+  Cache-Control: public, max-age=31536000
+  Content-Type: text/css
+
+/*.js
+  Cache-Control: public, max-age=31536000
+  Content-Type: application/javascript
+
+/*.png
+  Cache-Control: public, max-age=2592000
+  Content-Type: image/png
+
+/*.jpg
+  Cache-Control: public, max-age=2592000
+  Content-Type: image/jpeg
+
+/*.jpeg
+  Cache-Control: public, max-age=2592000
+  Content-Type: image/jpeg
+
+/*.gif
+  Cache-Control: public, max-age=2592000
+  Content-Type: image/gif
+
+/*.svg
+  Cache-Control: public, max-age=2592000
+  Content-Type: image/svg+xml
+
+/*.webp
+  Cache-Control: public, max-age=2592000
+  Content-Type: image/webp
+
+/*.ico
+  Cache-Control: public, max-age=2592000
+  Content-Type: image/x-icon
+
+/*.woff
+  Cache-Control: public, max-age=31536000
+  Content-Type: font/woff
+
+/*.woff2
+  Cache-Control: public, max-age=31536000
+  Content-Type: font/woff2
+
+/*.ttf
+  Cache-Control: public, max-age=31536000
+  Content-Type: font/ttf
+
+/*.otf
+  Cache-Control: public, max-age=31536000
+  Content-Type: font/otf
+
+/*.html
+  Cache-Control: public, max-age=3600
+  Content-Type: text/html; charset=utf-8
+
+/*.xml
+  Cache-Control: public, max-age=3600
+  Content-Type: application/xml
+
+/*.json
+  Cache-Control: public, max-age=3600
+  Content-Type: application/json
+
+/404.html
+  Cache-Control: public, max-age=3600
+  Content-Type: text/html; charset=utf-8

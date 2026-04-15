@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rust on Yjdyamv Blog</title>
+    <link>https://yjdyamv.github.io/tags/rust/</link>
+    <description>Recent content in Rust on Yjdyamv Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>yjdyamv@tutamail.com (yjdyamv)</managingEditor>
+    <webMaster>yjdyamv@tutamail.com (yjdyamv)</webMaster>
+    <copyright>© 2026 yjdyamv</copyright>
+    <lastBuildDate>Fri, 01 Aug 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://yjdyamv.github.io/tags/rust/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Windows安装与配置</title>
+      <link>https://yjdyamv.github.io/posts/win-install-and-configuration/</link>
+      <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/win-install-and-configuration/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

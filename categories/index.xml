@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>分类 on Yjdyamv Blog</title>
+    <link>https://yjdyamv.github.io/categories/</link>
+    <description>Recent content in 分类 on Yjdyamv Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>yjdyamv@tutamail.com (yjdyamv)</managingEditor>
+    <webMaster>yjdyamv@tutamail.com (yjdyamv)</webMaster>
+    <copyright>© 2026 yjdyamv</copyright>
+    <lastBuildDate>Wed, 25 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://yjdyamv.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>问题追踪</title>
+      <link>https://yjdyamv.github.io/categories/%E9%97%AE%E9%A2%98%E8%BF%BD%E8%B8%AA/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/categories/%E9%97%AE%E9%A2%98%E8%BF%BD%E8%B8%AA/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>安全</title>
+      <link>https://yjdyamv.github.io/categories/%E5%AE%89%E5%85%A8/</link>
+      <pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/categories/%E5%AE%89%E5%85%A8/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>日常配置</title>
+      <link>https://yjdyamv.github.io/categories/%E6%97%A5%E5%B8%B8%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/categories/%E6%97%A5%E5%B8%B8%E9%85%8D%E7%BD%AE/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>隐私</title>
+      <link>https://yjdyamv.github.io/categories/%E9%9A%90%E7%A7%81/</link>
+      <pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/categories/%E9%9A%90%E7%A7%81/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>随意杂谈</title>
+      <link>https://yjdyamv.github.io/categories/%E9%9A%8F%E6%84%8F%E6%9D%82%E8%B0%88/</link>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/categories/%E9%9A%8F%E6%84%8F%E6%9D%82%E8%B0%88/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>学习</title>
+      <link>https://yjdyamv.github.io/categories/%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sat, 16 Aug 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/categories/%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

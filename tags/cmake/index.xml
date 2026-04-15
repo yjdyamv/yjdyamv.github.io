@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CMake on Yjdyamv Blog</title>
+    <link>https://yjdyamv.github.io/tags/cmake/</link>
+    <description>Recent content in CMake on Yjdyamv Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>yjdyamv@tutamail.com (yjdyamv)</managingEditor>
+    <webMaster>yjdyamv@tutamail.com (yjdyamv)</webMaster>
+    <copyright>© 2026 yjdyamv</copyright>
+    <lastBuildDate>Thu, 01 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://yjdyamv.github.io/tags/cmake/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>VSCode CMake设置</title>
+      <link>https://yjdyamv.github.io/posts/vscode-cmake-settings/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/vscode-cmake-settings/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>CMake的一些注意事项</title>
+      <link>https://yjdyamv.github.io/posts/cmake-some-caution/</link>
+      <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/cmake-some-caution/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

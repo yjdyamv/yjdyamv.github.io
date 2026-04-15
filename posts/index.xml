@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Yjdyamv Blog</title>
+    <link>https://yjdyamv.github.io/posts/</link>
+    <description>Recent content in Posts on Yjdyamv Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>yjdyamv@tutamail.com (yjdyamv)</managingEditor>
+    <webMaster>yjdyamv@tutamail.com (yjdyamv)</webMaster>
+    <copyright>© 2026 yjdyamv</copyright>
+    <lastBuildDate>Sun, 05 Apr 2026 21:27:49 +0800</lastBuildDate><atom:link href="https://yjdyamv.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Init Blog With Hugo Mod</title>
+      <link>https://yjdyamv.github.io/posts/init-blog-with-hugo-mod/</link>
+      <pubDate>Sun, 05 Apr 2026 21:27:49 +0800</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/init-blog-with-hugo-mod/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Version Control</title>
+      <link>https://yjdyamv.github.io/posts/version-control/</link>
+      <pubDate>Thu, 02 Apr 2026 15:52:08 +0800</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/version-control/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>uv for Python develop</title>
+      <link>https://yjdyamv.github.io/posts/uv-for-python-develop/</link>
+      <pubDate>Thu, 02 Apr 2026 12:32:33 +0800</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/uv-for-python-develop/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>GCC中文模块</title>
+      <link>https://yjdyamv.github.io/posts/gcc-chinese-module/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/gcc-chinese-module/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>尝试KeePass的体验</title>
+      <link>https://yjdyamv.github.io/posts/try-keepass-exprience/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/try-keepass-exprience/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Keyguard KDF参数安全问题（已解决）</title>
+      <link>https://yjdyamv.github.io/posts/keyguard-kdf-para-security-problemsolved/</link>
+      <pubDate>Wed, 04 Mar 2026 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/keyguard-kdf-para-security-problemsolved/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Clangd和Clang-Format的全局配置</title>
+      <link>https://yjdyamv.github.io/posts/clangd-clang-format-global/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/clangd-clang-format-global/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>VSCode CMake设置</title>
+      <link>https://yjdyamv.github.io/posts/vscode-cmake-settings/</link>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/vscode-cmake-settings/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>QGIS：一个优秀的开源GIS工具</title>
+      <link>https://yjdyamv.github.io/posts/qgis-a-awesome-opensource-gis-tool/</link>
+      <pubDate>Sat, 27 Dec 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/qgis-a-awesome-opensource-gis-tool/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>PowerShell配置</title>
+      <link>https://yjdyamv.github.io/posts/powershell-config/</link>
+      <pubDate>Sat, 08 Nov 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/powershell-config/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>CMake的一些注意事项</title>
+      <link>https://yjdyamv.github.io/posts/cmake-some-caution/</link>
+      <pubDate>Tue, 07 Oct 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/cmake-some-caution/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>下载安装Firefox和Chromium</title>
+      <link>https://yjdyamv.github.io/posts/install-firefox-and-chromium/</link>
+      <pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/install-firefox-and-chromium/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>1Password在Linux上导出数据的问题</title>
+      <link>https://yjdyamv.github.io/posts/1password-export-data-on-linux-issue-and-solution/</link>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/1password-export-data-on-linux-issue-and-solution/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>1Password开源反馈团队账户申请</title>
+      <link>https://yjdyamv.github.io/posts/1password-opensource-feedback-team-account-application/</link>
+      <pubDate>Mon, 25 Aug 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/1password-opensource-feedback-team-account-application/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Docker安装与配置</title>
+      <link>https://yjdyamv.github.io/posts/docker-install-and-config/</link>
+      <pubDate>Wed, 20 Aug 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/docker-install-and-config/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>英语测试训练</title>
+      <link>https://yjdyamv.github.io/posts/english-test-training/</link>
+      <pubDate>Sat, 16 Aug 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/english-test-training/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Android上的Rime</title>
+      <link>https://yjdyamv.github.io/posts/rime-on-android/</link>
+      <pubDate>Thu, 14 Aug 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/rime-on-android/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Windows安装与配置</title>
+      <link>https://yjdyamv.github.io/posts/win-install-and-configuration/</link>
+      <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/win-install-and-configuration/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>隐私保护</title>
+      <link>https://yjdyamv.github.io/posts/privacy-protect/</link>
+      <pubDate>Mon, 21 Jul 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/privacy-protect/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>排版字体建议</title>
+      <link>https://yjdyamv.github.io/posts/typesetting-font-suggestion/</link>
+      <pubDate>Sun, 20 Jul 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/typesetting-font-suggestion/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>我的学习资源</title>
+      <link>https://yjdyamv.github.io/posts/my-learn-resources/</link>
+      <pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/my-learn-resources/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>我的Typst体验</title>
+      <link>https://yjdyamv.github.io/posts/my-typst-experience/</link>
+      <pubDate>Sun, 13 Jul 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/my-typst-experience/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Debian桌面配置</title>
+      <link>https://yjdyamv.github.io/posts/debian-desktop-configuration/</link>
+      <pubDate>Fri, 11 Jul 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/debian-desktop-configuration/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>VSCode配置</title>
+      <link>https://yjdyamv.github.io/posts/vscode-configuration-for-programming/</link>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 +0000</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/vscode-configuration-for-programming/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>
