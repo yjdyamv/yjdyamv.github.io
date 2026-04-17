@@ -2,7 +2,7 @@
 title = "CMake基础入门1"
 date = 2026-04-13T19:02:28+08:00
 lastmod = 2026-04-13T19:02:28+08:00
-draft = true
+draft = false
 
 # SEO优化
 description = "CMake学习Part1"
@@ -39,7 +39,7 @@ series_weight = 1
 
 当今C系构建的事实标准，用于构建大型（跨平台）项目的工具
 
-## 基本命令/函数
+## 基本函数
 
 - `cmake_minimum_required`：声明使用的cmake的 **版本要求** / **使用时标准**
   eg：
@@ -165,7 +165,41 @@ series_weight = 1
 
 ## CMAKE缓存变量
 
-CMake预设了一些变量，通过设置这些变量可以操控CMake的行为
+CMake预设了一些变量，通过设置这些变量可以操控CMake的行为。以下仅列举一些，具体可查询CMake文档使用。
+
+- `CMAKE_CXX_STANDARD` / `CMAKE_C_STANDARD`：设置使用的C++/C的标准
+  
+  ```cmake
+  set(CMAKE_CXX_STANDARD 23) // 98 11 14 17 20 23 26
+  set(CMAKE_C_STANDARD 23) // 90  99 11 17 23
+  ```
+
+- `CMAKE_CXX_STANDARD_REQUIRED` / `CMAKE_C_STANDARD_REQUIRED`：设置C++/C需要设置标准
+  
+  ```cmake
+  set(CMAKE_CXX_STANDARD_REQUIRED ON)
+  set(CMAKE_C_STANDARD_REQUIRED ON)
+  ```
+
+- `CMAKE_POSITION_INDEPENDENT_CODE`：生成与位置无关的代码（对于生成动态库必不可少）
+
+  ```cmake
+  set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+  ```
+
+- `CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS`：Windows上的动态库符号导出设置
+  
+  ```cmake
+  set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+  ```
+
+- `CMAKE_EXPORT_COMPILE_COMMANDS`：生成`compile_commands.json`供clangd使用
+
+- `CMAKE_CXX_FLAGS_DEBUG`等：设置编译器选项
+
+  ```cmake
+  set(CMAKE_CXX_FLAGS_DEBUG "-g -O0 -gdwarf-5")
+  ```
 
 ## 构建流程
 
@@ -189,7 +223,7 @@ cmake -S . -B build -G "Ninja"
 ### 2. 构建阶段（Build）
 
 ```bash
-cmake --build build
+cmake --build build -DCMAKE_BUILD_TYPE=Debug
 # cmake调用对应构建工具，执行build目录下的生成的构建文件
 ```
 
@@ -198,4 +232,16 @@ cmake --build build
 ```bash
 cmake --build build --target install
 # 执行构建，并将CMakeLists里声明的targets安装install目录下
+```
+
+### 4. 打包阶段（可选）
+
+需使用`cpack`，CMakeLists.txt里需引入cpack
+
+```cmake
+include(cpack)
+```
+
+```bash
+cpack -G 7Z
 ```
