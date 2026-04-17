@@ -3,19 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://yjdyamv.github.io/posts/init-blog-with-hugo-mod/</loc>
-    <lastmod>2026-04-05T21:27:49+08:00</lastmod>
+    <loc>https://yjdyamv.github.io/posts/cmake-learning/part1/</loc>
+    <lastmod>2026-04-13T19:02:28+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://yjdyamv.github.io/posts/</loc>
-    <lastmod>2026-04-05T21:27:49+08:00</lastmod>
+    <lastmod>2026-04-13T19:02:28+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://yjdyamv.github.io/</loc>
+    <lastmod>2026-04-13T19:02:28+08:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://yjdyamv.github.io/posts/init-blog-with-hugo-mod/</loc>
     <lastmod>2026-04-05T21:27:49+08:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CMake教程 on Yjdyamv Blog</title>
+    <link>https://yjdyamv.github.io/series/cmake%E6%95%99%E7%A8%8B/</link>
+    <description>Recent content in CMake教程 on Yjdyamv Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>yjdyamv@tutamail.com (yjdyamv)</managingEditor>
+    <webMaster>yjdyamv@tutamail.com (yjdyamv)</webMaster>
+    <copyright>© 2026 yjdyamv</copyright>
+    <lastBuildDate>Mon, 13 Apr 2026 19:02:28 +0800</lastBuildDate><atom:link href="https://yjdyamv.github.io/series/cmake%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CMake基础入门1</title>
+      <link>https://yjdyamv.github.io/posts/cmake-learning/part1/</link>
+      <pubDate>Mon, 13 Apr 2026 19:02:28 +0800</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/cmake-learning/part1/</guid>
+      <description>包含基础命令、变量、函数、构建及安装</description>
+      
+    </item>
+    
+  </channel>
+</rss>
