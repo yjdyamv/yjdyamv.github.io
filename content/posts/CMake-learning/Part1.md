@@ -27,6 +27,7 @@ categories = ["技术教程"]
 # # 文章系列（可选）
 series = ["CMake教程"]
 series_weight = 1
+series_order = 1
 
 # # 隐藏文章（可选）
 # hiddenFromHomePage = false
