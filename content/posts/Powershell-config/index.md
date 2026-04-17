@@ -21,7 +21,7 @@ winget install JanDeDobbeleer.OhMyPosh --source winget
 
 ```pwsh
 # ohmyposh 以某一主题启动
-oh-my-posh init pwsh --config "powerlevel10k_classic" | Invoke-Expression
+oh-my-posh init pwsh --config "quick-term" | Invoke-Expression
 ```
 
 - 设置Powershell的终端字体，比如为Maple Momo CN NF，并将Windows Terminal的默认终端设置为之前下载的pwsh
