@@ -40,25 +40,15 @@ jobs:
   deploy:
     needs: [ build ]
     runs-on: codeberg-tiny-lazy
+    if: ${{ forge.ref == 'refs/heads/main' }}
     steps:
-      - name: Clone the repository
-        uses: https://code.forgejo.org/actions/checkout@v4
-        with:
-          submodules: recursive
-          fetch-depth: 0
-      - name: Checkout the target branch and clean it up
-        # If you want to commit to a branch other than "pages", change the two references below, as well as the reference in the last step. 
-        run: |
-          git checkout pages || git switch --orphan pages && \
-          rm -Rfv $(ls -A | egrep -v '^(\.git|LICENSE)$')
       - name: Download generated files
         uses: https://code.forgejo.org/actions/download-artifact@v3
         with:
           name: Generated files
-      - name: Publish the website
-        run: |
-          git config user.email codeberg-ci && \
-          git config user.name "Codeberg CI" && \
-          git add . && \
-          git commit --allow-empty --message "Codeberg build for ${GITHUB_SHA}" && \
-          git push origin pages
+      - name: Deploy to git-pages
+        uses: https://codeberg.org/git-pages/action@v2
+        with:
+          site: "https://${{ forge.repository_owner }}.codeberg.page/blogs/"
+          token: ${{ forge.token }}
+          source: public/
