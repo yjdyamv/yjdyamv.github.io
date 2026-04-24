@@ -31,7 +31,8 @@ jobs:
           hugo \
             --minify \
             --gc \
-            --cleanDestinationDir
+            --cleanDestinationDir \
+            --baseURL https://yjdyamv.codeberg.page/blogs/
       - name: Upload generated files
         uses: https://code.forgejo.org/actions/upload-artifact@v3
         with:
