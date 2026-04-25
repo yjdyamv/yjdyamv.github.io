@@ -1,8 +1,8 @@
 ---
 title: 修订Web中的一些协议
 date: 2025-10-17
-tags: []
-categories: ''
+tags: ["网络", "协议", "OSI", "TCP", "UDP", "HTTP"]
+categories: "网络"
 draft: true
 ---
 

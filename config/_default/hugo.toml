@@ -70,15 +70,15 @@ enableMissingTranslationPlaceholders = false
       keepQuotes = true
       keepWhitespace = false
     [minify.tdewolff.css]
-      precision = 0
+      precision = 2
     [minify.tdewolff.js]
       keepVarNames = true
-      precision = 0
+      precision = 2
     [minify.tdewolff.json]
       keepNumbers = true
-      precision = 0
+      precision = 2
     [minify.tdewolff.svg]
       keepComments = false
-      precision = 0
+      precision = 2
     [minify.tdewolff.xml]
       keepWhitespace = false

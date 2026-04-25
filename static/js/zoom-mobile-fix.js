@@ -1,28 +1,28 @@
 /**
  * zoom-mobile-fix.js
  * Purpose: Fixes mediumZoom dismiss behavior on mobile touch devices.
- * The Blowfish theme's mediumZoom uses margin:24 which leaves only 24px of
- * tappable background on mobile, making it hard to dismiss. This script adds
- * touchend handling so tapping the zoomed image also closes the zoom.
+ * The theme's mediumZoom uses margin:24 leaving only 24px of tappable background
+ * on mobile. This script adds touchend handling to dismiss the zoom.
  */
 (function () {
+  var isMobile = 'ontouchstart' in window;
+
+  if (!isMobile) return;
+
   document.addEventListener('touchend', function (e) {
     var overlay = document.querySelector('.medium-zoom-overlay');
-    if (!overlay || overlay.style.display === 'none') return;
+    if (!overlay) return;
 
-    var target = e.target;
-    if (
-      target.classList.contains('medium-zoom-overlay') ||
-      target.classList.contains('medium-zoom-image--opened') ||
-      target.classList.contains('medium-zoom-image')
-    ) {
+    if (e.target.closest('.medium-zoom-overlay')) {
       e.preventDefault();
-      var clickEvent = new MouseEvent('click', {
-        bubbles: true,
-        cancelable: true,
-        view: window
-      });
-      overlay.dispatchEvent(clickEvent);
+      e.stopPropagation();
+
+      var zoomedImg = overlay.querySelector('.medium-zoom-image--opened');
+      if (zoomedImg && zoomedImg._mediumZoom) {
+        zoomedImg._mediumZoom.close();
+      } else if (zoomedImg) {
+        zoomedImg.click();
+      }
     }
   });
 })();

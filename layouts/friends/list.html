@@ -1,5 +1,6 @@
 {{ define "main" }}
-<!-- Friends page main content -->
+<link rel="stylesheet" href="{{ "css/friends.css" | absURL }}" media="print" onload="this.media='all'" />
+<script src="{{ "js/friends.js" | absURL }}" defer></script>
 <main class="page-main friend-page">
   <!-- Page header with title and description -->
   <header class="page-header">
@@ -13,25 +14,25 @@
     <h2>友链</h2>
     <div class="friends-grid">
       {{ range .Params.friends }}
-       <a class="friend-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
-        <!-- Friend avatar: shows image or first letter of name -->
+      <div class="friend-card">
         <div class="friend-avatar">
           {{ if .avatar }}
           <img src="{{ .avatar }}" alt="{{ .name }}" loading="lazy" width="64" height="64" />
           {{ else }}
-          <span>{{ .name | first 1 }}</span>
+          <span aria-hidden="true">{{ .name | first 1 }}</span>
           {{ end }}
         </div>
-        <!-- Friend information body -->
-        <div class="friend-body">
-          <h3>{{ .name }}</h3>
-          {{ with .description }}
-          <p title="{{ . }}">{{ . }}</p>
-          {{ end }} {{ with .note }}
-          <p class="friend-note" title="{{ . }}">{{ . }}</p>
-          {{ end }}
-        </div>
-      </a>
+        <a class="friend-body-link" href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="访问 {{ .name }} 的网站">
+          <div class="friend-body">
+            <h3>{{ .name }}</h3>
+            {{ with .description }}
+            <p title="{{ . }}">{{ . }}</p>
+            {{ end }} {{ with .note }}
+            <p class="friend-note" title="{{ . }}">{{ . }}</p>
+            {{ end }}
+          </div>
+        </a>
+      </div>
       {{ end }}
     </div>
   </section>
@@ -43,34 +44,28 @@
     <h2>推荐站点</h2>
     <div class="friends-grid">
       {{ range .Params.websites }}
-       <a class="friend-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
-        <!-- Website avatar: shows image or first letter of name -->
+      <div class="friend-card">
         <div class="friend-avatar">
           {{ if .avatar }}
           <img src="{{ .avatar }}" alt="{{ .name }}" loading="lazy" width="64" height="64" />
           {{ else }}
-          <span>{{ .name | first 1 }}</span>
+          <span aria-hidden="true">{{ .name | first 1 }}</span>
           {{ end }}
         </div>
-        <!-- Website information body -->
-        <div class="friend-body">
-          <h3>{{ .name }}</h3>
-          {{ with .description }}
-          <p title="{{ . }}">{{ . }}</p>
-          {{ end }} {{ with .note }}
-          <p class="friend-note" title="{{ . }}">{{ . }}</p>
-          {{ end }}
-        </div>
-      </a>
+        <a class="friend-body-link" href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="访问 {{ .name }}">
+          <div class="friend-body">
+            <h3>{{ .name }}</h3>
+            {{ with .description }}
+            <p title="{{ . }}">{{ . }}</p>
+            {{ end }} {{ with .note }}
+            <p class="friend-note" title="{{ . }}">{{ . }}</p>
+            {{ end }}
+          </div>
+        </a>
+      </div>
       {{ end }}
     </div>
   </section>
   {{ end }}
 </main>
-
-  <!-- External CSS for friends page styling -->
-  <link rel="stylesheet" href="{{ "css/friends.css" | absURL }}" media="print" onload="this.media='all'" />
-
-  <!-- External JavaScript for friends page interactions -->
-  <script src="{{ "js/friends.js" | absURL }}" defer></script>
 {{ end }}

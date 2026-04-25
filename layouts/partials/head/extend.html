@@ -1,17 +1,24 @@
-{{/* 扩展head部分，加载目录导航和其他增强脚本 */}}
+{{/* 扩展head部分，加载全局和文章页面脚本 */}}
+
+{{/* JSON-LD结构化数据 */}}
+{{ partial "jsonld.html" . }}
+
+{{/* 全局：主题适配器（最优先，其他脚本依赖） */}}
+<script src="{{ "js/theme-adapter.js" | absURL }}" defer></script>
+<script src="{{ "js/theme-persistence.js" | absURL }}" defer></script>
 
 {{ if or (eq .Section "posts") (eq .Type "posts") }}
-  {{/* 只在文章页面加载目录导航 */}}
-  <link rel="stylesheet" href="{{ "css/toc-navigation.css" | absURL }}" media="print" onload="this.media='all'" />
-  <script src="{{ "js/toc-navigation.js" | absURL }}" defer></script>
-  
-  {{/* 加载博客增强脚本（集成所有功能） */}}
+  {{/* 只在文章页面加载 */}}
+  <link rel="stylesheet" href="{{ "css/reading-progress.css" | absURL }}" media="print" onload="this.media='all'" />
+  <script src="{{ "js/reading-progress.js" | absURL }}" defer></script>
+
   <script src="{{ "js/blog-enhancements.js" | absURL }}" defer></script>
 {{ end }}
 
-{{/* 全局加载主题相关脚本 */}}
-<link rel="stylesheet" href="{{ "css/reading-progress.css" | absURL }}" media="print" onload="this.media='all'" />
-<script src="{{ "js/reading-progress.js" | absURL }}" defer></script>
-<script src="{{ "js/theme-persistence.js" | absURL }}" defer></script>
-<script src="{{ "js/theme-adapter.js" | absURL }}" defer></script>
+{{ if eq .Section "friends" }}
+  <link rel="stylesheet" href="{{ "css/friends.css" | absURL }}" media="print" onload="this.media='all'" />
+  <script src="{{ "js/friends.js" | absURL }}" defer></script>
+{{ end }}
+
+{{/* 全局：移动端缩放修复 */}}
 <script src="{{ "js/zoom-mobile-fix.js" | absURL }}" defer></script>

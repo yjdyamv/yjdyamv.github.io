@@ -30,16 +30,10 @@ jobs:
       - name: Build for GitHub Pages
         run: hugo --gc --minify --cleanDestinationDir --baseURL https://yjdyamv.github.io/
 
-      - name: Prepare deployment directory
-        run: |
-          # 创建blogs目录并将构建输出移动到其中
-          mkdir -p blogs
-          cp -r public/* blogs/
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          publish_dir: ./blogs
+          publish_dir: ./public

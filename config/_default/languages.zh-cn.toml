@@ -12,7 +12,7 @@ title = "Yjdyamv Blog"
   imageQuality = 96
   logo = "/icon.png"
   # secondaryLogo = "img/secondary-logo.png"
-  description = "My Blog"
+  description = "Yjdyamv 的个人博客，分享技术教程、学习资源和生活随笔"
   # copyright = "Copy, _right?_ :thinking_face:"
 
 [params.author]
