@@ -48,7 +48,12 @@ class BlogEnhancements {
         const config = await response.json();
         this.config = { ...this.config, ...config };
         this.log('从配置文件加载设置');
+      } else {
+        this.log('配置文件不存在，使用默认设置');
       }
+    } catch (e) {
+      this.log('加载配置文件失败，使用默认设置');
+    }
     } catch (error) {
       // 使用默认配置
       this.log('使用默认配置');
@@ -264,8 +269,3 @@ document.addEventListener('DOMContentLoaded', () => {
     window.blogEnhancements = new BlogEnhancements();
   }, 100);
 });
-
-// 导出供其他模块使用
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = BlogEnhancements;
-}

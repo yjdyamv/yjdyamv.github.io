@@ -67,8 +67,7 @@ class TOCNavigation {
     
     this.headings = Array.from(headingElements)
       .filter(heading => {
-        // 过滤掉隐藏的标题
-        return heading.offsetParent !== null;
+        return heading.checkVisibility ? heading.checkVisibility() : heading.getBoundingClientRect().width > 0 && heading.getBoundingClientRect().height > 0;
       })
       .map((heading, index) => {
         // 确保标题有ID
@@ -91,10 +90,11 @@ class TOCNavigation {
   generateHeadingId(heading, index) {
     const text = heading.textContent.trim()
       .toLowerCase()
-      .replace(/[^\w\s-]/g, '') // 移除特殊字符
-      .replace(/\s+/g, '-')     // 空格替换为连字符
-      .replace(/-+/g, '-');     // 合并多个连字符
-    
+      .replace(/[^\p{L}\p{N}\s-]/gu, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '');
+
     return text || `heading-${index}`;
   }
   
@@ -287,7 +287,7 @@ class TOCNavigation {
         });
       },
       {
-        rootMargin: '-20% 0px -70% 0px',
+        rootMargin: '-10% 0px -60% 0px',
         threshold: 0
       }
     );
@@ -357,7 +357,3 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 500);
 });
 
-// 导出供其他模块使用
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = TOCNavigation;
-}

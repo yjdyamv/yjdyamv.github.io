@@ -678,23 +678,15 @@ class UniversalNavigation {
   }
   
   setupEventListeners() {
-    // 移动端菜单按钮
-    if (this.mobileMenuButton) {
-      this.mobileMenuButton.addEventListener('click', () => this.toggleMobileMenu());
-    }
-    
-    // 窗口大小变化
-    window.addEventListener('resize', () => this.checkResponsive());
-    
-    // 点击外部关闭菜单
-    document.addEventListener('click', (e) => {
+    // 保存事件处理函数引用
+    this.handleMobileMenuClick = () => this.toggleMobileMenu();
+    this.handleResize = () => this.checkResponsive();
+    this.handleDocumentClick = (e) => {
       if (!this.navContainer.contains(e.target) && !this.mobileMenu.contains(e.target)) {
         this.closeAllSubmenus();
       }
-    });
-    
-    // 键盘快捷键
-    document.addEventListener('keydown', (e) => {
+    };
+    this.handleKeydown = (e) => {
       // ESC关闭所有菜单
       if (e.key === 'Escape') {
         this.closeAllSubmenus();
@@ -706,7 +698,21 @@ class UniversalNavigation {
         e.preventDefault();
         this.focusNavigation();
       }
-    });
+    };
+
+    // 移动端菜单按钮
+    if (this.mobileMenuButton) {
+      this.mobileMenuButton.addEventListener('click', this.handleMobileMenuClick);
+    }
+    
+    // 窗口大小变化
+    window.addEventListener('resize', this.handleResize);
+    
+    // 点击外部关闭菜单
+    document.addEventListener('click', this.handleDocumentClick);
+    
+    // 键盘快捷键
+    document.addEventListener('keydown', this.handleKeydown);
     
     // 触摸手势（移动端）
     if ('ontouchstart' in window) {
@@ -842,8 +848,20 @@ class UniversalNavigation {
   
   destroy() {
     // 清理事件监听器
-    if (this.mobileMenuButton) {
-      this.mobileMenuButton.removeEventListener('click', this.toggleMobileMenu);
+    if (this.mobileMenuButton && this.handleMobileMenuClick) {
+      this.mobileMenuButton.removeEventListener('click', this.handleMobileMenuClick);
+    }
+    
+    if (this.handleResize) {
+      window.removeEventListener('resize', this.handleResize);
+    }
+    
+    if (this.handleDocumentClick) {
+      document.removeEventListener('click', this.handleDocumentClick);
+    }
+    
+    if (this.handleKeydown) {
+      document.removeEventListener('keydown', this.handleKeydown);
     }
     
     // 移除创建的DOM元素
@@ -876,8 +894,4 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   }, 100);
 });
-
-// 导出供其他模块使用
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = UniversalNavigation;
 }

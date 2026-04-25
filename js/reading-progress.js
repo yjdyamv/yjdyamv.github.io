@@ -124,7 +124,7 @@ class ReadingProgress {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     
     // 计算文章在视口中的位置
-    const articleTop = article.offsetTop;
+    const articleTop = article.getBoundingClientRect().top + scrollTop;
     const articleHeight = article.offsetHeight;
     const articleBottom = articleTop + articleHeight;
     
@@ -134,7 +134,8 @@ class ReadingProgress {
     if (scrollTop >= articleTop) {
       const scrolled = scrollTop - articleTop;
       const visible = Math.min(windowHeight, articleHeight);
-      progress = Math.min(100, (scrolled / (articleHeight - visible)) * 100);
+      const totalScrollable = Math.max(0, articleHeight - visible);
+      progress = totalScrollable > 0 ? Math.min(100, (scrolled / totalScrollable) * 100) : 100;
     }
     
     // 更新进度条
@@ -212,8 +213,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, 300);
 });
-
-// 导出供其他模块使用
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = ReadingProgress;
-}

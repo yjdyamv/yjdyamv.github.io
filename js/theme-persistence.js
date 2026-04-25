@@ -28,16 +28,20 @@ class ThemePersistence {
   }
   
   checkAutoSwitchPreference() {
-    // 从URL参数检查
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('no-auto-theme')) {
-      this.autoSwitchEnabled = false;
-      localStorage.setItem('auto-theme-disabled', 'true');
-    }
-    
-    // 从本地存储检查
-    if (localStorage.getItem('auto-theme-disabled') === 'true') {
-      this.autoSwitchEnabled = false;
+    try {
+      // 从URL参数检查
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('no-auto-theme')) {
+        this.autoSwitchEnabled = false;
+        localStorage.setItem('auto-theme-disabled', 'true');
+      }
+      
+      // 从本地存储检查
+      if (localStorage.getItem('auto-theme-disabled') === 'true') {
+        this.autoSwitchEnabled = false;
+      }
+    } catch (e) {
+      // 隐私模式下忽略
     }
   }
   
@@ -152,7 +156,7 @@ class ThemePersistence {
         setTimeout(() => {
           const currentTheme = this.getCurrentTheme();
           this.saveTheme(currentTheme);
-        }, 100);
+        }, 200);
       });
     });
   }
@@ -298,8 +302,3 @@ document.addEventListener('DOMContentLoaded', () => {
   // 延迟添加，确保DOM完全加载
   setTimeout(autoAddButton, 500);
 });
-
-// 导出供其他模块使用
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = ThemePersistence;
-}

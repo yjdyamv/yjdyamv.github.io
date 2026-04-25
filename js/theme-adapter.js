@@ -396,11 +396,11 @@ class ThemeAdapter {
       }
       
       /* Terminal主题的ASCII艺术风格 */
-      .theme-terminal .nav-arrow {
+      .theme-terminal .nav-arrow::before {
         content: '>';
       }
       
-      .theme-terminal .nav-item.expanded .nav-arrow {
+      .theme-terminal .nav-item.expanded .nav-arrow::before {
         content: 'v';
       }
     `;
@@ -637,8 +637,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // 例如：重新初始化组件、更新样式等
   });
 });
-
-// 导出供其他模块使用
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = ThemeAdapter;
-}
