@@ -13,7 +13,7 @@
 /* Promote the page headline with a larger size and bold color */
 .friend-page .page-header h1 {
   margin: 0;
-  font-size: clamp(2.1rem, 4vw, 3.25rem);
+  font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.05;
   color: rgba(var(--color-neutral-900), 1);
@@ -130,7 +130,7 @@
 .friend-note {
   margin-top: 0.75rem;
   color: rgba(var(--color-neutral-500), 1);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -139,7 +139,7 @@
 
 /* CSS custom properties for consistent theming */
 :root {
-  --friend-card-transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+  --friend-card-transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   --friend-card-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
   --friend-card-shadow-hover: 0 24px 48px rgba(15, 23, 42, 0.12);
 }
@@ -151,7 +151,7 @@
 .dark .friend-body p,
 .dark .friend-note,
 .dark .friend-avatar span {
-  transition: color 0.18s ease;
+  transition: color 0.3s ease;
 }
 
 .dark .friend-page .page-description {
@@ -200,7 +200,7 @@
 }
 
 /* Responsive design for mobile devices */
-@media (max-width: 680px) {
+@media (max-width: 640px) {
   .friend-card {
     height: auto;
   }
