@@ -1,0 +1,103 @@
+# Apache Server Configuration
+# Optimizations for static Hugo site
+
+# Enable compression
+<IfModule mod_deflate.c>
+  # Compress HTML, CSS, JavaScript, Text, XML and fonts
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+  AddOutputFilterByType DEFLATE application/x-font
+  AddOutputFilterByType DEFLATE application/x-font-opentype
+  AddOutputFilterByType DEFLATE application/x-font-otf
+  AddOutputFilterByType DEFLATE application/x-font-truetype
+  AddOutputFilterByType DEFLATE application/x-font-ttf
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE font/opentype
+  AddOutputFilterByType DEFLATE font/otf
+  AddOutputFilterByType DEFLATE font/ttf
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE image/x-icon
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
+  
+  # Remove browser bugs (only needed for really old browsers)
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+  Header append Vary User-Agent
+</IfModule>
+
+# Browser caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  
+  # Default expiration: 1 hour after request
+  ExpiresDefault "access plus 1 hour"
+  
+  # CSS and JS expiration: 1 year after request
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType application/x-javascript "access plus 1 year"
+  
+  # Image files expiration: 1 month after request
+  ExpiresByType image/jpg "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/gif "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/x-icon "access plus 1 month"
+  
+  # Font files expiration: 1 year after request
+  ExpiresByType font/ttf "access plus 1 year"
+  ExpiresByType font/otf "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+  
+  # HTML expiration: 0 seconds (no cache) to ensure fresh content
+  ExpiresByType text/html "access plus 0 seconds"
+  
+  # XML files expiration: 1 hour after request
+  ExpiresByType application/xml "access plus 1 hour"
+  ExpiresByType text/xml "access plus 1 hour"
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+  # X-Content-Type-Options: prevent MIME type sniffing
+  Header always set X-Content-Type-Options "nosniff"
+  
+  # X-Frame-Options: protect from clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+  
+  # X-XSS-Protection: enable cross-site scripting filter
+  Header always set X-XSS-Protection "1; mode=block"
+  
+  # Referrer-Policy: control referrer information
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Permissions-Policy: control browser features
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# Enable HTTP Strict Transport Security (HSTS)
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# Prevent access to sensitive files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak|backup|sql|db)$">
+  Order Allow,Deny
+  Deny from all
+</FilesMatch>
+
+# Custom error pages (if supported by server)
+ErrorDocument 404 /404.html
+ErrorDocument 500 /500.html
