@@ -1,5 +1,5 @@
 ---
-title: Android上的Rime
+title: Android上的Rime使用
 date: 2025-08-14
 tags: ['输入法','Android','Rime']
 categories: '隐私'

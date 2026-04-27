@@ -9,7 +9,7 @@ categories: '日常配置'
 
 - 现在推荐使用微软维护的最新版[Powershell](https://github.com/PowerShell/PowerShell/releases/)。win自带的powershell是个老旧版本。也可使用`winget`下载 `winget install Microsoft.PowerShell`。
 - 且终端推荐使用[WindowsTerminal](https://github.com/microsoft/terminal/)
-- 使用[ohmyposh](https://ohmyposh.dev/) 安装
+- 使用[ohmyposh](https://ohmyposh.dev/) 美化终端
 
 ```pwsh
 winget install JanDeDobbeleer.OhMyPosh --source winget
@@ -17,7 +17,7 @@ winget install JanDeDobbeleer.OhMyPosh --source winget
 # Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://ohmyposh.dev/install.ps1'))
 ```
 
-- 设置powershell的配置文件
+- 设置powershell的配置文件`$profile`
 
 ```pwsh
 # ohmyposh 以某一主题启动
@@ -25,3 +25,6 @@ oh-my-posh init pwsh --config "quick-term" | Invoke-Expression
 ```
 
 - 设置Powershell的终端字体，比如为Maple Momo CN NF，并将Windows Terminal的默认终端设置为之前下载的pwsh
+
+![设置Powershell的终端字体以支持特殊符号显示](./default-font.png)
+![设置默认启动终端为Powershell](./default-terminal.png)

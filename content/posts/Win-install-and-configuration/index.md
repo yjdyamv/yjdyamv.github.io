@@ -15,11 +15,11 @@ categories: '日常配置'
 
 **下载纯净的操作系统iso**: 去[微软官网](https://www.microsoft.com/zh-cn/software-download)下载（推荐）/[MSDN](https://next.itellyou.cn/)下载。并将iso文件放入U盘。（对于Debian的安装也差不多，将iso放入U盘即可）**少用第三方魔改的系统**
 
-以防万一，准备PE系统（[优启通](https://www.itsk.com/)、[微pe](https://www.wepe.com.cn/)）的iso文件，放入U盘。这里放一个我的[分享下载链接](https://www.123865.com/s/9t1Evd-sy9V?pwd=hAkO#)提取码:hAkO。
+以防万一，准备PE系统（[微pe](https://www.wepe.com.cn/)、[优启通](https://www.itsk.com/)）的iso文件，放入U盘。
 
-重启电脑，不断按下你电脑的bios键，选择使用U盘启动，进入ventoy启动界面即可看到你U盘内的iso文件，点击win的iso，“normal boot”。
+重启电脑，不断按下你电脑的bios键，调整启动顺序，“使用USB设备启动”在最上方，进入ventoy启动界面即可看到你U盘内的iso文件，点击win的iso，“normal boot”。
 
-到选择系统语言的界面后，shift + F10打开命令界面，使用以下命令断网安装（第一个不行就换第二个）
+到选择系统语言的界面后，`shift + F10`打开命令界面，使用以下命令断网安装（第一个不行就换第二个）
 
 ```powershell
 # 第一个
@@ -34,14 +34,26 @@ start ms-cxh:localonly
 
 > [!note]
 > 激活win：[HEU_KMS_Activator](https://github.com/zbezj/HEU_KMS_Activator/releases)
-> 
+>
 > 解压缩用[7zip](https://7-zip.org)吧（不知道为啥win11的文件管理器解压不了rar文件 你还能有微软聪明.jpg）
-> 
+>
 > **记得关闭windows安全中心**
 
 ## 环境配置
 
-在win上配置环境是件不太优雅的事情，若是有包管理器多好。嘿嘿，还真有，scoop
+在win上配置环境是件不太优雅的事情，若是有包管理器多好。嘿嘿，还真有，`winget` `scoop` `choco`
+
+### Winget
+
+微软做的官方包管理，Windows11（非LTSC）安装后自动带有。
+
+有着许多包，很方便。
+
+### Choco
+
+在LTSC上没有winget时，可以用这个替代下
+
+### Scoop
 
 **注意以下的命令最好在管理员的powershell下进行，虽然不一定要**
 
@@ -140,7 +152,7 @@ sed -i "s#https\?://mirror.msys2.org/#https://mirror.nju.edu.cn/msys2/#g" /etc/p
 
 ```bash
 pacman -Sy
-pacman -S mingw-w64-ucrt-x86_64-toolchain mingw-w64-cmake
+pacman -S mingw-w64-ucrt-x86_64-toolchain
 ```
 
 ### Rust

@@ -13,7 +13,7 @@ debian是一个自由操作系统，又被称做Debian GNU/linux，官网是[htt
 
 `DEB882格式`：适用于debian12及以上。目前稳定版是Debian13（Trixie）
 
-```
+```yaml
 # /etc/apt/sources.list.d/debian.sources
 Types: deb
 URIs: http://mirror.nju.edu.cn/debian/

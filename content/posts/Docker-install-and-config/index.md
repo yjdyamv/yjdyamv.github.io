@@ -5,8 +5,6 @@ tags: ['Docker','配置']
 categories: ['日常配置']
 ---
 
-# Docker的安装与配置
-
 ## 安装
 
 ```bash
@@ -66,7 +64,7 @@ touch ~/.config/systemd/user/docker.service.d/http-proxy.conf
 
 并往这些文件中输入以下相同的内容
 
-```
+```toml
 # ~/.config/systemd/user/docker.service.d/http-proxy.conf
 [Service]
 
@@ -78,7 +76,7 @@ Environment="NO_PROXY=localhost,127.0.0.1"
 
 ```
 
-```
+```toml
 # /etc/systemd/system/docker.service.d/http-proxy.conf
 [Service]
 

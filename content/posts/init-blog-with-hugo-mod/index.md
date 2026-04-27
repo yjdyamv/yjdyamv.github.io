@@ -46,4 +46,18 @@ title = 'Init Blog With Hugo Mod'
 
 ## hugo mod的好处
 
-由于国内网络不太好，使用`git submodule update --init --recursive`比较吃亏。另外由于`go mod`国内有源可以换，所以更快？（存疑）
+由于国内网络不太好，使用`git submodule update --init --recursive`比较吃亏。另外由于`go mod`国内有源可以换。
+
+### hugo mod换源
+
+`config\_default\module.toml`里写入
+
+```toml
+proxy = "https://goproxy.cn"
+```
+
+> ![tip]
+>
+> 由于只有本地开发需要换源，ci的机器在国外不需要换源，可这样换源
+>
+> 在`config\development\module.toml`里写入`proxy = "https://goproxy.cn"`。这个`development`的config是只在`hugo server`时起效。
