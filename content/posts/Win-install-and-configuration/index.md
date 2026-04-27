@@ -49,9 +49,11 @@ start ms-cxh:localonly
 
 有着许多包，很方便。
 
-### Choco
-
-在LTSC上没有winget时，可以用这个替代下
+> ![tip]
+>
+> 在LTSC上没有`winget`时，可以执行`Repair-WinGetPackageManager`安装
+>
+> ref：[winget github readme](https://github.com/microsoft/winget-cli)
 
 ### Scoop
 
