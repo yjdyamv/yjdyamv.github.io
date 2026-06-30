@@ -9,7 +9,17 @@
     <managingEditor>yjdyamv@tutamail.com (yjdyamv)</managingEditor>
     <webMaster>yjdyamv@tutamail.com (yjdyamv)</webMaster>
     <copyright>© 2026 yjdyamv</copyright>
-    <lastBuildDate>Mon, 13 Apr 2026 19:02:28 +0800</lastBuildDate><atom:link href="https://yjdyamv.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Jun 2026 22:31:41 +0800</lastBuildDate><atom:link href="https://yjdyamv.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Clangd Cmake Compile Commands Msvc Problem</title>
+      <link>https://yjdyamv.github.io/posts/clangd-cmake-compile-commands-msvc-problem/</link>
+      <pubDate>Tue, 30 Jun 2026 22:31:41 +0800</pubDate>
+      <author>yjdyamv@tutamail.com (yjdyamv)</author>
+      <guid>https://yjdyamv.github.io/posts/clangd-cmake-compile-commands-msvc-problem/</guid>
+      <description>对于cmake生成的compile_commands.json对于没有加载vs环境变量的clangd无法对msvc项目提供正确的高亮，并给出了解决的方案</description>
+      
+    </item>
     
     <item>
       <title>CMake基础入门1</title>
