@@ -2,7 +2,7 @@
 title = "Clangd Cmake Compile Commands Msvc Problem"
 date = 2026-06-30T22:31:41+08:00
 lastmod = 2026-06-30T22:31:41+08:00
-draft = true
+draft = false
 
 # SEO优化
 description = ""
