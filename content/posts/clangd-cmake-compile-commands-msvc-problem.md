@@ -110,3 +110,27 @@ if (Test-Path $vswhere) {
     }
   },
 ```
+
+附：
+
+cmake生成的
+```json
+[
+{
+  "directory": "C:/Users/yuan/Desktop/cpp-test/build",
+  "command": "D:\\MICROS~3\\18\\ENTERP~1\\VC\\Tools\\MSVC\\1451~1.362\\bin\\Hostx64\\x64\\cl.exe  /nologo /TP -W4 -WX- -permissive- -EHsc -utf-8 -GS -guard:cf -Zi -Od -MDd -RTC1 -D_DEBUG -fp:precise -Oy- -std:c++latest -MDd /FoCMakeFiles\\cpp-test.dir\\main.cpp.obj /FdCMakeFiles\\cpp-test.dir\\ /FS -c C:\\Users\\yuan\\Desktop\\cpp-test\\main.cpp",
+  "file": "C:/Users/yuan/Desktop/cpp-test/main.cpp",
+  "output": "C:/Users/yuan/Desktop/cpp-test/build/CMakeFiles/cpp-test.dir/main.cpp.obj"
+}
+]
+```
+
+xmake生成的
+```json
+[
+{
+  "directory": "c:\\Users\\yuan\\Desktop\\xmake-test",
+  "arguments": ["D:\\Microsoft Visual Studio\\18\\Enterprise\\VC\\Tools\\MSVC\\14.51.36231\\bin\\HostX64\\x64\\cl.exe", "/c", "/nologo", "/MDd", "/Zi", "/FS", "/Fdbuild\\windows\\x64\\debug\\compile.xmake-test.pdb", "/Od", "/EHsc", "/Fobuild\\.objs\\xmake-test\\windows\\x64\\debug\\src\\main.cpp.obj", "src\\main.cpp", "-imsvc", "D:\\Microsoft Visual Studio\\18\\Enterprise\\VC\\Tools\\MSVC\\14.51.36231\\include", "-imsvc", "D:\\Microsoft Visual Studio\\18\\Enterprise\\VC\\Tools\\MSVC\\14.51.36231\\ATLMFC\\include", "-imsvc", "D:\\Microsoft Visual Studio\\18\\Enterprise\\VC\\Auxiliary\\VS\\include", "-imsvc", "C:\\Program Files (x86)\\Windows Kits\\10\\include\\10.0.26100.0\\ucrt", "-imsvc", "C:\\Program Files (x86)\\Windows Kits\\10\\\\include\\10.0.26100.0\\\\um", "-imsvc", "C:\\Program Files (x86)\\Windows Kits\\10\\\\include\\10.0.26100.0\\\\shared", "-imsvc", "C:\\Program Files (x86)\\Windows Kits\\10\\\\include\\10.0.26100.0\\\\winrt", "-imsvc", "C:\\Program Files (x86)\\Windows Kits\\10\\\\include\\10.0.26100.0\\\\cppwinrt", "-imsvc", "C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.8.1\\include\\um"],
+  "file": "src\\main.cpp"
+}]
+```
