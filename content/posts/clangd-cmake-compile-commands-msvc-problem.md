@@ -75,7 +75,7 @@ if (-not (Test-Path $vswhere)) {
 
 # 3. 如果找到了 vswhere，用它查询最新 VS 的安装路径
 if (Test-Path $vswhere) {
-    $vsPath = & $vswhere -latest -property installationPath
+    $vsPath = & $vswhere -prerelease -latest -property installationPath
     if ($vsPath) {
         $vsDevCmd = Join-Path $vsPath "Common7\Tools\VsDevCmd.bat"
         if (Test-Path $vsDevCmd) {
